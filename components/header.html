@@ -1,0 +1,99 @@
+<header class="site-header">
+  <!-- Gornja traka -->
+  <div class="header__top">
+    <div class="container header__top-inner">
+      <!-- Društvene mreže -->
+      <ul class="header__social" aria-label="Društvene mreže">
+        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+        <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+      </ul>
+
+      <!-- CTA -->
+      <a class="header__cta" href="#">NARUDŽBINA PO MJERI</a>
+    </div>
+  </div>
+
+  <!-- Navigacija -->
+  <div class="header__nav">
+    <div class="container header__nav-inner">
+      <!-- Navigacioni meni (drawer na mobilnom) -->
+      <nav class="nav" role="navigation" aria-label="Glavna navigacija">
+    <!-- X dugme (mobile) -->
+		<button class="nav__close" type="button" aria-label="Zatvori meni">
+			<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+		</button>
+    <!-- Linkovi -->
+        <ul class="nav__list">
+          <li><a class="is-active" href="#">NASLOVNA</a></li>
+          <li>
+            <a href="#">PROIZVODI&nbsp;<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+          </li>
+          <li><a href="#">O NAMA</a></li>
+          <li><a href="#">BLOG</a></li>
+          <li><a href="#">KONTAKT</a></li>
+        </ul>
+
+    <!-- Radnje (drawer) -->
+    <div class="nav__extras" aria-label="Brze radnje">
+      <a href="#" aria-label="Nalog"><i class="fa-regular fa-user"></i></a>
+      <a href="#" aria-label="Omiljeno"><i class="fa-regular fa-heart"></i></a>
+      <a class="header__cart" href="#" aria-label="Korpa">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="header__badge" aria-label="1">1</span>
+      </a>
+      <div class="header__lang" aria-label="Jezik">
+        <label class="sr-only" for="lang-mobile">Jezik</label>
+        <select id="lang-mobile" class="header__lang-select" aria-label="Jezik">
+          <option value="ME">ME</option>
+          <option value="EN" selected>EN</option>
+        </select>
+        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+      </div>
+    </div>
+      </nav>
+
+      <!-- Brand -->
+      <div class="header__brand" aria-label="Mustrica">
+        <a href="index.html" class="header__logo" aria-label="Početna">
+          <img class="header__logo-img" src="components/assets/img/logos/headerLogo.png" alt="Mustrica" />
+        </a>
+      </div>
+
+      <!-- Radnje -->
+      <div class="header__actions">
+        <!-- Pretraga -->
+        <div class="header__search" role="search">
+          <input type="search" placeholder="Search..." aria-label="Pretraga" />
+          <button type="button" aria-label="Traži"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <!-- Ikonice (desktop) -->
+        <div class="header__icons" aria-label="Korisničke radnje">
+          <a href="#" aria-label="Nalog"><i class="fa-regular fa-user"></i></a>
+          <a href="#" aria-label="Omiljeno"><i class="fa-regular fa-heart"></i></a>
+          <a class="header__cart" href="#" aria-label="Korpa">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="header__badge" aria-label="1">1</span>
+          </a>
+          <!-- Jezik (desktop) -->
+          <div class="header__lang" aria-label="Jezik">
+            <label class="sr-only" for="lang">Jezik</label>
+            <select id="lang" class="header__lang-select" aria-label="Jezik">
+              <option value="ME">ME</option>
+              <option value="EN" selected>EN</option>
+            </select>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" aria-label="Otvori meni">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

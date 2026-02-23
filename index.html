@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="hr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Mustrica</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			referrerpolicy="no-referrer"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+			referrerpolicy="no-referrer"
+		/>
+		<!-- fontovi -->
+		<link rel="stylesheet" href="components/assets/css/main.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js" defer></script>
+		<script src="components/assets/js/main.js" defer></script>
+	</head>
+	<body>
+		<!-- Mount tačka: header se učitava iz components/header.html preko JS -->
+		<div id="header"></div>
+
+		<main>
+			<!-- Hero sekcija (banner slika + naslov/tekst) -->
+			<section class="hero" aria-label="Hero">
+				<img class="hero__img" src="components/assets/img/hero.png" alt="Tradicionalni mustrični motiv" />
+				<div class="hero__content">
+					<p class="hero__kicker">PONAT PO PONAT</p>
+					<h2 class="hero__title">TRADICIJA KOJA TRAJE</h2>
+				</div>
+			</section>
+
+			<!--Sekcija => Naši proizvodi -->
+			<section class="products" aria-label="Naši proizvodi">
+				<div class="container products__inner">
+					<p class="products__kicker">NAJNOVIJI RADOVI</p>
+					<h2 class="products__title">NAŠI PROIZVODI</h2>
+					<img class="products__ornament" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
+
+					<div class="products__slider" aria-label="Lista proizvoda">
+						<article class="product-card" aria-label="Proizvod">
+							<img
+								class="product-card__img"
+								src="components/assets/img/nasiProizvodi/nasiProizvodi1.jpg"
+								alt="PRIVEZAK OD DOBROTSKE ČIPKE"
+								width="281"
+								height="340"
+								loading="lazy"
+							/>
+							<h3 class="product-card__name">PRIVEZAK OD DOBROTSKE ČIPKE</h3>
+							<p class="product-card__price">€25</p>
+							<button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+								<img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+								<span>DODAJ U KORPU</span>
+							</button>
+						</article>
+						
+						<article class="product-card" aria-label="Proizvod">
+							<img
+								class="product-card__img"
+								src="components/assets/img/nasiProizvodi/nasiProizvodi2.jpg"
+								alt="DOBROTSKA ČIPKA U OKVIRU TAMNOPLAVA"
+								width="281"
+								height="340"
+								loading="lazy"
+							/>
+							<h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU TAMNOPLAVA</h3>
+							<p class="product-card__price">€220</p>
+							<button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+								<img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+								<span>DODAJ U KORPU</span>
+							</button>
+						</article>
+
+						<article class="product-card" aria-label="Proizvod">
+							<img
+								class="product-card__img"
+								src="components/assets/img/nasiProizvodi/nasiProizvodi3.jpg"
+								alt="DOBROTSKA ČIPKA U OKVIRU BORDO"
+								width="281"
+								height="340"
+								loading="lazy"
+							/>
+							<h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU BORDO</h3>
+							<p class="product-card__price">€250</p>
+							<button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+								<img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+								<span>DODAJ U KORPU</span>
+							</button>
+						</article>
+
+						<article class="product-card" aria-label="Proizvod">
+							<img
+								class="product-card__img"
+								src="components/assets/img/nasiProizvodi/nasiProizvodi4.jpg"
+								alt="BROŠ SA DOBROTSKOM ČIPKOM"
+								width="281"
+								height="340"
+								loading="lazy"
+							/>
+							<h3 class="product-card__name">BROŠ SA DOBROTSKOM ČIPKOM</h3>
+							<p class="product-card__price">€55</p>
+							<button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+								<img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+								<span>DODAJ U KORPU</span>
+							</button>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Sekcija => Ko smo mi? -->
+			<section class="about" aria-label="Ko smo mi" id="ko-smo-mi">
+				<div class="container about__inner">
+					<div class="about__media">
+						<img
+							class="about__img"
+							src="components/assets/img/koSmoMi/koSmoMi.png"
+							alt="Izrada dobrotske čipke"
+							loading="lazy"
+						/>
+					</div>
+
+					<div class="about__content">
+						<p class="about__kicker">KO SMO MI?</p>
+						<h2 class="about__title">Dobrotska čipka – vještina koja traje</h2>
+						<div class="about__text">
+							<p>
+								Dobrotska čipka predstavlja jedno od najvažnijih nematerijalnih kulturnih dobara Crne Gore.
+								Svaki komad izrađuje se ručno, ponat po ponat, koristeći tradicionalnu tehniku koja se prenosi
+								generacijama. Naša radionica u srcu Kotora okuplja lokalne zanatlije i umjetnike, čuvajući i
+								promovišući autentičnost ovog jedinstvenog zanata. Dobrotska čipka nije samo ukras – ona je
+								simbol strpljenja, preciznosti i kulturnog identiteta Crne Gore.
+							</p>
+							<p>
+								Kroz organizaciju radionica, izložbi i radionica za posjetioce, nastojimo širiti svijest o postojanju
+								značaju Dobrotske čipke. Naša misija je da ova drevna vještina ostane živa, da svaki komad priča
+								priču o tradiciji i umijeću ruku koje ga stvaraju. Posjetioci našeg shopa mogu direktno kupiti
+								unikatne proizvode, a takođe i naručiti čipku po mjeri, stvarajući lični spoj kulture baštine i
+								suvremenog dizajna.
+							</p>
+						</div>
+						<button class="about__cta" type="button">SAZNAJ VIŠE</button>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="video"></div>
+				<!-- Postavljeno kao slika -->
+				<img src="components/assets/img/video.png" alt="Video o izradi dobrotske čipke" class="video__thumbnail" />
+			</section>
+
+			<!-- Sekcija => Unikatni radovi / Djevojka / Radovi po narudžbi -->
+			<section class="feature" aria-label="Istaknuto">
+				<div class="container feature__grid">
+					<article class="feature-card" aria-label="Unikatni radovi">
+						<img
+							class="feature-card__img"
+							src="components/assets/img/unikatni%20radovi.png"
+							alt="Unikatni radovi"
+							loading="lazy"
+						/>
+						<h3 class="feature-card__title">Unikatni radovi</h3>
+						<p class="feature-card__text">
+							Pogledajte našu kolekciju gotovih, ručno izrađenih Dobrotskih čipki i drugih zanatskih proizvoda,
+							spremnih za kupovinu.
+						</p>
+						<a class="about__cta feature-card__cta" href="#">SAZNAJ VIŠE</a>
+					</article>
+
+					<div class="feature__center" aria-label="Djevojka">
+						<img
+							class="feature__img"
+							src="components/assets/img/djevojka.png"
+							alt="Djevojka"
+							loading="lazy"
+						/>
+					</div>
+
+					<div class="feature__right" aria-label="Radovi po narudžbi">
+						<article class="feature-card feature-card--compact">
+							<h3 class="feature-card__title">Radovi po narudžbi</h3>
+							<p class="feature-card__text">
+								Naručite unikatni proizvod po vašoj želji i dizajnu. Popunite formu i naši zanatlije će stvoriti komad
+								posebno za vas.
+							</p>
+							<a class="about__cta feature-card__cta" href="#">SAZNAJ VIŠE</a>
+						</article>
+
+						<img
+							class="feature__img feature__img--bottom"
+							src="components/assets/img/radovi%20po%20narudzbi.png"
+							alt="Radovi po narudžbi"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</section>
+			
+			<section class="dobrotskaCipka" aria-label="Dobrotska čipka">
+				<div class="container dobrotskaCipka__inner">
+					<div class="dobrotskaCipka__content">
+						<p class="dobrotskaCipka__kicker">PONAT PO POMAT</p>
+						<h2 class="dobrotskaCipka__title">DOBROTSKA ČIPKA</h2>
+						<div class="dobrotskaCipka__text">
+							<p>
+								Vještina izrade dobrotske čipke zaštićeno je nematerijalno kulturno dobro Crne Gore. Dobrotska čipka je dobila naziv po naselju Dobrota i predstavlja lokalnu verziju italijanske čipke, a od nje se razlikuje po karakterističnim motivima koji su uglavnom geometrijski i čvršćim načinom izrade. Za izradu dobrotske čipke koristi se igla, konac, naprstak i makazice. Materijali koji se koriste su lan ili pamučno platno. Čipka se izrađuje preko papira koji je fiksiran za čvršću podlogu na kojem se koncem oblikuje motiv. Potrebno je tri do četiri sata rada da bi se uradio jedan najmanji jednostavan motiv.
+							</p>
+							<p>
+								Organizacijom radionica kao i apliciranjem čipke na upotrebne predmete širi se svijest stanovništva o postojanju i važnosti ove vještine. Ova stara i značajna vještina, kao nematerijalno kulturno dobro od nacionalnog značaja, mora da bude živa da bi zadržala taj status. Upoznavanjem lokalnog stanovništva sa osnovima vještine izrade dobrotske čipke se nastavlja čuvanje i život ovog značajnog nematerijalnog kulturnog dobra.
+							</p>
+						</div>
+					</div>
+
+					<div class="dobrotskaCipka__media">
+						<img
+							class="dobrotskaCipka__img"
+							src="components/assets/img/dobrotskaCipka.jpg"
+							alt="Dobrotska čipka"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</section>
+			<section class="marketing" aria-label="Marketing">
+				<div class="marketing__frame">
+					<img
+						src="components/assets/img/reklama.png"
+						alt="Reklamni baner"
+						class="marketing__img"
+						loading="lazy"
+					/>
+					<div class="marketing__overlay">
+						<div class="marketing__content">
+							<p class="marketing__kicker">UNIKATNI VANVREMENSKI RADOVI</p>
+							<h2 class="marketing__title">KUPITE VAŠE PARČE TRADICIJE</h2>
+							<a class="marketing__cta" href="#">PRODAVNICA</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="news-blog" aria-label="Vijesti i članci">
+					<div class="container news-blog__inner">
+						<div class="news-blog__aside">
+							<p class="news-blog__kicker">NAŠ BLOG</p>
+							<div class="news-blog__heading" aria-label="Naslov vijesti">
+								<h2 class="news-blog__title">VIJESTI I ČLANCI</h2>
+								<img class="news-blog__ornament" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
+							</div>
+							<a class="button__cta button_cta news-blog__cta" href="#">SVI ČLANCI</a>
+						</div>
+
+						<div class="news-blog__main">
+							<div class="news-blog__grid" aria-label="Lista vijesti">
+								<article class="news-card" aria-label="Vijest">
+									<a class="news-card__media" href="#">
+										<img
+											class="news-card__img"
+											src="components/assets/img/vijestiIClanci1.jpg"
+											alt="Vijesti i članci 1"
+											loading="lazy"
+										/>
+										<span class="news-card__badge">01/12/2025</span>
+									</a>
+									<p class="news-card__text">Vještine koje traju: Zašto čuvamo rukotvorine</p>
+								</article>
+
+								<article class="news-card" aria-label="Vijest">
+									<a class="news-card__media" href="#">
+										<img
+											class="news-card__img"
+											src="components/assets/img/vijestiIClanci2.jpg"
+											alt="Vijesti i članci 2"
+											loading="lazy"
+										/>
+										<span class="news-card__badge">01/12/2025</span>
+									</a>
+									<p class="news-card__text">Čipka u modernom dizajnu</p>
+								</article>
+
+								<article class="news-card" aria-label="Vijest">
+									<a class="news-card__media" href="#">
+										<img
+											class="news-card__img"
+											src="components/assets/img/vijestiIClanci3.jpg"
+											alt="Vijesti i članci 3"
+											loading="lazy"
+										/>
+										<span class="news-card__badge">01/12/2025</span>
+									</a>
+									<p class="news-card__text">Materijali i tehnike: Tajne lokalnih umjetnika</p>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+        
+
+		<!-- Mount tačka: footer se učitava iz components/footer.html preko JS -->
+		<div id="footer"></div>
+	</body>
+</html>

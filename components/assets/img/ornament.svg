@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 40" role="img" aria-label="Ornament">
+  <defs>
+    <g id="flower" fill="none" stroke="#21231e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="5" />
+      <circle cx="0" cy="-9" r="4" />
+      <circle cx="9" cy="0" r="4" />
+      <circle cx="0" cy="9" r="4" />
+      <circle cx="-9" cy="0" r="4" />
+      <path d="M -16 0 H -12" />
+      <path d="M 12 0 H 16" />
+    </g>
+  </defs>
+
+  <rect width="640" height="40" fill="none" />
+  <g transform="translate(20 20)">
+    <use href="#flower" x="0" />
+    <use href="#flower" x="40" />
+    <use href="#flower" x="80" />
+    <use href="#flower" x="120" />
+    <use href="#flower" x="160" />
+    <use href="#flower" x="200" />
+    <use href="#flower" x="240" />
+    <use href="#flower" x="280" />
+    <use href="#flower" x="320" />
+    <use href="#flower" x="360" />
+    <use href="#flower" x="400" />
+    <use href="#flower" x="440" />
+    <use href="#flower" x="480" />
+    <use href="#flower" x="520" />
+    <use href="#flower" x="560" />
+    <use href="#flower" x="600" />
+  </g>
+</svg>
