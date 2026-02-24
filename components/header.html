@@ -2,12 +2,14 @@
   <!-- Gornja traka -->
   <div class="header__top">
     <div class="container header__top-inner">
+      
       <!-- Društvene mreže -->
       <ul class="header__social" aria-label="Društvene mreže">
-        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
-        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
-        <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
-        <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="#" aria-label="Instagram"><img class="social-icon" src="components/assets/img/ig.png" alt="Instagram" /></a></li>
+        <li><a href="#" aria-label="Facebook"><img class="social-icon" src="components/assets/img/fb.png" alt="Facebook" /></a></li>
+        <li><a href="#" aria-label="TikTok"><img class="social-icon" src="components/assets/img/tt.png" alt="TikTok" /></a></li>
+        <li><a href="#" aria-label="YouTube"><img class="social-icon" src="components/assets/img/yt.png" alt="YouTube" /></a></li>
+        <li><a href="#" aria-label="TripAdvisor"><img class="social-icon" src="components/assets/img/ta.png" alt="Tripadvisor" /></a></li>
       </ul>
 
       <!-- CTA -->
@@ -37,6 +39,12 @@
 
     <!-- Radnje (drawer) -->
     <div class="nav__extras" aria-label="Brze radnje">
+      <!-- Pretraga (search bar) - prikaz samo u draweru na mobilnom -->
+        <div class="header__search header__search--drawer" role="search">
+          <input type="search" placeholder="Pretraga..." aria-label="Pretraga" />
+          <button type="button" aria-label="Traži"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <a href="#narudzbina" class="header__cta" style="width:100%;margin-top:12px;justify-content:center;">NARUDŽBINA PO MJERI</a>
       <a href="#" aria-label="Nalog"><i class="fa-regular fa-user"></i></a>
       <a href="#" aria-label="Omiljeno"><i class="fa-regular fa-heart"></i></a>
       <a class="header__cart" href="#" aria-label="Korpa">
@@ -44,12 +52,15 @@
         <span class="header__badge" aria-label="1">1</span>
       </a>
       <div class="header__lang" aria-label="Jezik">
-        <label class="sr-only" for="lang-mobile">Jezik</label>
-        <select id="lang-mobile" class="header__lang-select" aria-label="Jezik">
-          <option value="ME">ME</option>
-          <option value="EN" selected>EN</option>
-        </select>
-        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        <details class="header__lang-details" data-lang>
+          <summary class="header__lang-summary" aria-label="Jezik">
+            <span class="header__lang-label">EN</span>
+          </summary>
+          <div class="header__lang-menu" role="menu" aria-label="Izaberi jezik">
+            <button class="header__lang-option" type="button" role="menuitem" data-value="ME">ME</button>
+            <button class="header__lang-option is-active" type="button" role="menuitem" data-value="EN" aria-current="true">EN</button>
+          </div>
+        </details>
       </div>
     </div>
       </nav>
@@ -78,12 +89,15 @@
           </a>
           <!-- Jezik (desktop) -->
           <div class="header__lang" aria-label="Jezik">
-            <label class="sr-only" for="lang">Jezik</label>
-            <select id="lang" class="header__lang-select" aria-label="Jezik">
-              <option value="ME">ME</option>
-              <option value="EN" selected>EN</option>
-            </select>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            <details class="header__lang-details" data-lang>
+              <summary class="header__lang-summary" aria-label="Jezik">
+                <span class="header__lang-label">EN</span>
+              </summary>
+              <div class="header__lang-menu" role="menu" aria-label="Izaberi jezik">
+                <button class="header__lang-option" type="button" role="menuitem" data-value="ME">ME</button>
+                <button class="header__lang-option is-active" type="button" role="menuitem" data-value="EN" aria-current="true">EN</button>
+              </div>
+            </details>
           </div>
         </div>
       </div>

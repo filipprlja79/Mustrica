@@ -4,22 +4,33 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Mustrica</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;500&family=Marcellus+SC&display=swap"
+		/>
+
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 			referrerpolicy="no-referrer"
 		/>
 
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
-			referrerpolicy="no-referrer"
-		/>
-		<!-- fontovi -->
+		<!-- Swiper CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+		<!-- Tvoj CSS -->
 		<link rel="stylesheet" href="components/assets/css/main.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js" defer></script>
+
+		<!-- Swiper JS -->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+
+		<!-- Tvoj JS (sadrži i header/footer + Swiper init) -->
 		<script src="components/assets/js/main.js" defer></script>
 	</head>
+
 	<body>
 		<!-- Mount tačka: header se učitava iz components/header.html preko JS -->
 		<div id="header"></div>
@@ -39,7 +50,7 @@
 				<div class="container products__inner">
 					<p class="products__kicker">NAJNOVIJI RADOVI</p>
 					<h2 class="products__title">NAŠI PROIZVODI</h2>
-					<img class="products__ornament" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
+					<img class="products__ornament" src="components/assets/img/ornament.png" alt="" aria-hidden="true" />
 
 					<div class="products__slider" aria-label="Lista proizvoda">
 						<article class="product-card" aria-label="Proizvod">
@@ -58,7 +69,7 @@
 								<span>DODAJ U KORPU</span>
 							</button>
 						</article>
-						
+
 						<article class="product-card" aria-label="Proizvod">
 							<img
 								class="product-card__img"
@@ -151,7 +162,6 @@
 
 			<section>
 				<div class="video"></div>
-				<!-- Postavljeno kao slika -->
 				<img src="components/assets/img/video.png" alt="Video o izradi dobrotske čipke" class="video__thumbnail" />
 			</section>
 
@@ -174,12 +184,7 @@
 					</article>
 
 					<div class="feature__center" aria-label="Djevojka">
-						<img
-							class="feature__img"
-							src="components/assets/img/djevojka.png"
-							alt="Djevojka"
-							loading="lazy"
-						/>
+						<img class="feature__img" src="components/assets/img/djevojka.png" alt="Djevojka" loading="lazy" />
 					</div>
 
 					<div class="feature__right" aria-label="Radovi po narudžbi">
@@ -201,7 +206,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<section class="dobrotskaCipka" aria-label="Dobrotska čipka">
 				<div class="container dobrotskaCipka__inner">
 					<div class="dobrotskaCipka__content">
@@ -227,14 +232,10 @@
 					</div>
 				</div>
 			</section>
+
 			<section class="marketing" aria-label="Marketing">
 				<div class="marketing__frame">
-					<img
-						src="components/assets/img/reklama.png"
-						alt="Reklamni baner"
-						class="marketing__img"
-						loading="lazy"
-					/>
+					<img src="components/assets/img/reklama.png" alt="Reklamni baner" class="marketing__img" loading="lazy" />
 					<div class="marketing__overlay">
 						<div class="marketing__content">
 							<p class="marketing__kicker">UNIKATNI VANVREMENSKI RADOVI</p>
@@ -252,7 +253,7 @@
 							<p class="news-blog__kicker">NAŠ BLOG</p>
 							<div class="news-blog__heading" aria-label="Naslov vijesti">
 								<h2 class="news-blog__title">VIJESTI I ČLANCI</h2>
-								<img class="news-blog__ornament" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
+								<img class="news-blog__ornament" src="components/assets/img/ornament.png" alt="" aria-hidden="true" />
 							</div>
 							<a class="button__cta button_cta news-blog__cta" href="#">SVI ČLANCI</a>
 						</div>
@@ -261,12 +262,7 @@
 							<div class="news-blog__grid" aria-label="Lista vijesti">
 								<article class="news-card" aria-label="Vijest">
 									<a class="news-card__media" href="#">
-										<img
-											class="news-card__img"
-											src="components/assets/img/vijestiIClanci1.jpg"
-											alt="Vijesti i članci 1"
-											loading="lazy"
-										/>
+										<img class="news-card__img" src="components/assets/img/vijestiIClanci1.jpg" alt="Vijesti i članci 1" loading="lazy" />
 										<span class="news-card__badge">01/12/2025</span>
 									</a>
 									<p class="news-card__text">Vještine koje traju: Zašto čuvamo rukotvorine</p>
@@ -274,12 +270,7 @@
 
 								<article class="news-card" aria-label="Vijest">
 									<a class="news-card__media" href="#">
-										<img
-											class="news-card__img"
-											src="components/assets/img/vijestiIClanci2.jpg"
-											alt="Vijesti i članci 2"
-											loading="lazy"
-										/>
+										<img class="news-card__img" src="components/assets/img/vijestiIClanci2.jpg" alt="Vijesti i članci 2" loading="lazy" />
 										<span class="news-card__badge">01/12/2025</span>
 									</a>
 									<p class="news-card__text">Čipka u modernom dizajnu</p>
@@ -287,12 +278,7 @@
 
 								<article class="news-card" aria-label="Vijest">
 									<a class="news-card__media" href="#">
-										<img
-											class="news-card__img"
-											src="components/assets/img/vijestiIClanci3.jpg"
-											alt="Vijesti i članci 3"
-											loading="lazy"
-										/>
+										<img class="news-card__img" src="components/assets/img/vijestiIClanci3.jpg" alt="Vijesti i članci 3" loading="lazy" />
 										<span class="news-card__badge">01/12/2025</span>
 									</a>
 									<p class="news-card__text">Materijali i tehnike: Tajne lokalnih umjetnika</p>
@@ -302,12 +288,25 @@
 					</div>
 				</div>
 			</section>
-
 		</main>
-
-        
 
 		<!-- Mount tačka: footer se učitava iz components/footer.html preko JS -->
 		<div id="footer"></div>
 	</body>
+</html>
+
+<script>
+// Uključi header i footer nakon što se DOM učita
+function includeHTML(selector, url) {
+	fetch(url)
+		.then(response => response.text())
+		.then(html => {
+			document.querySelector(selector).innerHTML = html;
+		});
+}
+document.addEventListener('DOMContentLoaded', function() {
+	includeHTML('#header', 'components/header.html');
+	includeHTML('#footer', 'components/footer.html');
+});
+</script>
 </html>
