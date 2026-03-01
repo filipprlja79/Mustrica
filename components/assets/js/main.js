@@ -1,209 +1,278 @@
 document.addEventListener("DOMContentLoaded", function () {
-	// ----------------------------
-	// Swiper helpers (wrap/unwrap)
-	// ----------------------------
-	function createEl(tag, className) {
-		const el = document.createElement(tag);
-		if (className) el.className = className;
-		return el;
-	}
 
-	function wrapAsSwiper({
-		containerEl,          // original container (npr .products__slider)
-		swiperClass,          // npr "products-swiper"
-		slideSelector,        // npr ".product-card"
-		withNav = true,
-		withPagination = true,
-		paginationType = "fraction", // "fraction" ili "bullets"
-		duplicateIfAtMost = 0 // npr 4 (za loop kad ima tačno 4)
-	}) {
-		if (!containerEl) return null;
+  // ----------------------------
+  // Swiper helpers (wrap/unwrap)
+  // ----------------------------
+  function createEl(tag, className) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    return el;
+  }
 
-		// Ako je već wrapovano
-		if (containerEl.dataset.swiperWrapped === "1") {
-			return containerEl.querySelector(".swiper");
-		}
+  function wrapAsSwiper({
+    containerEl,
+    swiperClass,
+    slideSelector,
+    withNav = true,
+    withPagination = true,
+    paginationType = "fraction",
+    duplicateIfAtMost = 0
+  }) {
+    if (!containerEl) return null;
 
-		const items = Array.from(containerEl.querySelectorAll(slideSelector));
-		if (!items.length) return null;
+    // Već wrapovano → vrati postojeći swiper
+    if (containerEl.dataset.swiperWrapped === "1") {
+      return containerEl.querySelector(".swiper");
+    }
 
-		// Sačuvaj originalni HTML da možemo restore (za mobile-only slučaj)
-		containerEl.dataset.swiperOriginalHtml = containerEl.innerHTML;
+    const items = Array.from(containerEl.querySelectorAll(slideSelector));
+    if (!items.length) return null;
 
-		// Dupliranje za loop (npr products ima 4 kartice, a na desktop prikazuje 4 -> treba više za loop)
-		if (duplicateIfAtMost > 0 && items.length <= duplicateIfAtMost) {
-			// dupliraj jednom
-			items.forEach((node) => {
-				const clone = node.cloneNode(true);
-				containerEl.appendChild(clone);
-			});
-		}
+    // Sačuvaj originalni HTML za eventualni restore
+    containerEl.dataset.swiperOriginalHtml = containerEl.innerHTML;
 
-		const allSlides = Array.from(containerEl.querySelectorAll(slideSelector));
+    // Dupliraj kartice ako ih ima ≤ duplicateIfAtMost
+    // (Swiper loop treba više slajdova nego što se prikazuje)
+    if (duplicateIfAtMost > 0 && items.length <= duplicateIfAtMost) {
+      items.forEach((node) => {
+        const clone = node.cloneNode(true);
+        containerEl.appendChild(clone);
+      });
+    }
 
-		// Napravi Swiper strukturu
-		const swiperEl = createEl("div", `swiper ${swiperClass}`);
-		const wrapperEl = createEl("div", "swiper-wrapper");
+    const allSlides = Array.from(containerEl.querySelectorAll(slideSelector));
 
-		allSlides.forEach((card) => {
-			const slideEl = createEl("div", "swiper-slide");
-			slideEl.appendChild(card);
-			wrapperEl.appendChild(slideEl);
-		});
+    // Napravi Swiper strukturu
+    const swiperEl = createEl("div", `swiper ${swiperClass}`);
+    const wrapperEl = createEl("div", "swiper-wrapper");
 
-		swiperEl.appendChild(wrapperEl);
+    allSlides.forEach((card) => {
+      const slideEl = createEl("div", "swiper-slide");
+      slideEl.appendChild(card);
+      wrapperEl.appendChild(slideEl);
+    });
 
-		// Controls
-		let nextEl = null;
-		let prevEl = null;
-		let pagEl = null;
+    swiperEl.appendChild(wrapperEl);
 
-		if (withNav) {
-			nextEl = createEl("button", "swiper-button-next");
-			prevEl = createEl("button", "swiper-button-prev");
-			nextEl.type = "button";
-			prevEl.type = "button";
-			nextEl.setAttribute("aria-label", "Sljedeće");
-			prevEl.setAttribute("aria-label", "Prethodno");
-			swiperEl.appendChild(nextEl);
-			swiperEl.appendChild(prevEl);
-		}
+    // Navigacijske strelice
+    let nextEl = null;
+    let prevEl = null;
+    let pagEl = null;
 
-		if (withPagination) {
-			pagEl = createEl("div", "swiper-pagination");
-			swiperEl.appendChild(pagEl);
-		}
+    if (withNav) {
+      nextEl = createEl("button", "swiper-button-next");
+      prevEl = createEl("button", "swiper-button-prev");
+      nextEl.type = "button";
+      prevEl.type = "button";
+      nextEl.setAttribute("aria-label", "Sljedeće");
+      prevEl.setAttribute("aria-label", "Prethodno");
+      // Dodaj strelice u containerEl, ne u swiperEl
+      containerEl.appendChild(nextEl);
+      containerEl.appendChild(prevEl);
+    }
 
-		// Očisti container i ubaci swiper
-		containerEl.innerHTML = "";
-		containerEl.appendChild(swiperEl);
+    if (withPagination) {
+      pagEl = createEl("div", "swiper-pagination");
+      swiperEl.appendChild(pagEl);
+    }
 
-		containerEl.dataset.swiperWrapped = "1";
+    // Upiši Swiper u container
+    containerEl.innerHTML = "";
+    containerEl.appendChild(swiperEl);
+    // Strelice moraju biti van swiperEl, pa ih ponovo dodaj
+    if (withNav) {
+      containerEl.appendChild(nextEl);
+      containerEl.appendChild(prevEl);
+    }
+    containerEl.dataset.swiperWrapped = "1";
 
-		return { swiperEl, nextEl, prevEl, pagEl };
-	}
+    return { swiperEl, nextEl, prevEl, pagEl };
+  }
 
-	function unwrapSwiper(containerEl) {
-		if (!containerEl) return;
-		if (containerEl.dataset.swiperWrapped !== "1") return;
+  function unwrapSwiper(containerEl) {
+    if (!containerEl) return;
+    if (containerEl.dataset.swiperWrapped !== "1") return;
 
-		const original = containerEl.dataset.swiperOriginalHtml;
-		if (typeof original === "string") {
-			containerEl.innerHTML = original;
-		}
-		delete containerEl.dataset.swiperWrapped;
-	}
+    const original = containerEl.dataset.swiperOriginalHtml;
+    if (typeof original === "string") {
+      containerEl.innerHTML = original;
+    }
+    delete containerEl.dataset.swiperWrapped;
+  }
 
-	// ----------------------------
-	// PRODUCTS Swiper (always)
-	// ----------------------------
-	(function initProductsSwiper() {
-		const productsContainer = document.querySelector(".products__slider");
-		if (!productsContainer) return;
-		if (typeof window.Swiper !== "function") return;
+  // ----------------------------
+  // PRODUCTS Swiper — uvijek aktivan
+  // ----------------------------
+  (function initProductsSwiper() {
+    const productsContainer = document.querySelector(".products__slider");
+    if (!productsContainer) return;
+    if (typeof window.Swiper !== "function") return;
 
-		const wrapped = wrapAsSwiper({
-			containerEl: productsContainer,
-			swiperClass: "products-swiper",
-			slideSelector: ".product-card",
-			withNav: true,
-			withPagination: false,
-			duplicateIfAtMost: 4
-		});
-		if (!wrapped) return;
+    /*
+     * Imamo 4 kartice. Za loop Swiper treba min (slidesPerView + 1) slajdova
+     * na svakoj strani. Duplikujemo jednom → 8 ukupno.
+     * duplicateIfAtMost: 4  → duplicira ako ima ≤4 originalne kartice
+     */
+    const wrapped = wrapAsSwiper({
+      containerEl: productsContainer,
+      swiperClass: "products-swiper",
+      slideSelector: ".product-card",
+      withNav: true,
+      withPagination: false,
+      duplicateIfAtMost: 4
+    });
 
-		const { swiperEl, nextEl, prevEl } = wrapped;
+    if (!wrapped) return;
 
-		// Init
-		new window.Swiper(swiperEl, {
-			loop: true,
-			speed: 450,
-			grabCursor: true,
-			slidesPerView: 2,
-			spaceBetween: 16,
+    const { swiperEl, nextEl, prevEl } = wrapped;
 
-			navigation: {
-				nextEl,
-				prevEl
-			},
+    new window.Swiper(swiperEl, {
+      loop: true,
+      speed: 450,
+      grabCursor: true,
+      slidesPerGroup: 1,    // pomjeri po 1 slajd na klik strelice
 
-			breakpoints: {
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20
-				},
-				1024: {
-					slidesPerView: 4,
-					spaceBetween: 24
-				}
-			}
-		});
-	})();
+      /* Mobile first: 2 kartice */
+      slidesPerView: 2,
+      spaceBetween: 16,
 
-	// ----------------------------
-	// NEWS Swiper (mobile only)
-	// ----------------------------
-	(function initNewsSwiperMobileOnly() {
-		const inner = document.querySelector(".news-blog__inner");
-		const grid = document.querySelector(".news-blog__grid");
-		if (!inner || !grid) return;
-		if (typeof window.Swiper !== "function") return;
+      navigation: {
+        nextEl,
+        prevEl
+      },
 
-		let instance = null;
+      breakpoints: {
+        /* ≥ 480px — 2 kartice, veći gap */
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        /* ≥ 768px — 3 kartice */
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 24
+        },
+        /* ≥ 1024px — 4 kartice (desktop, kao u Figmi) */
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 24
+        }
+      }
+    });
+  })();
 
-		function shouldEnable() {
-			// isti princip kao prije: kad inner postane column (mobile layout)
-			const styles = window.getComputedStyle(inner);
-			return styles.display === "flex" && styles.flexDirection === "column";
-		}
+  // ----------------------------
+  // NEWS Swiper — samo na mobilnom
+  // ----------------------------
+  (function initNewsSwiperMobileOnly() {
+    const inner = document.querySelector(".news-blog__inner");
+    const grid = document.querySelector(".news-blog__grid");
+    if (!inner || !grid) return;
+    if (typeof window.Swiper !== "function") return;
 
-		function enable() {
-			if (instance) return;
+    let instance = null;
 
-			const wrapped = wrapAsSwiper({
-				containerEl: grid,
-				swiperClass: "news-swiper",
-				slideSelector: ".news-card",
-				withNav: true,
-				withPagination: true,
-				paginationType: "fraction"
-			});
-			if (!wrapped) return;
+    function shouldEnable() {
+      const styles = window.getComputedStyle(inner);
+      return styles.display === "flex" && styles.flexDirection === "column";
+    }
 
-			const { swiperEl, nextEl, prevEl, pagEl } = wrapped;
+    function enable() {
+      if (instance) return;
 
-			instance = new window.Swiper(swiperEl, {
-				loop: true,
-				speed: 450,
-				grabCursor: true,
-				slidesPerView: 1,
-				spaceBetween: 0,
+      const wrapped = wrapAsSwiper({
+        containerEl: grid,
+        swiperClass: "news-swiper",
+        slideSelector: ".news-card",
+        withNav: true,
+        withPagination: true,
+        paginationType: "fraction"
+      });
+      if (!wrapped) return;
 
-				navigation: {
-					nextEl,
-					prevEl
-				},
-				pagination: {
-					el: pagEl,
-					type: "fraction"
-				}
-			});
-		}
+      const { swiperEl, nextEl, prevEl, pagEl } = wrapped;
 
-		function disable() {
-			if (!instance) return;
-			instance.destroy(true, true);
-			instance = null;
-			unwrapSwiper(grid);
-		}
+      instance = new window.Swiper(swiperEl, {
+        loop: true,
+        speed: 450,
+        grabCursor: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+          nextEl,
+          prevEl
+        },
+        pagination: {
+          el: pagEl,
+          type: "fraction"
+        }
+      });
+    }
 
-		function sync() {
-			if (shouldEnable()) enable();
-			else disable();
-		}
+    function disable() {
+      if (!instance) return;
+      instance.destroy(true, true);
+      instance = null;
+      unwrapSwiper(grid);
+    }
 
-		sync();
-		window.addEventListener("resize", sync);
-		window.addEventListener("orientationchange", sync);
-	})();
+    function sync() {
+      if (shouldEnable()) enable();
+      else disable();
+    }
+
+    sync();
+    window.addEventListener("resize", sync);
+    window.addEventListener("orientationchange", sync);
+  })();
+
+  // ----------------------------
+  // Header: scroll compact
+  // ----------------------------
+  (function initHeaderScroll() {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+
+    function updateHeader() {
+      if (window.scrollY > 60) {
+        header.classList.add("is-scrolled");
+      } else {
+        header.classList.remove("is-scrolled");
+      }
+    }
+
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    updateHeader();
+  })();
+
+  // ----------------------------
+  // Header: mobile hamburger
+  // ----------------------------
+  (function initMobileNav() {
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector(".nav");
+    const navClose = document.querySelector(".nav__close");
+
+    if (!hamburger || !nav) return;
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.add("nav--open");
+    });
+
+    if (navClose) {
+      navClose.addEventListener("click", () => {
+        nav.classList.remove("nav--open");
+      });
+    }
+
+    // Klik izvan navа zatvori
+    document.addEventListener("click", (e) => {
+      if (nav.classList.contains("nav--open") &&
+          !nav.contains(e.target) &&
+          !hamburger.contains(e.target)) {
+        nav.classList.remove("nav--open");
+      }
+    });
+  })();
+
 });

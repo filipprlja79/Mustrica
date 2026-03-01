@@ -1,4 +1,3 @@
-
 /* VARIJABLE */
 :root {
   /* Breakpoints */
@@ -12,8 +11,9 @@
   /* Products (responsive values) */
   --products-padding-y: 64px;
   --products-slider-mt: 40px;
-  --products-slider-max: 891px;
-  --products-controls-space: 55px;
+  --products-slider-max: 1196px;
+  /* Koliko prostora zauzima jedna strelica sa strane */
+  --products-arrow-offset: 60px;
 
   /* Sections (responsive values) */
   --about-padding-y: 72px;
@@ -49,15 +49,15 @@
   --news-hover-line-width: 210px;
 
   /* Swiper arrow sizes */
-  --swiper-arrow-size: 50px;
-  --swiper-arrow-size-sm: 46px;
-  --swiper-arrow-size-xs: 44px;
+  --swiper-arrow-size: 5px;
+  --swiper-arrow-size-sm: 6px;
+  --swiper-arrow-size-xs: 4px;
+  --site-header-offset: 151px;
 }
-
 /* END VARIJABLE */
 
 /* OSNOVA */
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
 img { max-width: 100%; height: auto; }
 
@@ -74,7 +74,7 @@ html, body { overflow-x: hidden; }
 html { scroll-padding-top: var(--site-header-offset, 0px); }
 /* END OSNOVA */
 
-/* A11Y */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -86,9 +86,9 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   white-space: nowrap;
   border: 0;
 }
-/* END A11Y */
 
-/* BUTTON (shared CTA) */
+
+/* BUTTON */
 .button__cta,
 .button_cta {
   display: inline-flex;
@@ -120,7 +120,12 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   margin: 0 auto;
   padding: 0 16px;
 }
-.products .container { max-width: 1389px; }
+
+/* Products container: Figma width 1389px, sa strelicama sa strane */
+.products .container {
+  max-width: 1389px;
+  padding: 0 16px;
+}
 /* END LAYOUT */
 
 /* HEADER */
@@ -138,7 +143,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   border-bottom: 1px solid var(--header-border);
 }
 
-/* Header: compact on scroll */
 .site-header.is-scrolled .header__top { display: none; }
 
 .site-header.is-scrolled .header__nav-inner {
@@ -151,7 +155,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   width: min(100%, clamp(100px, 14vw, 190px));
 }
 
-/* Header: gornja traka */
 .header__top { padding: 10px 0; }
 
 .header__top-inner {
@@ -236,7 +239,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   letter-spacing: 0.08em;
 }
 
-/* Header: pretraga */
 .header__search {
   display: flex;
   align-items: stretch;
@@ -260,7 +262,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   cursor: pointer;
 }
 
-/* Header: ikonice, badge */
 .header__icons {
   display: flex;
   align-items: center;
@@ -292,7 +293,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   place-items: center;
 }
 
-/* Header: jezik */
 .header__lang { position: relative; display: inline-flex; align-items: center; color: var(--header-ink); }
 
 .header__lang-details { position: relative; }
@@ -364,7 +364,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .header__lang-option.is-active { font-weight: 700; }
 .header__lang-option:hover { background: #f6f6f6; }
 
-/* Header: navigacija */
 .header__nav { border-top: none; }
 
 .header__nav-inner {
@@ -418,7 +417,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   background: rgba(118, 7, 7, 1);
 }
 
-/* Nav: mobile drawer elementi */
 .nav__extras { display: none; }
 .nav__close { display: none; }
 
@@ -440,12 +438,18 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 /* HERO */
 .hero { position: relative; }
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto 48px auto;
+}
 
 .hero__img {
   display: block;
   width: 100%;
-  height: min(62vh, 560px);
-  object-fit: cover;
+  height: auto;      /* KLJUČNO – nema cropa */
+  object-fit: contain; /* opcionalno, ali sigurno */
 }
 
 .hero__content {
@@ -475,21 +479,35 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   line-height: 1;
   letter-spacing: 1px;
 }
+
+@media (max-width: 1440px) {
+  .hero {
+    max-width: 100vw;
+    height: auto;
+    top: 0;
+  }
+  .hero__img {
+    height: min(62vh, 560px);
+  }
+}
 /* END HERO */
 
-/* Nasi proizvodi */
+
+  /* NAŠI PROIZVODI — Swiper slider*/
+  
 .products {
   padding: var(--products-padding-y) 0;
   color: rgba(33, 35, 30, 1);
   text-align: center;
   background-color: white;
-  
+  overflow: hidden; /* sakriva provirujuće slajdove SA STRANE sekcije */
 }
 
 .products__inner {
   display: grid;
   justify-items: center;
   row-gap: 6px;
+  margin-top: 0;
 }
 
 .products__kicker {
@@ -519,53 +537,37 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   margin: 0;
 }
 
-/* Swiper mount container */
-.products__slider {
-  width: 100%;
-  margin-top: var(--products-slider-mt);
-  position: relative;
-}
-
-/* Fallback kad swiper nije wrapovao (npr ako JS ne radi) */
-.products__slider:not([data-swiper-wrapped="1"]) {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-/* Swiper layout + max width kao ranije */
-/* Swiper mount container */
+/* ---------- Wrapper koji drži strelice + swiper u jednom redu ---------- */
 .products__slider {
   width: 100%;
   margin-top: var(--products-slider-mt);
   position: relative;
 
-  /* KLJUČNO: ovdje siječemo višak (da se ne vidi 5ti) */
-  overflow: hidden;
+ 
+  padding: 0 var(--products-arrow-offset);
+  box-sizing: border-box;
 }
 
-/* Swiper layout + max width */
+/* ---------- Swiper element: zauzima prostor između strelica ---------- */
 .products__slider .swiper {
   width: 100%;
   max-width: var(--products-slider-max);
   margin-left: auto;
   margin-right: auto;
-
-  /* KLJUČNO: strelice smiju van swiper-a */
-  overflow: visible;
+  overflow: hidden; /*  loop slajdovi, ne vide se van karte */
 }
 
-.products__slider .swiper-wrapper { align-items: stretch; }
+.products__slider .swiper-wrapper {
+  align-items: stretch;
+}
 
-/* centriraj karticu unutar slide */
 .products__slider .swiper-slide {
   display: flex;
   justify-content: center;
+  height: auto;
 }
 
-/* Kartica */
+/* ---------- Kartica ---------- */
 .product-card {
   width: 100%;
   max-width: 281px;
@@ -590,6 +592,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .product-card__price {
@@ -622,68 +625,95 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .product-card.is-selected .product-card__add {
   display: inline-flex;
 }
-/* END Nasi proizvodi */
 
-/* SWIPER - shared arrows UI (krug + bordo hover + bijele strelice) */
-.products .swiper-button-next,
+/* ---------- Strelice: pozicionirane u padding prostoru ---------- */
+
 .products .swiper-button-prev,
+.products .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #fff !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #111 !important;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.products .swiper-button-prev {
+  left: 24px;
+}
+.products .swiper-button-next {
+  right: 24px;
+}
+.products .swiper-button-prev::after,
+.products .swiper-button-next::after {
+  font-size: 16px;
+  color: #111 !important;
+  font-weight: bold;
+  border: none;
+  background: none;
+  text-shadow: none;
+}
+.products .swiper-button-prev:hover,
+.products .swiper-button-next:hover {
+  background: #760707 !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px 0 rgba(118,7,7,0.18);
+}
+.products .swiper-button-prev:hover::after,
+.products .swiper-button-next:hover::after {
+  color: #fff !important;
+}
+.products .swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+/* 
+   END NAŠI PROIZVODI
+   */
+
+/* SWIPER — zajednički stilovi samo za news-blog */
 .news-blog .swiper-button-next,
 .news-blog .swiper-button-prev {
   width: var(--swiper-arrow-size);
   height: var(--swiper-arrow-size);
   border-radius: 50%;
-  border: 1px solid #ddd;
-  background: #fff;
+  border: none;
+  background: rgba(118, 7, 7, 1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   cursor: pointer;
   top: 50%;
   transform: translateY(-50%);
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
-.products .swiper-button-next::after,
-.products .swiper-button-prev::after,
 .news-blog .swiper-button-next::after,
 .news-blog .swiper-button-prev::after {
-  font-size: 20px;
+  color: #fff;
+  font-size: 16px;
   font-weight: 700;
-  color: rgba(33, 35, 30, 1);
-  transition: color 0.2s ease;
 }
-@media (max-width: 768px) {
-  .products .swiper-button-prev { left: 0; }
-  .products .swiper-button-next { right: 0; }
-}
-.products .swiper-button-next:hover,
-.products .swiper-button-prev:hover,
+
 .news-blog .swiper-button-next:hover,
 .news-blog .swiper-button-prev:hover {
-  border-color: rgba(118, 7, 7, 1);
-  background: rgba(118, 7, 7, 1);
+  background: rgba(90, 5, 5, 1);
 }
 
-.products .swiper-button-next:hover::after,
-.products .swiper-button-prev:hover::after,
-.news-blog .swiper-button-next:hover::after,
-.news-blog .swiper-button-prev:hover::after {
-  color: #fff;
-}
-
-.products .swiper-button-disabled,
 .news-blog .swiper-button-disabled {
   opacity: 0.35;
   cursor: default;
 }
-
-/* PRODUCTS: strelice kao ranije (-60px) */
-/* PRODUCTS: strelice van kontejnera (kao figma) */
-.products .swiper-button-prev { left: -60px; }
-.products .swiper-button-next { right: -60px; }
-
-/* da budu iznad svega */
-.products .swiper-button-prev,
-.products .swiper-button-next {
-  z-index: 10;
-}
+/* ============================================================ */
 
 /* KO SMO MI */
 .about {
@@ -903,7 +933,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 }
 
 .footer__list li { margin: 0 0 10px; }
-
 .footer__list a { opacity: 0.9; }
 
 .footer__list a.is-active {
@@ -940,15 +969,9 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   opacity: 0.92;
 }
 
-.footer__contact i {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
+.footer__contact i { font-size: 14px; line-height: 1.6; }
 .footer__contact a { opacity: 0.92; }
-
 .footer__social { display: flex; gap: 30px; }
-
 .footer__social i { font-size: 14px; line-height: 1; }
 
 .footer__badge {
@@ -987,10 +1010,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   flex-wrap: wrap;
 }
 
-.footer__payments i {
-  font-size: 28px;
-  line-height: 1;
-}
+.footer__payments i { font-size: 28px; line-height: 1; }
 /* END FOOTER */
 
 /* VIDEO */
@@ -1005,7 +1025,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 }
 /* END VIDEO */
 
-/* MARKETING (reklama) */
+/* MARKETING */
 .marketing__frame {
   position: relative;
   width: 100%;
@@ -1072,7 +1092,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .marketing__cta:hover { background: transparent; color: #fff; }
 /* END MARKETING */
 
-/* NEWS / BLOG (vijesti i članci) */
+/* NEWS / BLOG */
 .news-blog { padding: var(--news-padding-y) 0; }
 
 .news-blog__inner {
@@ -1127,7 +1147,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   width: 100%;
 }
 
-/* Desktop: grid (kad swiper nije aktivan) */
 .news-blog__grid:not([data-swiper-wrapped="1"]) {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, var(--news-card-width)));
@@ -1136,7 +1155,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   justify-content: end;
 }
 
-/* Kad swiper aktivan (mobile) */
 .news-blog__grid .swiper { width: 100%; overflow: visible; }
 .news-blog__grid .swiper-slide { display: flex; }
 .news-blog__grid .news-card { width: 100%; }
@@ -1202,7 +1220,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   margin-top: 22px;
 }
 
-/* News pagination (fraction) */
 .news-blog .swiper-pagination {
   position: absolute;
   right: 0;
@@ -1214,14 +1231,31 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   color: rgba(33, 35, 30, 1);
 }
 
-/* News strelice: držimo ih uz slider (možeš pomjerati) */
 .news-blog .swiper-button-prev { left: 0; }
 .news-blog .swiper-button-next { right: 0; }
-
 /* END NEWS / BLOG */
 
 /* RESPONSIVE */
+
+/* --- 1024px i manje --- */
 @media (max-width: 1024px) {
+  :root {
+    /*
+     * Na tabletu: 3 kartice vidljive.
+     * 3 × 281px + 2 × 20px = 883px za kartice.
+     * Strelice: 35px × 2 + 2×12px offset = ~94px
+     * Ukupno padding prostora: 50px po strani
+     */
+    --products-slider-max: 883px;
+    --products-arrow-offset: 50px;
+
+    --feature-padding-y: 56px;
+    --feature-gap: 20px;
+    --feature-img-min: 360px;
+    --news-padding-y: 56px;
+    --news-gap: 20px;
+  }
+
   .header__top-inner {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -1241,10 +1275,8 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   }
 
   .header__actions > .header__search { display: none !important; }
-
   .header__top-inner .header__cta { display: none !important; }
   .header__cta { padding: 9px 12px; }
-
   .header__search input { width: clamp(140px, 40vw, 220px); }
 
   .header__nav-inner {
@@ -1331,21 +1363,10 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
     position: relative;
   }
 
-  :root {
-    --products-slider-max: 582px;
-    --feature-padding-y: 56px;
-    --feature-gap: 20px;
-    --feature-img-min: 360px;
-
-    --news-padding-y: 56px;
-    --news-gap: 20px;
-  }
-
   .feature__grid { grid-template-columns: 1fr; }
   .feature__right { grid-template-rows: auto auto; }
   .feature__img { min-height: var(--feature-img-min); }
 
-  /* News: na 1024 i niže layout prelazi u column (JS tada pali swiper) */
   .news-blog__inner {
     display: flex;
     flex-direction: column;
@@ -1373,9 +1394,16 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   }
 }
 
+/* --- 768px i manje --- */
 @media (max-width: 768px) {
   :root {
-    --products-controls-space: 46px;
+    /*
+     * Na mobilnom: 2 kartice vidljive.
+     * Slider zauzima punu širinu, strelice unutar paddinga
+     */
+    --products-slider-max: 100%;
+    --products-arrow-offset: 44px;
+
     --about-padding-y: 56px;
     --cipka-padding-y: 56px;
     --cipka-img-min: 0px;
@@ -1384,7 +1412,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
     --marketing-content-left: 40px;
     --marketing-content-gap: 28px;
-
     --marketing-height: auto;
     --marketing-aspect-ratio: 16 / 9;
 
@@ -1398,12 +1425,21 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   .hero__img { height: min(56vh, 460px); }
   .hero__kicker { font-size: 11px; }
 
-  /* Products strelice na manjim ekranima - u okvir (ne van) */
-  .products .swiper-button-prev { left: 0; }
-  .products .swiper-button-next { right: 0; }
+  /* Strelice products na mobilnom: centrirane na sliku */
+  .products .swiper-button-prev { left: 4px; }
+  .products .swiper-button-next { right: 4px; }
 
   .products .swiper-button-next,
-  .products .swiper-button-prev,
+  .products .swiper-button-prev {
+    width: 32px;
+    height: 32px;
+  }
+
+  .products .swiper-button-prev::after,
+  .products .swiper-button-next::after {
+    font-size: 11px;
+  }
+
   .news-blog .swiper-button-next,
   .news-blog .swiper-button-prev {
     width: var(--swiper-arrow-size-sm);
@@ -1425,10 +1461,8 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   .dobrotskaCipka__content { max-width: none; }
 
   .footer__grid { grid-template-columns: 1fr 1fr; }
-
   .footer__bottom-inner { flex-direction: column; align-items: flex-start; }
 
-  /* Desktop grid fallback za news na 768: jedna kolona (ako JS ne radi) */
   .news-blog__grid:not([data-swiper-wrapped="1"]) {
     grid-template-columns: 1fr;
     justify-content: start;
@@ -1437,12 +1471,14 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   .news-blog__aside { text-align: left; }
 }
 
+/* --- 480px i manje --- */
 @media (max-width: 480px) {
   :root {
     --products-padding-y: 52px;
     --products-slider-mt: 32px;
     --products-slider-max: 100%;
-    --products-controls-space: 42px;
+    --products-arrow-offset: 40px;
+
     --feature-gap: 18px;
     --feature-img-min: 300px;
     --feature-img-bottom-min: 220px;
@@ -1467,8 +1503,21 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
   .container { padding: 0 12px; }
 
+  /* xs: strelice manje, 1-2 kartice */
+  .products .swiper-button-prev { left: 2px; }
+  .products .swiper-button-next { right: 2px; }
+
   .products .swiper-button-next,
-  .products .swiper-button-prev,
+  .products .swiper-button-prev {
+    width: 28px;
+    height: 28px;
+  }
+
+  .products .swiper-button-prev::after,
+  .products .swiper-button-next::after {
+    font-size: 10px;
+  }
+
   .news-blog .swiper-button-next,
   .news-blog .swiper-button-prev {
     width: var(--swiper-arrow-size-xs);
@@ -1477,4 +1526,4 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
   .footer__grid { grid-template-columns: 1fr; }
 }
-/* END RESPONSIVE */
+/*END RESPONSIVE */
