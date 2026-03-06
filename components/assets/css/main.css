@@ -634,8 +634,8 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   border: none;
   background: #fff !important;
@@ -656,9 +656,10 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 }
 .products .swiper-button-prev::after,
 .products .swiper-button-next::after {
-  font-size: 16px;
+  font-size: 12px;
+  line-height: 1;
   color: #111 !important;
-  font-weight: bold;
+  font-weight: 700;
   border: none;
   background: none;
   text-shadow: none;
@@ -1256,6 +1257,8 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
     --news-gap: 20px;
   }
 
+  .header__top { display: none !important; }
+
   .header__top-inner {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -1349,12 +1352,44 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
   .nav__extras {
     display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    flex-wrap: nowrap;
     margin-top: 18px;
     padding-top: 18px;
     border-top: 1px solid var(--header-border);
+  }
+
+  .header__cta--drawer {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .nav__iconRow {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav__iconRow a {
+    color: var(--header-ink);
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav__langRow {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__extras .header__social--drawer {
+    width: 100%;
+    margin: 8px 0 0;
+    justify-content: flex-start;
   }
 
   .nav__extras a {
@@ -1437,7 +1472,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
   .products .swiper-button-prev::after,
   .products .swiper-button-next::after {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .news-blog .swiper-button-next,
@@ -1515,7 +1550,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
   .products .swiper-button-prev::after,
   .products .swiper-button-next::after {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .news-blog .swiper-button-next,

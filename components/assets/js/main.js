@@ -227,53 +227,132 @@ document.addEventListener("DOMContentLoaded", function () {
   })();
 
   // ----------------------------
-  // Header: scroll compact
+  // Header (loaded via fetch): scroll compact + hamburger + active link
   // ----------------------------
-  (function initHeaderScroll() {
-    const header = document.querySelector(".site-header");
+  function setSiteHeaderOffset(header) {
     if (!header) return;
+    const height = header.getBoundingClientRect().height;
+    document.documentElement.style.setProperty("--site-header-offset", `${Math.ceil(height)}px`);
+  }
 
+  function initHeaderScroll(header) {
     function updateHeader() {
-      if (window.scrollY > 60) {
-        header.classList.add("is-scrolled");
-      } else {
-        header.classList.remove("is-scrolled");
-      }
+      if (window.scrollY > 60) header.classList.add("is-scrolled");
+      else header.classList.remove("is-scrolled");
+      setSiteHeaderOffset(header);
     }
 
     window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("resize", () => setSiteHeaderOffset(header));
     updateHeader();
-  })();
+  }
 
-  // ----------------------------
-  // Header: mobile hamburger
-  // ----------------------------
-  (function initMobileNav() {
-    const hamburger = document.querySelector(".hamburger");
-    const nav = document.querySelector(".nav");
-    const navClose = document.querySelector(".nav__close");
+  function initHeaderActiveLinks(header) {
+    const links = Array.from(header.querySelectorAll(".nav__list a"));
+    if (!links.length) return;
 
-    if (!hamburger || !nav) return;
+    const setActive = (activeEl) => {
+      links.forEach((a) => a.classList.toggle("is-active", a === activeEl));
+    };
 
-    hamburger.addEventListener("click", () => {
-      nav.classList.add("nav--open");
+    // Click-based active state (works even when href is "#")
+    links.forEach((a) => {
+      a.addEventListener("click", () => setActive(a));
     });
 
-    if (navClose) {
-      navClose.addEventListener("click", () => {
-        nav.classList.remove("nav--open");
-      });
-    }
+    // URL-based active state when real hrefs exist
+    const currentUrl = new URL(window.location.href);
+    const currentPath = currentUrl.pathname.replace(/\/$/, "");
+    const currentHash = currentUrl.hash;
 
-    // Klik izvan navа zatvori
-    document.addEventListener("click", (e) => {
-      if (nav.classList.contains("nav--open") &&
-          !nav.contains(e.target) &&
-          !hamburger.contains(e.target)) {
-        nav.classList.remove("nav--open");
+    const match = links.find((a) => {
+      const href = a.getAttribute("href") || "";
+      if (!href || href === "#") return false;
+      try {
+        const u = new URL(href, window.location.href);
+        const linkPath = u.pathname.replace(/\/$/, "");
+        if (u.hash && currentHash) return u.hash === currentHash;
+        return linkPath === currentPath;
+      } catch {
+        return false;
       }
     });
-  })();
+
+    if (match) setActive(match);
+  }
+
+  function initMobileNav() {
+    if (window.__mustricaMobileNavBound) return;
+    window.__mustricaMobileNavBound = true;
+
+    // Delegate so it works even when header is injected later
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+
+      const hamburger = target.closest?.(".hamburger");
+      if (hamburger) {
+        const header = hamburger.closest(".site-header");
+        const nav = header?.querySelector(".nav");
+        if (!nav) return;
+        nav.classList.add("nav--open");
+        hamburger.setAttribute("aria-expanded", "true");
+        return;
+      }
+
+      const closeBtn = target.closest?.(".nav__close");
+      if (closeBtn) {
+        const nav = closeBtn.closest(".nav");
+        const header = closeBtn.closest(".site-header");
+        const hb = header?.querySelector(".hamburger");
+        nav?.classList.remove("nav--open");
+        hb?.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      // Click outside closes any open drawer
+      const openNav = document.querySelector(".nav.nav--open");
+      if (!openNav) return;
+      const header = openNav.closest(".site-header");
+      const hb = header?.querySelector(".hamburger");
+
+      if (!openNav.contains(target) && !(hb && hb.contains(target))) {
+        openNav.classList.remove("nav--open");
+        hb?.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      const openNav = document.querySelector(".nav.nav--open");
+      if (!openNav) return;
+      const header = openNav.closest(".site-header");
+      const hb = header?.querySelector(".hamburger");
+      openNav.classList.remove("nav--open");
+      hb?.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function initHeaderOnce() {
+    const header = document.querySelector(".site-header");
+    if (!header) return false;
+    if (header.dataset.enhanced === "1") return true;
+    header.dataset.enhanced = "1";
+
+    initHeaderScroll(header);
+    initHeaderActiveLinks(header);
+    initMobileNav();
+    setSiteHeaderOffset(header);
+    return true;
+  }
+
+  // Try immediately (in case header is inline), else observe (header is injected via fetch)
+  if (!initHeaderOnce()) {
+    const obs = new MutationObserver(() => {
+      if (initHeaderOnce()) obs.disconnect();
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+  }
 
   // Omogući prikaz 'Dodaj u korpu' na klik slike u sekciji Naši proizvodi
   document.querySelectorAll('.products__slider .product-card__img').forEach(function(img) {

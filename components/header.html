@@ -28,7 +28,7 @@
 		</button>
     <!-- Linkovi -->
         <ul class="nav__list">
-          <li><a class="is-active" href="#">NASLOVNA</a></li>
+          <li><a href="#">NASLOVNA</a></li>
           <li>
             <a href="#">PROIZVODI&nbsp;<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
           </li>
@@ -40,18 +40,23 @@
     <!-- Radnje (drawer) -->
     <div class="nav__extras" aria-label="Brze radnje">
       <!-- Pretraga (search bar) - prikaz samo u draweru na mobilnom -->
-        <div class="header__search header__search--drawer" role="search">
-          <input type="search" placeholder="Pretraga..." aria-label="Pretraga" />
-          <button type="button" aria-label="Traži"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <a href="#narudzbina" class="header__cta" style="width:100%;margin-top:12px;justify-content:center;">NARUDŽBINA PO MJERI</a>
-      <a href="#" aria-label="Nalog"><i class="fa-regular fa-user"></i></a>
-      <a href="#" aria-label="Omiljeno"><i class="fa-regular fa-heart"></i></a>
-      <a class="header__cart" href="#" aria-label="Korpa">
-        <i class="fa-solid fa-bag-shopping"></i>
-        <span class="header__badge" aria-label="1">1</span>
-      </a>
-      <div class="header__lang" aria-label="Jezik">
+      <div class="header__search header__search--drawer" role="search">
+        <input type="search" placeholder="Pretraga" aria-label="Pretraga" />
+        <button type="button" aria-label="Traži"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+      </div>
+
+      <a href="#narudzbina" class="header__cta header__cta--drawer">NARUDŽBINA PO MJERI</a>
+
+      <div class="nav__iconRow" aria-label="Korisničke radnje">
+        <a href="#" aria-label="Nalog"><i class="fa-regular fa-user" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Omiljeno"><i class="fa-regular fa-heart" aria-hidden="true"></i></a>
+        <a class="header__cart" href="#" aria-label="Korpa">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+          <span class="header__badge" aria-label="1">1</span>
+        </a>
+      </div>
+
+      <div class="nav__langRow" aria-label="Jezik">
         <details class="header__lang-details" data-lang>
           <summary class="header__lang-summary" aria-label="Jezik">
             <span class="header__lang-label">EN</span>
@@ -62,6 +67,15 @@
           </div>
         </details>
       </div>
+
+      <!-- Društvene mreže (mobile drawer) -->
+      <ul class="header__social header__social--drawer" aria-label="Društvene mreže">
+        <li><a href="#" aria-label="Instagram"><img class="social-icon" src="components/assets/img/ig.png" alt="Instagram" /></a></li>
+        <li><a href="#" aria-label="Facebook"><img class="social-icon" src="components/assets/img/fb.png" alt="Facebook" /></a></li>
+        <li><a href="#" aria-label="TikTok"><img class="social-icon" src="components/assets/img/tt.png" alt="TikTok" /></a></li>
+        <li><a href="#" aria-label="YouTube"><img class="social-icon" src="components/assets/img/yt.png" alt="YouTube" /></a></li>
+        <li><a href="#" aria-label="TripAdvisor"><img class="social-icon" src="components/assets/img/ta.png" alt="Tripadvisor" /></a></li>
+      </ul>
     </div>
       </nav>
 
