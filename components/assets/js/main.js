@@ -275,4 +275,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })();
 
+  // Omogući prikaz 'Dodaj u korpu' na klik slike u sekciji Naši proizvodi
+  document.querySelectorAll('.products__slider .product-card__img').forEach(function(img) {
+    img.addEventListener('click', function(e) {
+      // Ukloni selekciju sa svih kartica
+      document.querySelectorAll('.products__slider .product-card.is-selected').forEach(function(card) {
+        card.classList.remove('is-selected');
+      });
+      // Dodaj selekciju na kliknutu karticu
+      const card = img.closest('.product-card');
+      if(card) card.classList.add('is-selected');
+      e.stopPropagation();
+    });
+  });
+
+  // Klik izvan kartice uklanja selekciju
+  document.addEventListener('click', function(e) {
+    if(!e.target.closest('.product-card')) {
+      document.querySelectorAll('.products__slider .product-card.is-selected').forEach(function(card) {
+        card.classList.remove('is-selected');
+      });
+    }
+  });
 });
