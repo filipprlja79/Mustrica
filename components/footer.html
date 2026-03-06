@@ -11,58 +11,65 @@
         </div>
 
         <!-- Kontakt podaci -->
-        <ul class="footer__contact">
-          <li>
-            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-            <span>Kotor, Stari grad 352</span>
-          </li>
-          <li>
-            <i class="fa-regular fa-clock" aria-hidden="true"></i>
-            <span>
-              09:00 - 21:00h (ljeti)<br />
-              10:00 - 17:00h (zimi)
-            </span>
-          </li>
-          <li>
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            <a href="tel:+38269135474" target="_blank" rel="noopener">+382 69 135 474</a>
-          </li>
-          <li>
-            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-            <a href="mailto:mustricakotor@gmail.com" target="_blank" rel="noopener">mustricakotor@gmail.com</a>
-          </li>
-        </ul>
+        <div class="footer__contactGroup">
+          <ul class="footer__contact">
+            <li>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Kotor, Stari grad 352</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-clock" aria-hidden="true"></i>
+              <span>
+                09:00 - 21:00h (ljeti)<br />
+                10:00 - 17:00h (zimi)
+              </span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <a href="tel:+38269135474" target="_blank" rel="noopener">+382 69 135 474</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:mustricakotor@gmail.com" target="_blank" rel="noopener">mustricakotor@gmail.com</a>
+            </li>
+          </ul>
 
-        <!-- Društvene mreže -->
-        <ul class="footer__social" aria-label="Društvene mreže">
-          <li>
-            <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener" aria-label="TikTok">
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener" aria-label="YouTube">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-          </li>
-        </ul>
+          <!-- Društvene mreže -->
+          <ul class="footer__social" aria-label="Društvene mreže">
+            <li>
+              <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+                <img class="footer__socialIcon" src="components/assets/img/footer-ig.png" alt="" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+                <img class="footer__socialIcon" src="components/assets/img/footer-fb.png" alt="" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener" aria-label="TikTok">
+                <img class="footer__socialIcon" src="components/assets/img/footer-tt.png" alt="" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener" aria-label="YouTube">
+                <img class="footer__socialIcon" src="components/assets/img/footer-yt.png" alt="" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener" aria-label="TripAdvisor">
+                <img class="footer__socialIcon footer__socialIcon--ta" src="components/assets/img/footer-ta.png" alt="" aria-hidden="true" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Kolona 2: navigacija -->
       <div class="footer__col">
         <h4 class="footer__title">Navigacija</h4>
         <ul class="footer__list">
-          <li><a class="is-active" href="#">Naslovna</a></li>
+          <li><a href="#">Naslovna</a></li>
           <li><a href="#">Prodavnica</a></li>
           <li><a href="#">O nama</a></li>
           <li><a href="#">Blog</a></li>
@@ -97,14 +104,18 @@
   <!-- Donja traka footera -->
   <div class="footer__bottom">
     <div class="container footer__bottom-inner">
-      <p class="footer__copy">Copyright @ 2025 Mustrica. All Rights Reserved. Powered by Web Center</p>
       <div class="footer__payments" aria-label="Načini plaćanja">
-        <!-- Ikone plaćanja -->
-        <i class="fa-brands fa-cc-visa" aria-hidden="true"></i>
-        <i class="fa-brands fa-cc-mastercard" aria-hidden="true"></i>
-        <i class="fa-brands fa-cc-paypal" aria-hidden="true"></i>
-        <i class="fa-brands fa-cc-amex" aria-hidden="true"></i>
+        <span class="footer__payment" aria-hidden="true"><img src="components/assets/img/visa.png" alt="" /></span>
+        <span class="footer__payment" aria-hidden="true"><img src="components/assets/img/maestro.png" alt="" /></span>
+        <span class="footer__payment" aria-hidden="true"><img src="components/assets/img/paypal.png" alt="" /></span>
+        <span class="footer__payment" aria-hidden="true"><img src="components/assets/img/ae card.png" alt="" /></span>
+        <span class="footer__payment" aria-hidden="true"><img src="components/assets/img/cirrus.png" alt="" /></span>
       </div>
+      <p class="footer__copy">
+        Copyright @ 2025 Mustrica. All Rights Reserved. Powered by
+        <a class="footer__webcenter" href="https://www.webcenter.me/" target="_blank" rel="noopener">Web Center</a>
+      </p>
+      
     </div>
   </div>
 </footer>

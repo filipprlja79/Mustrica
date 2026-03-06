@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ----------------------------
-  // Swiper helpers (wrap/unwrap)
-  // ----------------------------
+  // Swiper 
+  
   function createEl(tag, className) {
     const el = document.createElement(tag);
     if (className) el.className = className;
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }) {
     if (!containerEl) return null;
 
-    // Već wrapovano → vrati postojeći swiper
+    
     if (containerEl.dataset.swiperWrapped === "1") {
       return containerEl.querySelector(".swiper");
     }
@@ -28,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const items = Array.from(containerEl.querySelectorAll(slideSelector));
     if (!items.length) return null;
 
-    // Sačuvaj originalni HTML za eventualni restore
+   
     containerEl.dataset.swiperOriginalHtml = containerEl.innerHTML;
 
     // Dupliraj kartice ako ih ima ≤ duplicateIfAtMost
@@ -54,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     swiperEl.appendChild(wrapperEl);
 
-    // Navigacijske strelice
+    // strelice
     let nextEl = null;
     let prevEl = null;
     let pagEl = null;
@@ -100,59 +99,60 @@ document.addEventListener("DOMContentLoaded", function () {
     delete containerEl.dataset.swiperWrapped;
   }
 
-  // ----------------------------
-  // PRODUCTS Swiper — uvijek aktivan
-  // ----------------------------
+  
+  // PRODUCTS Swiper — desktop + mobile (same instance)
   (function initProductsSwiper() {
-    const productsContainer = document.querySelector(".products__slider");
-    if (!productsContainer) return;
-    if (typeof window.Swiper !== "function") return;
+    const swiperEl = document.querySelector(".products-swiper");
+    if (!swiperEl || typeof Swiper !== "function") return;
 
-    /*
-     * Imamo 4 kartice. Za loop Swiper treba min (slidesPerView + 1) slajdova
-     * na svakoj strani. Duplikujemo jednom → 8 ukupno.
-     * duplicateIfAtMost: 4  → duplicira ako ima ≤4 originalne kartice
-     */
-    const wrapped = wrapAsSwiper({
-      containerEl: productsContainer,
-      swiperClass: "products-swiper",
-      slideSelector: ".product-card",
-      withNav: true,
-      withPagination: false,
-      duplicateIfAtMost: 4
-    });
+    
+    const wrapper = swiperEl.querySelector(".swiper-wrapper");
+    if (wrapper && wrapper.dataset.productsLoopCloned !== "1") {
+      const originalSlides = Array.from(wrapper.children).filter((el) =>
+        el instanceof Element ? el.classList.contains("swiper-slide") : false
+      );
 
-    if (!wrapped) return;
+      
+      const minSlidesForLoop = 8;
+      if (originalSlides.length > 0 && originalSlides.length < minSlidesForLoop) {
+        while (wrapper.querySelectorAll(":scope > .swiper-slide").length < minSlidesForLoop) {
+          originalSlides.forEach((slide) => wrapper.appendChild(slide.cloneNode(true)));
+        }
+      }
 
-    const { swiperEl, nextEl, prevEl } = wrapped;
+      wrapper.dataset.productsLoopCloned = "1";
+    }
 
-    new window.Swiper(swiperEl, {
-      loop: true,
-      speed: 450,
+    new Swiper(swiperEl, {
+      speed: 500,
       grabCursor: true,
-      slidesPerGroup: 1,    // pomjeri po 1 slajd na klik strelice
 
-      /* Mobile first: 2 kartice */
-      slidesPerView: 2,
+      centeredSlides: false,
+
+      loop: true,
+      loopAdditionalSlides: 4,
+
+      slidesPerView: 1,
       spaceBetween: 16,
 
+      slidesPerGroup: 1,
+
       navigation: {
-        nextEl,
-        prevEl
+        nextEl: ".products .swiper-button-next",
+        prevEl: ".products .swiper-button-prev"
+      },
+
+      pagination: {
+        el: ".products .swiper-pagination",
+        type: "progressbar"
       },
 
       breakpoints: {
-        /* ≥ 480px — 2 kartice, veći gap */
-        480: {
-          slidesPerView: 2,
-          spaceBetween: 20
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 16
         },
-        /* ≥ 768px — 3 kartice */
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 24
-        },
-        /* ≥ 1024px — 4 kartice (desktop, kao u Figmi) */
+
         1024: {
           slidesPerView: 4,
           spaceBetween: 24
@@ -161,20 +161,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })();
 
-  // ----------------------------
-  // NEWS Swiper — samo na mobilnom
-  // ----------------------------
+  // prikaz 'Dodaj u korpu'
+
+  (function initProductAddToCartUI() {
+    const slider = document.querySelector(".products .products__slider");
+    if (!slider) return;
+
+    slider.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+
+      const img = target.closest(".product-card__img");
+      if (!img) return;
+
+      const card = img.closest(".product-card");
+      if (!card) return;
+
+      slider.querySelectorAll(".product-card.is-selected").forEach((c) => c.classList.remove("is-selected"));
+      card.classList.add("is-selected");
+    });
+  })();
+
+  
+  // NEWS Swiper  samo na mobilnom
+ 
   (function initNewsSwiperMobileOnly() {
-    const inner = document.querySelector(".news-blog__inner");
     const grid = document.querySelector(".news-blog__grid");
-    if (!inner || !grid) return;
+    if (!grid) return;
     if (typeof window.Swiper !== "function") return;
 
     let instance = null;
 
     function shouldEnable() {
-      const styles = window.getComputedStyle(inner);
-      return styles.display === "flex" && styles.flexDirection === "column";
+      return window.matchMedia("(max-width: 768px)").matches;
     }
 
     function enable() {
@@ -184,27 +203,23 @@ document.addEventListener("DOMContentLoaded", function () {
         containerEl: grid,
         swiperClass: "news-swiper",
         slideSelector: ".news-card",
-        withNav: true,
+        withNav: false,
         withPagination: true,
-        paginationType: "fraction"
+        paginationType: "progressbar"
       });
       if (!wrapped) return;
 
-      const { swiperEl, nextEl, prevEl, pagEl } = wrapped;
+      const { swiperEl, pagEl } = wrapped;
 
       instance = new window.Swiper(swiperEl, {
-        loop: true,
+        loop: false,
         speed: 450,
         grabCursor: true,
         slidesPerView: 1,
-        spaceBetween: 0,
-        navigation: {
-          nextEl,
-          prevEl
-        },
+        spaceBetween: 16,
         pagination: {
           el: pagEl,
-          type: "fraction"
+          type: "progressbar"
         }
       });
     }
@@ -226,9 +241,82 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("orientationchange", sync);
   })();
 
-  // ----------------------------
+  // VIDEO popup
+  
+  (function initVideoPopup() {
+    const trigger = document.querySelector(".video-section__button");
+    const modal = document.querySelector(".video-section .video-modal");
+    if (!trigger || !modal) return;
+
+    const content = modal.querySelector("[data-video-content]");
+    const closeEls = Array.from(modal.querySelectorAll("[data-video-close]"));
+    const thumb = trigger.querySelector("img");
+
+    function setOpen(isOpen) {
+      if (isOpen) {
+        modal.hidden = false;
+        modal.setAttribute("aria-hidden", "false");
+        document.documentElement.style.overflow = "hidden";
+      } else {
+        modal.hidden = true;
+        modal.setAttribute("aria-hidden", "true");
+        document.documentElement.style.overflow = "";
+        if (content) content.innerHTML = "";
+      }
+    }
+
+    function buildPlayer(src) {
+      if (!content) return;
+      content.innerHTML = "";
+
+      if (!src) {
+        // Fallback: pokaz poster u popup-u 
+        if (thumb) {
+          const img = document.createElement("img");
+          img.src = thumb.currentSrc || thumb.src;
+          img.alt = thumb.alt || "Video";
+          content.appendChild(img);
+        }
+        return;
+      }
+
+      const lower = String(src).toLowerCase();
+      if (lower.endsWith(".mp4") || lower.endsWith(".webm") || lower.endsWith(".ogg")) {
+        const video = document.createElement("video");
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.src = src;
+        content.appendChild(video);
+      } else {
+        const iframe = document.createElement("iframe");
+        iframe.src = src;
+        iframe.allow = "autoplay; fullscreen; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.title = "Video";
+        iframe.referrerPolicy = "no-referrer";
+        content.appendChild(iframe);
+      }
+    }
+
+    trigger.addEventListener("click", () => {
+      const src = trigger.getAttribute("data-video-src") || "";
+      buildPlayer(src.trim());
+      setOpen(true);
+    });
+
+    closeEls.forEach((el) => {
+      el.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.hidden) setOpen(false);
+    });
+  })();
+
+  
   // Header (loaded via fetch): scroll compact + hamburger + active link
-  // ----------------------------
+  
   function setSiteHeaderOffset(header) {
     if (!header) return;
     const height = header.getBoundingClientRect().height;
@@ -353,27 +441,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     obs.observe(document.documentElement, { childList: true, subtree: true });
   }
-
-  // Omogući prikaz 'Dodaj u korpu' na klik slike u sekciji Naši proizvodi
-  document.querySelectorAll('.products__slider .product-card__img').forEach(function(img) {
-    img.addEventListener('click', function(e) {
-      // Ukloni selekciju sa svih kartica
-      document.querySelectorAll('.products__slider .product-card.is-selected').forEach(function(card) {
-        card.classList.remove('is-selected');
-      });
-      // Dodaj selekciju na kliknutu karticu
-      const card = img.closest('.product-card');
-      if(card) card.classList.add('is-selected');
-      e.stopPropagation();
-    });
-  });
-
-  // Klik izvan kartice uklanja selekciju
-  document.addEventListener('click', function(e) {
-    if(!e.target.closest('.product-card')) {
-      document.querySelectorAll('.products__slider .product-card.is-selected').forEach(function(card) {
-        card.classList.remove('is-selected');
-      });
-    }
-  });
 });

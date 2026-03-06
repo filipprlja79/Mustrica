@@ -19,13 +19,13 @@
     />
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Tvoj CSS -->
     <link rel="stylesheet" href="components/assets/css/main.css" />
 
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
     <!-- Tvoj JS -->
     <script src="components/assets/js/main.js" defer></script>
@@ -52,78 +52,92 @@
           <h2 class="products__title">NAŠI PROIZVODI</h2>
           <img class="products__ornament" src="components/assets/img/ornament.png" alt="" aria-hidden="true" />
 
-          <!-- products__slider: JS će ovdje wrapovati kartice u Swiper strukturu -->
           <div class="products__slider" aria-label="Lista proizvoda">
+            <div class="swiper products-swiper" aria-label="Slider proizvoda">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <article class="product-card" aria-label="Proizvod">
+                    <img
+                      class="product-card__img"
+                      src="components/assets/img/nasiProizvodi/nasiProizvodi1.jpg"
+                      alt="PRIVEZAK OD DOBROTSKE ČIPKE"
+                      width="281"
+                      height="340"
+                      loading="lazy"
+                    />
+                    <h3 class="product-card__name">PRIVEZAK OD DOBROTSKE ČIPKE</h3>
+                    <p class="product-card__price">€25</p>
+                    <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+                      <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+                      <span>DODAJ U KORPU</span>
+                    </button>
+                  </article>
+                </div>
 
-            <article class="product-card" aria-label="Proizvod">
-              <img
-                class="product-card__img"
-                src="components/assets/img/nasiProizvodi/nasiProizvodi1.jpg"
-                alt="PRIVEZAK OD DOBROTSKE ČIPKE"
-                width="281"
-                height="340"
-                loading="lazy"
-              />
-              <h3 class="product-card__name">PRIVEZAK OD DOBROTSKE ČIPKE</h3>
-              <p class="product-card__price">€25</p>
-              <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
-                <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
-                <span>DODAJ U KORPU</span>
-              </button>
-            </article>
+                <div class="swiper-slide">
+                  <article class="product-card" aria-label="Proizvod">
+                    <img
+                      class="product-card__img"
+                      src="components/assets/img/nasiProizvodi/nasiProizvodi2.jpg"
+                      alt="DOBROTSKA ČIPKA U OKVIRU TAMNOPLAVA"
+                      width="281"
+                      height="340"
+                      loading="lazy"
+                    />
+                    <h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU TAMNOPLAVA</h3>
+                    <p class="product-card__price">€220</p>
+                    <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+                      <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+                      <span>DODAJ U KORPU</span>
+                    </button>
+                  </article>
+                </div>
 
-            <article class="product-card" aria-label="Proizvod">
-              <img
-                class="product-card__img"
-                src="components/assets/img/nasiProizvodi/nasiProizvodi2.jpg"
-                alt="DOBROTSKA ČIPKA U OKVIRU TAMNOPLAVA"
-                width="281"
-                height="340"
-                loading="lazy"
-              />
-              <h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU TAMNOPLAVA</h3>
-              <p class="product-card__price">€220</p>
-              <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
-                <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
-                <span>DODAJ U KORPU</span>
-              </button>
-            </article>
+                <div class="swiper-slide">
+                  <article class="product-card" aria-label="Proizvod">
+                    <img
+                      class="product-card__img"
+                      src="components/assets/img/nasiProizvodi/nasiProizvodi3.jpg"
+                      alt="DOBROTSKA ČIPKA U OKVIRU BORDO"
+                      width="281"
+                      height="340"
+                      loading="lazy"
+                    />
+                    <h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU BORDO</h3>
+                    <p class="product-card__price">€250</p>
+                    <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+                      <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+                      <span>DODAJ U KORPU</span>
+                    </button>
+                  </article>
+                </div>
 
-            <article class="product-card" aria-label="Proizvod">
-              <img
-                class="product-card__img"
-                src="components/assets/img/nasiProizvodi/nasiProizvodi3.jpg"
-                alt="DOBROTSKA ČIPKA U OKVIRU BORDO"
-                width="281"
-                height="340"
-                loading="lazy"
-              />
-              <h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU BORDO</h3>
-              <p class="product-card__price">€250</p>
-              <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
-                <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
-                <span>DODAJ U KORPU</span>
-              </button>
-            </article>
+                <div class="swiper-slide">
+                  <article class="product-card" aria-label="Proizvod">
+                    <img
+                      class="product-card__img"
+                      src="components/assets/img/nasiProizvodi/nasiProizvodi4.jpg"
+                      alt="BROŠ SA DOBROTSKOM ČIPKOM"
+                      width="281"
+                      height="340"
+                      loading="lazy"
+                    />
+                    <h3 class="product-card__name">BROŠ SA DOBROTSKOM ČIPKOM</h3>
+                    <p class="product-card__price">€55</p>
+                    <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+                      <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
+                      <span>DODAJ U KORPU</span>
+                    </button>
+                  </article>
+                </div>
+              </div>
 
-            <article class="product-card" aria-label="Proizvod">
-              <img
-                class="product-card__img"
-                src="components/assets/img/nasiProizvodi/nasiProizvodi4.jpg"
-                alt="BROŠ SA DOBROTSKOM ČIPKOM"
-                width="281"
-                height="340"
-                loading="lazy"
-              />
-              <h3 class="product-card__name">BROŠ SA DOBROTSKOM ČIPKOM</h3>
-              <p class="product-card__price">€55</p>
-              <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
-                <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
-                <span>DODAJ U KORPU</span>
-              </button>
-            </article>
+              <div class="swiper-pagination" aria-label="Paginacija"></div>
+            </div>
 
-          </div><!-- /.products__slider -->
+            <button class="swiper-button-prev" type="button" aria-label="Prethodno"></button>
+            <button class="swiper-button-next" type="button" aria-label="Sljedeće"></button>
+          </div>
         </div>
       </section>
 
@@ -163,9 +177,27 @@
         </div>
       </section>
 
-      <section>
-        <div class="video"></div>
-        <img src="components/assets/img/video.png" alt="Video o izradi dobrotske čipke" class="video__thumbnail" />
+      <!-- Video sekcija (full width) -->
+      <section class="video-section" aria-label="Video o izradi dobrotske čipke">
+        <button class="video-section__button" type="button" data-video-src="" aria-label="Pusti video">
+          <img
+            src="components/assets/img/video.png"
+            alt="Video o izradi dobrotske čipke"
+            class="video-section__thumbnail"
+            loading="lazy"
+          />
+          <span class="video-section__play" aria-hidden="true"></span>
+        </button>
+
+        <div class="video-modal" hidden aria-hidden="true" role="dialog" aria-label="Video">
+          <div class="video-modal__backdrop" data-video-close></div>
+          <div class="video-modal__dialog" role="document">
+            <button class="video-modal__close" type="button" aria-label="Zatvori" data-video-close>
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="video-modal__content" data-video-content></div>
+          </div>
+        </div>
       </section>
 
       <div class="background"></div>
@@ -211,7 +243,7 @@
           </div>
         </div>
       </section>
-
+      <!-- sekcija => Dobrotska čipka -->
       <section class="dobrotskaCipka" aria-label="Dobrotska čipka">
         <div class="container dobrotskaCipka__inner">
           <div class="dobrotskaCipka__content">
@@ -246,20 +278,21 @@
           </div>
         </div>
       </section>
-
+      <!-- sekcija => marketing -->
       <section class="marketing" aria-label="Marketing">
-        <div class="marketing__frame">
-          <img src="components/assets/img/reklama.png" alt="Reklamni baner" class="marketing__img" loading="lazy" />
+        <div class="marketing__frame" aria-hidden="false">
           <div class="marketing__overlay">
-            <div class="marketing__content">
-              <p class="marketing__kicker">UNIKATNI VANVREMENSKI RADOVI</p>
-              <h2 class="marketing__title">KUPITE VAŠE PARČE TRADICIJE</h2>
-              <a class="marketing__cta" href="#">PRODAVNICA</a>
+            <div class="container marketing__overlay-inner">
+              <div class="marketing__content">
+                <p class="marketing__kicker">UNIKATNI VANVREMENSKI RADOVI</p>
+                <h2 class="marketing__title">KUPITE VAŠE PARČE TRADICIJE</h2>
+                <a class="marketing__cta" href="#">PRODAVNICA</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
+      <!-- sekcija => Vijesti i članci -->
       <section>
         <div class="news-blog" aria-label="Vijesti i članci">
           <div class="container news-blog__inner">
@@ -307,6 +340,7 @@
     <!-- Mount tačka: footer se učitava iz components/footer.html preko JS -->
     <div id="footer"></div>
 
+    <!-- poziv header i footer komponenti preko JS-a -->
     <script>
       function includeHTML(selector, url) {
         fetch(url)

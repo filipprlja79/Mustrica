@@ -8,13 +8,6 @@
   --bp-sm: 480px;
   --bp-xs: 360px;
 
-  /* Products (responsive values) */
-  --products-padding-y: 64px;
-  --products-slider-mt: 40px;
-  --products-slider-max: 1196px;
-  /* Koliko prostora zauzima jedna strelica sa strane */
-  --products-arrow-offset: 60px;
-
   /* Sections (responsive values) */
   --about-padding-y: 72px;
   --cipka-padding-y: 72px;
@@ -59,12 +52,12 @@
 /* OSNOVA */
 *, *::before, *::after { box-sizing: border-box; }
 
-img { max-width: 100%; height: auto; }
+
 
 body {
   margin: 0;
-  color: #111;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #231F20;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   padding-top: var(--site-header-offset, 0px);
   background: whitesmoke;
 }
@@ -73,6 +66,11 @@ html, body { overflow-x: hidden; }
 
 html { scroll-padding-top: var(--site-header-offset, 0px); }
 /* END OSNOVA */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Marcellus SC", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
 
 
 .sr-only {
@@ -109,8 +107,8 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 .button__cta:hover,
 .button_cta:hover {
-  border-color: #d11;
-  color: #d11;
+  border-color: rgba(118, 7, 7, 1);
+  color: rgba(118, 7, 7, 1);
 }
 /* END BUTTON */
 
@@ -118,12 +116,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* Products container: Figma width 1389px, sa strelicama sa strane */
-.products .container {
-  max-width: 1389px;
   padding: 0 16px;
 }
 /* END LAYOUT */
@@ -158,7 +150,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .header__top { padding: 10px 0; }
 
 .header__top-inner {
-  max-width: 1260px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -362,7 +353,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 }
 
 .header__lang-option.is-active { font-weight: 700; }
-.header__lang-option:hover { background: #f6f6f6; }
+.header__lang-option:hover { background: rgba(246, 246, 246, 1); }
 
 .header__nav { border-top: none; }
 
@@ -390,7 +381,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .nav__list a {
   color: var(--header-ink);
   text-decoration: none;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
@@ -440,16 +431,18 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .hero { position: relative; }
 .hero {
   position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto 48px auto;
+  width: 100vw;
+  max-width: none;
+  margin: 0 0 48px 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .hero__img {
   display: block;
   width: 100%;
-  height: auto;      /* KLJUČNO – nema cropa */
-  object-fit: contain; /* opcionalno, ali sigurno */
+  height: auto;
+  aspect-ratio: 1440 / 602;
 }
 
 .hero__content {
@@ -482,82 +475,70 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 @media (max-width: 1440px) {
   .hero {
-    max-width: 100vw;
     height: auto;
     top: 0;
   }
   .hero__img {
-    height: min(62vh, 560px);
+    height: auto;
   }
 }
 /* END HERO */
 
-
-  /* NAŠI PROIZVODI — Swiper slider*/
-  
+/* NAŠI PROIZVODI */
 .products {
-  padding: var(--products-padding-y) 0;
-  color: rgba(33, 35, 30, 1);
-  text-align: center;
-  background-color: white;
-  overflow: hidden; /* sakriva provirujuće slajdove SA STRANE sekcije */
+  padding: 64px 0;
+  background: #fff;
+  color: #231F20;
 }
 
 .products__inner {
   display: grid;
   justify-items: center;
-  row-gap: 6px;
-  margin-top: 0;
+  row-gap: 16px;
 }
 
 .products__kicker {
   margin: 0;
   font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
-  line-height: 1;
   font-size: 12px;
+  line-height: 1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .products__title {
-  margin: 6px 0 10px;
-  font-family: "Marcellus SC", serif;
-  font-size: 40px;
+  margin: 0;
+  font-family: "Marcellus SC", Georgia, "Times New Roman", serif;
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 45px;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .products__ornament {
   display: block;
   width: min(420px, 92%);
   height: auto;
-  margin: 0;
+  margin: 0 auto;
 }
 
-/* ---------- Wrapper koji drži strelice + swiper u jednom redu ---------- */
 .products__slider {
   width: 100%;
-  margin-top: var(--products-slider-mt);
   position: relative;
-
- 
-  padding: 0 var(--products-arrow-offset);
-  box-sizing: border-box;
+  margin-top: 32px;
 }
 
-/* ---------- Swiper element: zauzima prostor između strelica ---------- */
 .products__slider .swiper {
   width: 100%;
-  max-width: var(--products-slider-max);
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden; /*  loop slajdovi, ne vide se van karte */
+  max-width: 1196px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-.products__slider .swiper-wrapper {
+.products .swiper-wrapper {
   align-items: stretch;
 }
 
@@ -567,53 +548,65 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   height: auto;
 }
 
-/* ---------- Kartica ---------- */
+@media (min-width: 1024px) {
+  .products .swiper-slide {
+    width: auto !important;
+  }
+}
+
 .product-card {
   width: 100%;
   max-width: 281px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
+  display: grid;
+  justify-items: center;
+  text-align: center;
 }
 
 .product-card__img {
   display: block;
-  width: 100%;
+  width: min(281px, 100%);
   height: auto;
   aspect-ratio: 281 / 340;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .product-card__name {
-  margin: 16px 0 6px;
-  font-family: "Marcellus SC", serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin: 14px 0 10px;
+  font-family: "Marcellus SC", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0.5px;
   text-align: center;
 }
 
 .product-card__price {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  margin: 0;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 700;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .product-card__add {
-  margin-top: 18px;
+  margin-top: 16px;
   width: 100%;
   min-height: 46px;
-  border: 1px solid rgba(33, 35, 30, 1);
+  border: 1px solid #231F20;
   background: transparent;
-  color: rgba(33, 35, 30, 1);
+  color: #231F20;
   display: none;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -626,62 +619,166 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   display: inline-flex;
 }
 
-/* ---------- Strelice: pozicionirane u padding prostoru ---------- */
-
+/* Strelice */
 .products .swiper-button-prev,
 .products .swiper-button-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 20;
   width: 35px;
   height: 35px;
   border-radius: 50%;
   border: none;
-  background: #fff !important;
+  background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  color: #111 !important;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  color: #000;
+  pointer-events: auto;
 }
-.products .swiper-button-prev {
-  left: 24px;
-}
-.products .swiper-button-next {
-  right: 24px;
-}
+
+.products .swiper-button-prev { left: -16px; }
+.products .swiper-button-next { right: -16px; }
+
 .products .swiper-button-prev::after,
 .products .swiper-button-next::after {
   font-size: 12px;
   line-height: 1;
-  color: #111 !important;
+  color: currentColor;
   font-weight: 700;
-  border: none;
-  background: none;
-  text-shadow: none;
 }
+
 .products .swiper-button-prev:hover,
 .products .swiper-button-next:hover {
-  background: #760707 !important;
-  color: #fff !important;
-  box-shadow: 0 0 12px 0 rgba(118,7,7,0.18);
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
 }
-.products .swiper-button-prev:hover::after,
-.products .swiper-button-next:hover::after {
-  color: #fff !important;
+
+/* Progress pagination (Swiper demo: progressbar) */
+.products .swiper-pagination {
+  position: static;
+  width: min(520px, 100%);
+  margin: 18px auto 0;
 }
-.products .swiper-button-disabled {
-  opacity: 0.35;
-  cursor: default;
-  pointer-events: none;
+
+.products .swiper-pagination-progressbar {
+  background: rgba(33, 35, 30, 0.18);
+  height: 2px;
 }
-/* 
-   END NAŠI PROIZVODI
-   */
+
+/* Uklanja crvenu (progressbar) crtu iz oba slidera */
+.products .swiper-pagination,
+.news-blog .swiper-pagination {
+  display: none !important;
+}
+
+
+
+/* Mobile/Tablet: dedicated layout (title + ornament + 1 image + arrows left/right) */
+@media (max-width: 1024px) {
+  :root {
+    --products-card-w: 320px;
+    --products-arrow-gap: 12px;
+  }
+
+  .products {
+    padding: 40px 0;
+  }
+
+  .products__inner {
+    row-gap: 10px;
+  }
+
+  .products__kicker {
+    font-size: 11px;
+  }
+
+  .products__title {
+    font-size: 32px;
+    line-height: 1.05;
+  }
+
+  .products__ornament {
+    width: min(360px, 100%);
+  }
+
+  /* slider row: one centered image with arrows left/right */
+  .products__slider {
+    margin-top: 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .products__slider .swiper {
+    width: min(var(--products-card-w), 100%);
+    max-width: var(--products-card-w);
+    margin: 0;
+  }
+
+  /* Arrows vertically centered on the image (not on the whole card) */
+  .products .swiper-button-prev,
+  .products .swiper-button-next {
+    position: absolute;
+    top: calc(var(--products-card-w) * 0.605);
+    transform: translateY(-50%);
+    margin: 0;
+    display: flex;
+  }
+
+  .products .swiper-button-prev {
+    left: calc(50% - (var(--products-card-w) / 2) - 35px - var(--products-arrow-gap));
+  }
+
+  .products .swiper-button-next {
+    right: calc(50% - (var(--products-card-w) / 2) - 35px - var(--products-arrow-gap));
+  }
+
+  /* 1 card centered */
+  .product-card {
+    width: 100%;
+    max-width: var(--products-card-w);
+  }
+
+  .product-card__img {
+    width: 100%;
+    max-width: var(--products-card-w);
+  }
+
+  .products .swiper-pagination {
+    width: min(320px, 100%);
+    margin: 12px auto 0;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --products-card-w: 260px;
+  }
+
+  .products { padding: 32px 0; }
+  .products__inner { row-gap: 8px; }
+  .products__kicker { font-size: 10px; }
+  .products__title { font-size: 24px; }
+  .products__ornament { width: min(240px, 92%); }
+
+  .products__slider .swiper {
+    width: min(260px, 100%);
+    max-width: 260px;
+  }
+
+  .product-card { max-width: 260px; }
+  .product-card__img { max-width: 260px; }
+
+  .product-card__name { font-size: 18px; margin: 10px 0 8px; }
+  .product-card__price { font-size: 18px; }
+}
+/* END NAŠI PROIZVODI */
 
 /* SWIPER — zajednički stilovi samo za news-blog */
 .news-blog .swiper-button-next,
@@ -751,7 +848,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 .about__title {
   margin: 0 0 18px;
-  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: clamp(28px, 3.2vw, 44px);
   letter-spacing: 0.04em;
   font-weight: 400;
@@ -780,30 +876,35 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   justify-content: center;
 }
 
-.about__cta:hover { border-color: #d11; color: #d11; }
+.about__cta:hover { border-color: rgba(118, 17, 17, 1); color: rgba(118, 17, 17, 1); }
 /* END KO SMO MI */
 
 /* DOBROTSKA ČIPKA */
 .dobrotskaCipka {
   padding: var(--cipka-padding-y) 0;
   color: rgba(33, 35, 30, 1);
+  background: whitesmoke;
 }
 
 .dobrotskaCipka__inner {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
   gap: var(--cipka-gap);
-  align-items: start;
+  align-items: stretch;
 }
 
 .dobrotskaCipka__content { max-width: 640px; }
 
 .dobrotskaCipka__kicker {
   margin: 0 0 12px;
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: rgba(209, 17, 17, 1);
+  color: rgba(118, 17, 17, 1);
 }
 
 .dobrotskaCipka__title {
@@ -819,6 +920,19 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   font-size: var(--cipka-text-size);
   line-height: 1.8;
   color: #444;
+}
+
+
+/* Slika ide do desne ivice (desktop) */
+@media (min-width: 769px) {
+  .dobrotskaCipka__media {
+    margin-right: calc(50% - 50vw);
+  }
+}
+
+.dobrotskaCipka__media {
+  align-self: stretch;
+  background-color: whitesmoke;
 }
 
 .dobrotskaCipka__img {
@@ -841,6 +955,28 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   align-items: stretch;
 }
 
+@media (min-width: 1024px) {
+  .feature__grid {
+    grid-template-columns: 406px 408px 406px;
+    grid-template-rows: 290px 290px;
+    justify-content: center;
+  }
+
+  .feature__grid > .feature-card,
+  .feature__grid > .feature__center,
+  .feature__grid > .feature__right {
+    grid-row: 1 / span 2;
+  }
+
+  .feature__right {
+    grid-template-rows: 290px 290px;
+  }
+
+  .feature .feature__img {
+    min-height: 0;
+  }
+}
+
 .feature-card {
   border: 1px solid #eee;
   background: #fff;
@@ -853,8 +989,8 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 .feature-card__img {
   display: block;
-  width: 100%;
-  max-width: 420px;
+  width: min(406px, 100%);
+  aspect-ratio: 406 / 290;
   height: auto;
   margin: 0 auto 18px;
   object-fit: contain;
@@ -862,7 +998,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 .feature-card__title {
   margin: 4px 0 10px;
-  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 28px;
   letter-spacing: 0.06em;
   font-weight: 400;
@@ -901,6 +1036,33 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 .feature__img--bottom { min-height: var(--feature-img-bottom-min); }
 .feature-card--compact { padding: 30px 22px; }
+
+/* Desktop: fill the grid tracks (Figma alignment) */
+@media (min-width: 1024px) {
+  .feature__center .feature__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature__right .feature__img--bottom {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Responsive: zadrži proporcije kad se kolone lome */
+@media (max-width: 1023px) {
+  .feature__center .feature__img {
+    aspect-ratio: 408 / 600;
+  }
+
+  .feature__right .feature__img--bottom {
+    aspect-ratio: 406 / 290;
+    height: auto;
+  }
+}
 /* END FEATURE GRID */
 
 /* FOOTER */
@@ -936,9 +1098,9 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .footer__list li { margin: 0 0 10px; }
 .footer__list a { opacity: 0.9; }
 
-.footer__list a.is-active {
-  color: #d11;
-  font-weight: 600;
+.footer__list a:hover,
+.footer__list a:focus-visible {
+  color: rgba(166,16,16,1);
   opacity: 1;
   text-decoration: underline;
 }
@@ -959,7 +1121,12 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 .footer__contact {
   display: grid;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+.footer__contactGroup {
+  display: grid;
+  gap: 15px;
 }
 
 .footer__contact li {
@@ -972,8 +1139,29 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
 .footer__contact i { font-size: 14px; line-height: 1.6; }
 .footer__contact a { opacity: 0.92; }
-.footer__social { display: flex; gap: 30px; }
-.footer__social i { font-size: 14px; line-height: 1; }
+.footer__social {
+  display: flex;
+  gap: 27.7px;
+  align-items: center;
+}
+
+.footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__socialIcon {
+  width: 18.14px;
+  height: 18.87px;
+  display: block;
+}
+
+.footer__socialIcon--ta {
+  width: 15.12px;
+  height: 16.95px;
+  
+}
 
 .footer__badge {
   margin-top: 22px;
@@ -989,50 +1177,232 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 }
 
 .footer__bottom-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   padding: 14px 16px;
-  flex-wrap: wrap;
 }
 
 .footer__copy {
   margin: 0;
   font-size: 13px;
   opacity: 0.9;
+  grid-column: 2;
+  justify-self: center;
+  text-align: center;
 }
 
 .footer__payments {
   display: flex;
   gap: 12px;
   align-items: center;
-  color: #111;
+  color: #231F20;
   flex-wrap: wrap;
+  grid-column: 1;
+  justify-self: start;
 }
 
-.footer__payments i { font-size: 28px; line-height: 1; }
+/* Payments (Figma: 306 x 32.56, gap 10.71) */
+.footer__payments {
+  --footer-payments-width: 306px;
+  --footer-payments-height: 32.56px;
+  --footer-payments-gap: 10.71px;
+  width: min(var(--footer-payments-width), 100%);
+  gap: var(--footer-payments-gap);
+  flex-wrap: nowrap;
+}
+
+.footer__payment {
+  width: calc((var(--footer-payments-width) - (4 * var(--footer-payments-gap))) / 5);
+  height: var(--footer-payments-height);
+  display: grid;
+  place-items: center;
+  background: #f6f6f6;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.footer__payment img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.footer__copy a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__copy a:hover,
+.footer__copy a:focus-visible {
+  color: rgba(166,16,16,1);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer__bottom-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__payments {
+    order: 1;
+    justify-content: center;
+  }
+
+  .footer__copy {
+    order: 2;
+    text-align: center;
+    width: 100%;
+  }
+}
 /* END FOOTER */
 
 /* VIDEO */
-.video__thumbnail {
+.video__thumbnail,
+.video-section__thumbnail {
   display: block;
   width: 100%;
-  max-width: var(--video-max-width);
+  max-width: 100%;
   height: var(--video-height);
-  margin: 40px auto 0;
   aspect-ratio: var(--video-aspect-ratio);
   object-fit: cover;
+}
+
+.video-section {
+  width: 100%;
+  --video-play-ring: min(367px, 70vw);
+}
+
+@media (max-width: 768px) {
+  .video-section { --video-play-ring: min(240px, 62vw); }
+}
+
+@media (max-width: 480px) {
+  .video-section { --video-play-ring: min(200px, 68vw); }
+}
+
+.video-section__button {
+  position: relative;
+  display: block;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Play button (kao dizajn: bijeli prsten + bijeli trougao) */
+.video-section__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.video-section__play::before {
+  content: "";
+  width: var(--video-play-ring);
+  height: var(--video-play-ring);
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.video-section__play::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: calc(var(--video-play-ring) * 0.06) solid transparent;
+  border-bottom: calc(var(--video-play-ring) * 0.06) solid transparent;
+  border-left: calc(var(--video-play-ring) * 0.095) solid rgba(255, 255, 255, 0.9);
+  transform: translateX(calc(var(--video-play-ring) * 0.018));
+}
+
+.video-section__button:hover .video-section__play::before,
+.video-section__button:focus-visible .video-section__play::before {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.video-section__button:hover .video-section__play::after,
+.video-section__button:focus-visible .video-section__play::after {
+  border-left-color: rgba(255, 255, 255, 1);
+}
+
+/* Video modal */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+
+.video-modal[hidden] { display: none; }
+
+.video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.video-modal__dialog {
+  position: relative;
+  width: min(980px, calc(100vw - 24px));
+  margin: 48px auto;
+  background: #000;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.video-modal__content {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.video-modal__content iframe,
+.video-modal__content video,
+.video-modal__content img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 /* END VIDEO */
 
 /* MARKETING */
 .marketing__frame {
   position: relative;
-  width: 100%;
-  max-width: var(--marketing-max-width);
-  margin: 0 auto;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
   overflow: hidden;
+  aspect-ratio: var(--marketing-aspect-ratio);
+  background-image: url("../img/reklama.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 1024px) {
+  .marketing__frame { background-attachment: scroll; }
 }
 
 .marketing__img {
@@ -1073,7 +1443,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   font-weight: 500;
   text-transform: uppercase;
 }
-
+/* dugme  za marketing */
 .marketing__cta {
   display: inline-flex;
   align-items: center;
@@ -1082,15 +1452,15 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   width: 188px;
   padding: 10px 14px;
   border: 1px solid #fff;
-  background: #fff;
-  color: rgba(33, 35, 30, 1);
+  background: transparent;
+  color: #fff;
   text-decoration: none;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.marketing__cta:hover { background: transparent; color: #fff; }
+.marketing__cta:hover { background: #fff; color: black; }
 /* END MARKETING */
 
 /* NEWS / BLOG */
@@ -1115,13 +1485,12 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #d11;
+  color: rgba(118, 7, 7, 1);
 }
 
 .news-blog__title {
   margin: 0 0 12px;
   font-size: clamp(28px, 3.2vw, 44px);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   letter-spacing: 0.06em;
   font-weight: 500;
   text-transform: uppercase;
@@ -1184,7 +1553,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   align-items: center;
   justify-content: center;
   padding: 10px 14px;
-  background: #d11;
+  background: rgba(166, 16, 16, 1);
   color: #fff;
   font-size: 12px;
   letter-spacing: 0.08em;
@@ -1232,6 +1601,23 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   color: rgba(33, 35, 30, 1);
 }
 
+@media (max-width: 768px) {
+  .news-blog__grid .swiper { overflow: hidden; }
+
+  .news-blog .swiper-pagination {
+    position: static;
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .news-blog .swiper-pagination-progressbar {
+    background: rgba(33, 35, 30, 0.18);
+    height: 2px;
+  }
+
+  
+}
+
 .news-blog .swiper-button-prev { left: 0; }
 .news-blog .swiper-button-next { right: 0; }
 /* END NEWS / BLOG */
@@ -1241,15 +1627,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 /* --- 1024px i manje --- */
 @media (max-width: 1024px) {
   :root {
-    /*
-     * Na tabletu: 3 kartice vidljive.
-     * 3 × 281px + 2 × 20px = 883px za kartice.
-     * Strelice: 35px × 2 + 2×12px offset = ~94px
-     * Ukupno padding prostora: 50px po strani
-     */
-    --products-slider-max: 883px;
-    --products-arrow-offset: 50px;
-
     --feature-padding-y: 56px;
     --feature-gap: 20px;
     --feature-img-min: 360px;
@@ -1293,13 +1670,7 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
     justify-self: center;
   }
 
-  .header__actions {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-self: center;
-  }
+  .header__actions { display: none !important; }
 
   .header__icons { display: none; }
 
@@ -1432,13 +1803,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 /* --- 768px i manje --- */
 @media (max-width: 768px) {
   :root {
-    /*
-     * Na mobilnom: 2 kartice vidljive.
-     * Slider zauzima punu širinu, strelice unutar paddinga
-     */
-    --products-slider-max: 100%;
-    --products-arrow-offset: 44px;
-
     --about-padding-y: 56px;
     --cipka-padding-y: 56px;
     --cipka-img-min: 0px;
@@ -1457,23 +1821,9 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
     --news-hover-line-width: 210px;
   }
 
-  .hero__img { height: min(56vh, 460px); }
+  .hero { margin-bottom: 24px; }
+  .hero__img { height: auto; }
   .hero__kicker { font-size: 11px; }
-
-  /* Strelice products na mobilnom: centrirane na sliku */
-  .products .swiper-button-prev { left: 4px; }
-  .products .swiper-button-next { right: 4px; }
-
-  .products .swiper-button-next,
-  .products .swiper-button-prev {
-    width: 32px;
-    height: 32px;
-  }
-
-  .products .swiper-button-prev::after,
-  .products .swiper-button-next::after {
-    font-size: 10px;
-  }
 
   .news-blog .swiper-button-next,
   .news-blog .swiper-button-prev {
@@ -1495,8 +1845,13 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   .dobrotskaCipka__inner { grid-template-columns: 1fr; }
   .dobrotskaCipka__content { max-width: none; }
 
+  /* Feature slike: max 40% visine ekrana */
+  .feature__img { max-height: 40vh; }
+
   .footer__grid { grid-template-columns: 1fr 1fr; }
-  .footer__bottom-inner { flex-direction: column; align-items: flex-start; }
+  .footer__bottom-inner { flex-direction: column; align-items: center; }
+  .footer__payments { order: 1; justify-content: center; }
+  .footer__copy { order: 2; text-align: center; width: 100%; }
 
   .news-blog__grid:not([data-swiper-wrapped="1"]) {
     grid-template-columns: 1fr;
@@ -1509,11 +1864,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 /* --- 480px i manje --- */
 @media (max-width: 480px) {
   :root {
-    --products-padding-y: 52px;
-    --products-slider-mt: 32px;
-    --products-slider-max: 100%;
-    --products-arrow-offset: 40px;
-
     --feature-gap: 18px;
     --feature-img-min: 300px;
     --feature-img-bottom-min: 220px;
@@ -1538,21 +1888,6 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
 
   .container { padding: 0 12px; }
 
-  /* xs: strelice manje, 1-2 kartice */
-  .products .swiper-button-prev { left: 2px; }
-  .products .swiper-button-next { right: 2px; }
-
-  .products .swiper-button-next,
-  .products .swiper-button-prev {
-    width: 28px;
-    height: 28px;
-  }
-
-  .products .swiper-button-prev::after,
-  .products .swiper-button-next::after {
-    font-size: 9px;
-  }
-
   .news-blog .swiper-button-next,
   .news-blog .swiper-button-prev {
     width: var(--swiper-arrow-size-xs);
@@ -1562,3 +1897,4 @@ html { scroll-padding-top: var(--site-header-offset, 0px); }
   .footer__grid { grid-template-columns: 1fr; }
 }
 /*END RESPONSIVE */
+
