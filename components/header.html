@@ -1,4 +1,11 @@
 <header class="site-header">
+  <!-- Brand (logo od vrha do dna) -->
+  <div class="header__brand" aria-label="Mustrica">
+    <a href="index.html" class="header__logo" aria-label="Početna">
+      <img class="header__logo-img" src="components/assets/img/logos/headerLogo.png" alt="Mustrica" />
+    </a>
+  </div>
+
   <!-- Gornja traka -->
   <div class="header__top">
     <div class="container header__top-inner">
@@ -48,10 +55,10 @@
       <a href="#narudzbina" class="header__cta header__cta--drawer">NARUDŽBINA PO MJERI</a>
 
       <div class="nav__iconRow" aria-label="Korisničke radnje">
-        <a href="#" aria-label="Nalog"><i class="fa-regular fa-user" aria-hidden="true"></i></a>
-        <a href="#" aria-label="Omiljeno"><i class="fa-regular fa-heart" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Nalog"><img class="header__icon" src="components/assets/img/userSVG.png" alt="Nalog" /></a>
+        <a href="#" aria-label="Omiljeno"><img class="header__icon" src="components/assets/img/srce.png" alt="Omiljeno" /></a>
         <a class="header__cart" href="#" aria-label="Korpa">
-          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+          <img class="header__icon" src="components/assets/img/korpa.png" alt="Korpa" />
           <span class="header__badge" aria-label="1">1</span>
         </a>
       </div>
@@ -62,8 +69,8 @@
             <span class="header__lang-label">EN</span>
           </summary>
           <div class="header__lang-menu" role="menu" aria-label="Izaberi jezik">
-            <button class="header__lang-option" type="button" role="menuitem" data-value="ME">ME</button>
-            <button class="header__lang-option is-active" type="button" role="menuitem" data-value="EN" aria-current="true">EN</button>
+            <a class="header__lang-option" href="#" role="menuitem" data-value="ME">ME</a>
+            <a class="header__lang-option is-active" href="#" role="menuitem" data-value="EN" aria-current="true">EN</a>
           </div>
         </details>
       </div>
@@ -79,13 +86,6 @@
     </div>
       </nav>
 
-      <!-- Brand -->
-      <div class="header__brand" aria-label="Mustrica">
-        <a href="index.html" class="header__logo" aria-label="Početna">
-          <img class="header__logo-img" src="components/assets/img/logos/headerLogo.png" alt="Mustrica" />
-        </a>
-      </div>
-
       <!-- Radnje -->
       <div class="header__actions">
         <!-- Pretraga -->
@@ -99,10 +99,10 @@
         </div>
         <!-- Ikonice (desktop) -->
         <div class="header__icons" aria-label="Korisničke radnje">
-          <a href="#" aria-label="Nalog"><i class="fa-regular fa-user"></i></a>
-          <a href="#" aria-label="Omiljeno"><i class="fa-regular fa-heart"></i></a>
+          <a href="#" aria-label="Nalog"><img class="header__icon" src="components/assets/img/userSVG.png" alt="Nalog" /></a>
+          <a href="#" aria-label="Omiljeno"><img class="header__icon" src="components/assets/img/srce.png" alt="Omiljeno" /></a>
           <a class="header__cart" href="#" aria-label="Korpa">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <img class="header__icon" src="components/assets/img/korpa.png" alt="Korpa" />
             <span class="header__badge" aria-label="1">1</span>
           </a>
           <!-- Jezik (desktop) -->
@@ -112,8 +112,8 @@
                 <span class="header__lang-label">EN</span>
               </summary>
               <div class="header__lang-menu" role="menu" aria-label="Izaberi jezik">
-                <button class="header__lang-option" type="button" role="menuitem" data-value="ME">ME</button>
-                <button class="header__lang-option is-active" type="button" role="menuitem" data-value="EN" aria-current="true">EN</button>
+                <a class="header__lang-option" href="#" role="menuitem" data-value="ME">ME</a>
+                <a class="header__lang-option is-active" href="#" role="menuitem" data-value="EN" aria-current="true">EN</a>
               </div>
             </details>
           </div>
