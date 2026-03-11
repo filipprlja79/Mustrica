@@ -49,8 +49,8 @@
       <section class="products" aria-label="Naši proizvodi">
         <div class="container products__inner">
           <p class="products__kicker">NAJNOVIJI RADOVI</p>
-          <h2 class="products__title">NAŠI PROIZVODI</h2>
-          <img class="products__ornament" src="components/assets/img/ornament.png" alt="" aria-hidden="true" />
+          <h2 class="products__title">Naši proizvodi</h2>
+          <img class="products__ornament" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
 
           <div class="products__slider" aria-label="Lista proizvoda">
             <div class="swiper products-swiper" aria-label="Slider proizvoda">
@@ -65,7 +65,7 @@
                       height="340"
                       loading="lazy"
                     />
-                    <h3 class="product-card__name">PRIVEZAK OD DOBROTSKE ČIPKE</h3>
+                    <h3 class="product-card__name">Privezak od dobrotske čipke</h3>
                     <p class="product-card__price">€25</p>
                     <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
                       <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
@@ -84,7 +84,7 @@
                       height="340"
                       loading="lazy"
                     />
-                    <h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU TAMNOPLAVA</h3>
+                    <h3 class="product-card__name">Dobrotska čipka u okviru tamnoplava</h3>
                     <p class="product-card__price">€220</p>
                     <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
                       <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
@@ -103,7 +103,7 @@
                       height="340"
                       loading="lazy"
                     />
-                    <h3 class="product-card__name">DOBROTSKA ČIPKA U OKVIRU BORDO</h3>
+                    <h3 class="product-card__name">Dobrotska čipka u okviru bordo</h3>
                     <p class="product-card__price">€250</p>
                     <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
                       <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
@@ -122,7 +122,7 @@
                       height="340"
                       loading="lazy"
                     />
-                    <h3 class="product-card__name">BROŠ SA DOBROTSKOM ČIPKOM</h3>
+                    <h3 class="product-card__name">Broš sa dobrotskom čipkom</h3>
                     <p class="product-card__price">€55</p>
                     <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
                       <img class="product-card__addIcon" src="components/assets/img/lock.svg" alt="" aria-hidden="true" />
@@ -212,12 +212,14 @@
               alt="Unikatni radovi"
               loading="lazy"
             />
-            <h3 class="feature-card__title">Unikatni radovi</h3>
-            <p class="feature-card__text">
-              Pogledajte našu kolekciju gotovih, ručno izrađenih Dobrotskih čipki i drugih zanatskih proizvoda,
-              spremnih za kupovinu.
-            </p>
-            <a class="about__cta feature-card__cta" href="#">SAZNAJ VIŠE</a>
+            <div class="feature-card__body">
+              <h3 class="feature-card__title">Unikatni radovi</h3>
+              <p class="feature-card__text">
+                Pogledajte našu kolekciju gotovih, ručno izrađenih Dobrotskih čipki i drugih zanatskih proizvoda,
+                spremnih za kupovinu.
+              </p>
+              <a class="about__cta feature-card__cta" href="#">SAZNAJ VIŠE</a>
+            </div>
           </article>
 
           <div class="feature__center" aria-label="Djevojka">
@@ -226,12 +228,14 @@
 
           <div class="feature__right" aria-label="Radovi po narudžbi">
             <article class="feature-card feature-card--compact">
-              <h3 class="feature-card__title">Radovi po narudžbi</h3>
-              <p class="feature-card__text">
-                Naručite unikatni proizvod po vašoj želji i dizajnu. Popunite formu i naši zanatlije će stvoriti komad
-                posebno za vas.
-              </p>
-              <a class="about__cta feature-card__cta" href="#">SAZNAJ VIŠE</a>
+              <div class="feature-card__body">
+                <h3 class="feature-card__title">Radovi po narudžbi</h3>
+                <p class="feature-card__text">
+                  Naručite unikatni proizvod po vašoj želji i dizajnu. Popunite formu i naši zanatlije će stvoriti komad
+                  posebno za vas.
+                </p>
+                <a class="about__cta feature-card__cta" href="#">SAZNAJ VIŠE</a>
+              </div>
             </article>
 
             <img
@@ -248,7 +252,7 @@
         <div class="container dobrotskaCipka__inner">
           <div class="dobrotskaCipka__content">
             <p class="dobrotskaCipka__kicker">PONAT PO PONAT</p>
-            <h2 class="dobrotskaCipka__title">DOBROTSKA ČIPKA</h2>
+            <h2 class="dobrotskaCipka__title">Dobrotska čipka</h2>
             <div class="dobrotskaCipka__text">
               <p>
                 Vještina izrade dobrotske čipke zaštićeno je nematerijalno kulturno dobro Crne Gore. Dobrotska čipka je dobila
@@ -285,7 +289,7 @@
             <div class="container marketing__overlay-inner">
               <div class="marketing__content">
                 <p class="marketing__kicker">UNIKATNI VANVREMENSKI RADOVI</p>
-                <h2 class="marketing__title">KUPITE VAŠE PARČE TRADICIJE</h2>
+                <h2 class="marketing__title">Kupite vaše parče tradicije</h2>
                 <a class="marketing__cta" href="#">PRODAVNICA</a>
               </div>
             </div>
@@ -299,37 +303,54 @@
             <div class="news-blog__aside">
               <p class="news-blog__kicker">NAŠ BLOG</p>
               <div class="news-blog__heading" aria-label="Naslov vijesti">
-                <h2 class="news-blog__title">VIJESTI I ČLANCI</h2>
-                <img class="news-blog__ornament" src="components/assets/img/ornament.png" alt="" aria-hidden="true" />
+                <h2 class="news-blog__title">Vijesti i članci</h2>
+                <img class="news-blog__ornament" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
               </div>
               <a class="button__cta button_cta news-blog__cta" href="#">SVI ČLANCI</a>
             </div>
 
             <div class="news-blog__main">
               <div class="news-blog__grid" aria-label="Lista vijesti">
-                <article class="news-card" aria-label="Vijest">
-                  <a class="news-card__media" href="#">
-                    <img class="news-card__img" src="components/assets/img/vijestiIClanci1.jpg" alt="Vijesti i članci 1" loading="lazy" />
-                    <span class="news-card__badge">01/12/2025</span>
-                  </a>
-                  <p class="news-card__text">Vještine koje traju: Zašto čuvamo rukotvorine</p>
-                </article>
 
-                <article class="news-card" aria-label="Vijest">
-                  <a class="news-card__media" href="#">
-                    <img class="news-card__img" src="components/assets/img/vijestiIClanci2.jpg" alt="Vijesti i članci 2" loading="lazy" />
-                    <span class="news-card__badge">01/12/2025</span>
-                  </a>
-                  <p class="news-card__text">Čipka u modernom dizajnu</p>
-                </article>
+                <div class="swiper news-swiper">
+                  <div class="swiper-wrapper">
 
-                <article class="news-card" aria-label="Vijest">
-                  <a class="news-card__media" href="#">
-                    <img class="news-card__img" src="components/assets/img/vijestiIClanci3.jpg" alt="Vijesti i članci 3" loading="lazy" />
-                    <span class="news-card__badge">01/12/2025</span>
-                  </a>
-                  <p class="news-card__text">Materijali i tehnike: Tajne lokalnih umjetnika</p>
-                </article>
+                    <div class="swiper-slide">
+                      <article class="news-card" aria-label="Vijest">
+                        <a class="news-card__media" href="#">
+                          <img class="news-card__img" src="components/assets/img/vijestiIClanci1.jpg" alt="Vijesti i članci 1" loading="lazy" />
+                          <span class="news-card__badge">01/12/2025</span>
+                        </a>
+                        <p class="news-card__text">Vještine koje traju: Zašto čuvamo rukotvorine</p>
+                      </article>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <article class="news-card" aria-label="Vijest">
+                        <a class="news-card__media" href="#">
+                          <img class="news-card__img" src="components/assets/img/vijestiIClanci2.jpg" alt="Vijesti i članci 2" loading="lazy" />
+                          <span class="news-card__badge">01/12/2025</span>
+                        </a>
+                        <p class="news-card__text">Čipka u modernom dizajnu</p>
+                      </article>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <article class="news-card" aria-label="Vijest">
+                        <a class="news-card__media" href="#">
+                          <img class="news-card__img" src="components/assets/img/vijestiIClanci3.jpg" alt="Vijesti i članci 3" loading="lazy" />
+                          <span class="news-card__badge">01/12/2025</span>
+                        </a>
+                        <p class="news-card__text">Materijali i tehnike: Tajne lokalnih umjetnika</p>
+                      </article>
+                    </div>
+
+                  </div>
+
+                  <div class="swiper-pagination"></div>
+
+                </div>
+
               </div>
             </div>
           </div>

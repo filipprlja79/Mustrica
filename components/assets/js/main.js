@@ -183,62 +183,30 @@ document.addEventListener("DOMContentLoaded", function () {
   })();
 
   
-  // NEWS Swiper  samo na mobilnom
- 
-  (function initNewsSwiperMobileOnly() {
-    const grid = document.querySelector(".news-blog__grid");
-    if (!grid) return;
-    if (typeof window.Swiper !== "function") return;
+  // NEWS Swiper
+  (function initNewsSwiper() {
+    if (typeof Swiper !== "function") return;
 
-    let instance = null;
-
-    function shouldEnable() {
-      return window.matchMedia("(max-width: 768px)").matches;
-    }
-
-    function enable() {
-      if (instance) return;
-
-      const wrapped = wrapAsSwiper({
-        containerEl: grid,
-        swiperClass: "news-swiper",
-        slideSelector: ".news-card",
-        withNav: false,
-        withPagination: true,
-        paginationType: "progressbar"
-      });
-      if (!wrapped) return;
-
-      const { swiperEl, pagEl } = wrapped;
-
-      instance = new window.Swiper(swiperEl, {
-        loop: false,
-        speed: 450,
-        grabCursor: true,
-        slidesPerView: 1,
-        spaceBetween: 16,
-        pagination: {
-          el: pagEl,
-          type: "progressbar"
+    new Swiper(".news-swiper", {
+      speed: 500,
+      grabCursor: true,
+      slidesPerView: 1,
+      spaceBetween: 16,
+      pagination: {
+        el: ".news-blog .swiper-pagination",
+        type: "progressbar"
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 24
         }
-      });
-    }
-
-    function disable() {
-      if (!instance) return;
-      instance.destroy(true, true);
-      instance = null;
-      unwrapSwiper(grid);
-    }
-
-    function sync() {
-      if (shouldEnable()) enable();
-      else disable();
-    }
-
-    sync();
-    window.addEventListener("resize", sync);
-    window.addEventListener("orientationchange", sync);
+      }
+    });
   })();
 
   // VIDEO popup
