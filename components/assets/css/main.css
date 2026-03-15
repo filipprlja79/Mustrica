@@ -469,6 +469,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
 }
 
+@media (max-width: 768px) {
+  .nav__list a {
+    font-size: 15px;
+  }
+}
+
 .nav__list a.is-active {
   color: rgba(118, 7, 7, 1);
   font-weight: 700;
@@ -1554,8 +1560,24 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 /* END VIDEO */
+
+/* MARKETING */
+.marketing__frame {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  aspect-ratio: var(--marketing-aspect-ratio);
+  background-image: url("../img/reklama.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 
 @media (max-width: 1024px) {
   .marketing__frame { background-attachment: scroll; }
@@ -1609,6 +1631,16 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: flex-end;
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .marketing__title {
+    font-size: clamp(23px, 5vw, 28px);
+    height: auto;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
 }
 /* dugme  za marketing */
 .marketing__cta {
