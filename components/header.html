@@ -33,6 +33,17 @@
 		<button class="nav__close" type="button" aria-label="Zatvori meni">
 			<i class="fa-solid fa-xmark" aria-hidden="true"></i>
 		</button>
+
+    <!-- Ikonice (mobile - iznad nav menija) -->
+    <div class="nav__iconRow" aria-label="Korisničke radnje">
+      <a href="#" aria-label="Nalog"><img class="header__icon" src="components/assets/img/userSVG.png" alt="Nalog" /></a>
+      <a href="#" aria-label="Omiljeno"><img class="header__icon" src="components/assets/img/srce.png" alt="Omiljeno" /></a>
+      <a class="header__cart" href="#" aria-label="Korpa">
+        <img class="header__icon" src="components/assets/img/korpa.png" alt="Korpa" />
+        <span class="header__badge" aria-label="1">1</span>
+      </a>
+    </div>
+
     <!-- Linkovi -->
         <ul class="nav__list">
           <li><a class="is-active" href="#">NASLOVNA</a></li>
@@ -54,14 +65,14 @@
 
       <a href="#narudzbina" class="header__cta header__cta--drawer">NARUDŽBINA PO MJERI</a>
 
-      <div class="nav__iconRow" aria-label="Korisničke radnje">
-        <a href="#" aria-label="Nalog"><img class="header__icon" src="components/assets/img/userSVG.png" alt="Nalog" /></a>
-        <a href="#" aria-label="Omiljeno"><img class="header__icon" src="components/assets/img/srce.png" alt="Omiljeno" /></a>
-        <a class="header__cart" href="#" aria-label="Korpa">
-          <img class="header__icon" src="components/assets/img/korpa.png" alt="Korpa" />
-          <span class="header__badge" aria-label="1">1</span>
-        </a>
-      </div>
+      <!-- Društvene mreže (mobile drawer) -->
+      <ul class="header__social header__social--drawer" aria-label="Društvene mreže">
+        <li><a href="#" aria-label="Instagram"><img class="social-icon" src="components/assets/img/ig.png" alt="Instagram" /></a></li>
+        <li><a href="#" aria-label="Facebook"><img class="social-icon" src="components/assets/img/fb.png" alt="Facebook" /></a></li>
+        <li><a href="#" aria-label="TikTok"><img class="social-icon" src="components/assets/img/tt.png" alt="TikTok" /></a></li>
+        <li><a href="#" aria-label="YouTube"><img class="social-icon" src="components/assets/img/yt.png" alt="YouTube" /></a></li>
+        <li><a href="#" aria-label="TripAdvisor"><img class="social-icon" src="components/assets/img/ta.png" alt="Tripadvisor" /></a></li>
+      </ul>
 
       <div class="nav__langRow" aria-label="Jezik">
         <details class="header__lang-details" data-lang>
@@ -74,15 +85,6 @@
           </div>
         </details>
       </div>
-
-      <!-- Društvene mreže (mobile drawer) -->
-      <ul class="header__social header__social--drawer" aria-label="Društvene mreže">
-        <li><a href="#" aria-label="Instagram"><img class="social-icon" src="components/assets/img/ig.png" alt="Instagram" /></a></li>
-        <li><a href="#" aria-label="Facebook"><img class="social-icon" src="components/assets/img/fb.png" alt="Facebook" /></a></li>
-        <li><a href="#" aria-label="TikTok"><img class="social-icon" src="components/assets/img/tt.png" alt="TikTok" /></a></li>
-        <li><a href="#" aria-label="YouTube"><img class="social-icon" src="components/assets/img/yt.png" alt="YouTube" /></a></li>
-        <li><a href="#" aria-label="TripAdvisor"><img class="social-icon" src="components/assets/img/ta.png" alt="Tripadvisor" /></a></li>
-      </ul>
     </div>
       </nav>
 

@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }) {
     if (!containerEl) return null;
 
-    
     if (containerEl.dataset.swiperWrapped === "1") {
       return containerEl.querySelector(".swiper");
     }
@@ -27,11 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const items = Array.from(containerEl.querySelectorAll(slideSelector));
     if (!items.length) return null;
 
-   
     containerEl.dataset.swiperOriginalHtml = containerEl.innerHTML;
 
-    // Dupliraj kartice ako ih ima ≤ duplicateIfAtMost
-    // (Swiper loop treba više slajdova nego što se prikazuje)
     if (duplicateIfAtMost > 0 && items.length <= duplicateIfAtMost) {
       items.forEach((node) => {
         const clone = node.cloneNode(true);
@@ -41,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const allSlides = Array.from(containerEl.querySelectorAll(slideSelector));
 
-    // Napravi Swiper strukturu
     const swiperEl = createEl("div", `swiper ${swiperClass}`);
     const wrapperEl = createEl("div", "swiper-wrapper");
 
@@ -53,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     swiperEl.appendChild(wrapperEl);
 
-    // strelice
     let nextEl = null;
     let prevEl = null;
     let pagEl = null;
@@ -65,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
       prevEl.type = "button";
       nextEl.setAttribute("aria-label", "Sljedeće");
       prevEl.setAttribute("aria-label", "Prethodno");
-      // Dodaj strelice u containerEl, ne u swiperEl
       containerEl.appendChild(nextEl);
       containerEl.appendChild(prevEl);
     }
@@ -75,10 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
       swiperEl.appendChild(pagEl);
     }
 
-    // Upiši Swiper u container
     containerEl.innerHTML = "";
     containerEl.appendChild(swiperEl);
-    // Strelice moraju biti van swiperEl, pa ih ponovo dodaj
+
     if (withNav) {
       containerEl.appendChild(nextEl);
       containerEl.appendChild(prevEl);
@@ -99,20 +91,17 @@ document.addEventListener("DOMContentLoaded", function () {
     delete containerEl.dataset.swiperWrapped;
   }
 
-  
-  // PRODUCTS Swiper — desktop + mobile (same instance)
+  // PRODUCTS Swiper
   (function initProductsSwiper() {
     const swiperEl = document.querySelector(".products-swiper");
     if (!swiperEl || typeof Swiper !== "function") return;
 
-    
     const wrapper = swiperEl.querySelector(".swiper-wrapper");
     if (wrapper && wrapper.dataset.productsLoopCloned !== "1") {
       const originalSlides = Array.from(wrapper.children).filter((el) =>
         el instanceof Element ? el.classList.contains("swiper-slide") : false
       );
 
-      
       const minSlidesForLoop = 8;
       if (originalSlides.length > 0 && originalSlides.length < minSlidesForLoop) {
         while (wrapper.querySelectorAll(":scope > .swiper-slide").length < minSlidesForLoop) {
@@ -126,15 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
     new Swiper(swiperEl, {
       speed: 500,
       grabCursor: true,
-
       centeredSlides: false,
-
       loop: true,
       loopAdditionalSlides: 4,
-
       slidesPerView: 1,
       spaceBetween: 16,
-
       slidesPerGroup: 1,
 
       navigation: {
@@ -152,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
           slidesPerView: 1,
           spaceBetween: 16
         },
-
         1024: {
           slidesPerView: 4,
           spaceBetween: 24
@@ -161,8 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })();
 
-  // prikaz 'Dodaj u korpu'
-
+  // Prikaz 'Dodaj u korpu'
   (function initProductAddToCartUI() {
     const slider = document.querySelector(".products .products__slider");
     if (!slider) return;
@@ -177,26 +160,43 @@ document.addEventListener("DOMContentLoaded", function () {
       const card = img.closest(".product-card");
       if (!card) return;
 
-      slider.querySelectorAll(".product-card.is-selected").forEach((c) => c.classList.remove("is-selected"));
-      card.classList.add("is-selected");
+      if (card.classList.contains("is-selected")) {
+        card.classList.remove("is-selected");
+      } else {
+        slider.querySelectorAll(".product-card.is-selected").forEach((c) => c.classList.remove("is-selected"));
+        card.classList.add("is-selected");
+      }
     });
   })();
 
-  
   // NEWS Swiper
   (function initNewsSwiper() {
-    if (typeof Swiper !== "function") return;
+    const swiperEl = document.querySelector(".news-swiper");
+    if (!swiperEl || typeof Swiper !== "function") return;
 
-    new Swiper(".news-swiper", {
+    new Swiper(swiperEl, {
       speed: 500,
       grabCursor: true,
+      loop: false,
+      loopAdditionalSlides: 4,
       slidesPerView: 1,
       spaceBetween: 16,
+
+      navigation: {
+        nextEl: ".news-swiper__outer .swiper-button-next",
+        prevEl: ".news-swiper__outer .swiper-button-prev"
+      },
+
       pagination: {
-        el: ".news-blog .swiper-pagination",
+        el: ".news-swiper .swiper-pagination",
         type: "progressbar"
       },
+
       breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 16
+        },
         768: {
           slidesPerView: 2,
           spaceBetween: 20
@@ -210,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
   })();
 
   // VIDEO popup
-  
   (function initVideoPopup() {
     const trigger = document.querySelector(".video-section__button");
     const modal = document.querySelector(".video-section .video-modal");
@@ -238,7 +237,6 @@ document.addEventListener("DOMContentLoaded", function () {
       content.innerHTML = "";
 
       if (!src) {
-        // Fallback: pokaz poster u popup-u 
         if (thumb) {
           const img = document.createElement("img");
           img.src = thumb.currentSrc || thumb.src;
@@ -282,9 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })();
 
-  
-  // Header (loaded via fetch): scroll compact + hamburger + active link
-  
+  // Header: scroll compact + hamburger + active link
   function setSiteHeaderOffset(header) {
     if (!header) return;
     const height = header.getBoundingClientRect().height;
@@ -311,12 +307,10 @@ document.addEventListener("DOMContentLoaded", function () {
       links.forEach((a) => a.classList.toggle("is-active", a === activeEl));
     };
 
-    // Click-based active state (works even when href is "#")
     links.forEach((a) => {
       a.addEventListener("click", () => setActive(a));
     });
 
-    // URL-based active state when real hrefs exist
     const currentUrl = new URL(window.location.href);
     const currentPath = currentUrl.pathname.replace(/\/$/, "");
     const currentHash = currentUrl.hash;
@@ -341,7 +335,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.__mustricaMobileNavBound) return;
     window.__mustricaMobileNavBound = true;
 
-    // Delegate so it works even when header is injected later
     document.addEventListener("click", (e) => {
       const target = e.target;
       if (!(target instanceof Element)) return;
@@ -351,8 +344,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const header = hamburger.closest(".site-header");
         const nav = header?.querySelector(".nav");
         if (!nav) return;
-        nav.classList.add("nav--open");
-        hamburger.setAttribute("aria-expanded", "true");
+        const isOpen = nav.classList.contains("nav--open");
+        if (isOpen) {
+          nav.classList.remove("nav--open");
+          hamburger.setAttribute("aria-expanded", "false");
+        } else {
+          nav.classList.add("nav--open");
+          hamburger.setAttribute("aria-expanded", "true");
+        }
         return;
       }
 
@@ -366,7 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Click outside closes any open drawer
       const openNav = document.querySelector(".nav.nav--open");
       if (!openNav) return;
       const header = openNav.closest(".site-header");
@@ -402,11 +400,11 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
-  // Try immediately (in case header is inline), else observe (header is injected via fetch)
   if (!initHeaderOnce()) {
     const obs = new MutationObserver(() => {
       if (initHeaderOnce()) obs.disconnect();
     });
     obs.observe(document.documentElement, { childList: true, subtree: true });
   }
+
 });

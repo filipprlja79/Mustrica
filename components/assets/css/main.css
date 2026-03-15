@@ -22,8 +22,8 @@
   --feature-img-bottom-min: 260px;
 
   --video-max-width: 1440px;
-  --video-height: 500px;
-  --video-aspect-ratio: auto;
+    --video-height: 500px;
+    --video-aspect-ratio: auto;
 
   /* Marketing banner */
   --marketing-max-width: 1440px;
@@ -37,8 +37,8 @@
   --news-padding-y: 72px;
   --news-gap: 24px;
   --news-card-width: 300px;
-  --news-card-height: 412px;
-  --news-img-aspect: auto;
+  --news-card-height: 535px;
+  --news-img-aspect: 4 / 5;
   --news-hover-line-width: 210px;
 
   /* Swiper arrow sizes */
@@ -242,16 +242,21 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--header-border);
   color: var(--header-ink);
   text-decoration: none;
-  font-size: 16px;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-family: Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 1px;
 }
 
 .header__cta:hover {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-family: Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   border-color: rgba(118, 7, 7, 1);
   background-color: rgba(118, 7, 7, 1);
   color: white;
+  transition: 0.6s ease;
 }
 
 .header__search {
@@ -418,6 +423,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .header__cta header__cta--drawer{
   display: none;
+  font-family: Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 500;
 }
 .header__lang-option.is-active { font-weight: 700; }
@@ -482,6 +488,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav__extras { display: none; }
+.nav__iconRow { display: none; }
 .nav__close { display: none; }
 
 .hamburger {
@@ -489,6 +496,9 @@ h1, h2, h3, h4, h5, h6 {
   background: none;
   border: none;
   cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 24px;
 }
 
 .hamburger span {
@@ -496,7 +506,26 @@ h1, h2, h3, h4, h5, h6 {
   width: 24px;
   height: 2px;
   background: var(--header-ink);
-  margin: 5px 0;
+  position: absolute;
+  left: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 2px; }
+.hamburger span:nth-child(2) { top: 11px; }
+.hamburger span:nth-child(3) { top: 20px; }
+
+/* Hamburger → X when open */
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  top: 11px;
+  transform: rotate(45deg);
+}
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  top: 11px;
+  transform: rotate(-45deg);
 }
 
 /* Force correct header visibility by breakpoint */
@@ -587,10 +616,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* NAŠI PROIZVODI */
 .products {
-  padding: 64px 0;
+  padding: 100px 0;
   background: #fff;
   color: #231F20;
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
 }
+
 
 .products__inner {
   display: grid;
@@ -691,7 +724,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.5px;
   text-align: center;
 }
-
 .product-card__add {
   margin-top: 16px;
   width: 100%;
@@ -699,33 +731,27 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #231F20;
   background: transparent;
   color: #231F20;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
   font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
-  max-height: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  border-width: 0;
+
   opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease, padding 0.3s ease, border-width 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
 }
 
 .product-card:hover .product-card__add {
-  max-height: 46px;
-  min-height: 46px;
-  margin-top: 16px;
-  padding: 10px 14px;
-  border-width: 1px;
   opacity: 1;
+  visibility: visible;
 }
 
 .product-card__add:hover {
@@ -736,6 +762,7 @@ h1, h2, h3, h4, h5, h6 {
 .product-card__addIcon {
   width: 14px;
   height: 14px;
+  opacity: 1;
 }
 
 .product-card.is-selected .product-card__add {
@@ -767,6 +794,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   color: #000;
   pointer-events: auto;
+  transition: 0.5s ease;
 }
 
 .products .swiper-button-prev { left: -16px; }
@@ -909,36 +937,10 @@ h1, h2, h3, h4, h5, h6 {
 /* END NAŠI PROIZVODI */
 
 /* SWIPER — zajednički stilovi samo za news-blog */
-.news-blog .swiper-button-next,
-.news-blog .swiper-button-prev {
-  width: var(--swiper-arrow-size);
-  height: var(--swiper-arrow-size);
-  border-radius: 50%;
-  border: none;
-  background: rgba(118, 7, 7, 1);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: background-color 0.2s ease;
+.news-blog .news-blog__grid{
+  position: relative;
 }
 
-.news-blog .swiper-button-next::after,
-.news-blog .swiper-button-prev::after {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.news-blog .swiper-button-next:hover,
-.news-blog .swiper-button-prev:hover {
-  background: rgba(90, 5, 5, 1);
-}
-
-.news-blog .swiper-button-disabled {
-  opacity: 0.35;
-  cursor: default;
-}
 /* ============================================================ */
 
 /* KO SMO MI */
@@ -989,6 +991,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about__cta {
+  font-family: Marcellus SC, Georgia, "Times New Roman", serif;
   margin-top: 8px;
   min-width: 240px;
   min-height: 44px;
@@ -1003,7 +1006,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
-.about__cta:hover { border-color: rgba(118, 17, 17, 1); color: rgba(118, 17, 17, 1); }
+.about__cta:hover { border-color: rgba(118, 17, 17, 1); color: rgba(118, 17, 17, 1); font-family: Marcellus SC, Georgia, "Times New Roman", serif;}
 /* END KO SMO MI */
 
 /* DOBROTSKA ČIPKA */
@@ -1403,16 +1406,27 @@ h1, h2, h3, h4, h5, h6 {
 /* END FOOTER */
 
 /* VIDEO */
-.video__thumbnail,
+/* VIDEO THUMBNAIL (Figma spec) */
 .video-section__thumbnail {
   display: block;
   width: 100%;
-  max-width: 100%;
-  height: var(--video-height);
-  aspect-ratio: var(--video-aspect-ratio);
+  height: 500px;
   object-fit: cover;
 }
 
+.video-section {
+  width: 100%;
+  --video-play-ring: min(367px, 70vw);
+}
+
+@media (max-width: 768px) {
+  .video-section { --video-play-ring: min(240px, 62vw); }
+}
+
+@media (max-width: 480px) {
+  .video-section { --video-play-ring: min(200px, 68vw); }
+}
+/* VIDEO */
 .video-section {
   width: 100%;
   --video-play-ring: min(367px, 70vw);
@@ -1430,6 +1444,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: block;
   width: 100vw;
+  height: 500px;
   margin-left: 50%;
   transform: translateX(-50%);
   padding: 0;
@@ -1438,7 +1453,22 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-/* Play button (kao dizajn: bijeli prsten + bijeli trougao) */
+.video-section__thumbnail {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .video-section__button,
+  .video-section__thumbnail {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Play button */
 .video-section__play {
   position: absolute;
   inset: 0;
@@ -1524,21 +1554,6 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 /* END VIDEO */
-
-/* MARKETING */
-.marketing__frame {
-  position: relative;
-  width: 100vw;
-  max-width: none;
-  margin: 0;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  overflow: hidden;
-  aspect-ratio: var(--marketing-aspect-ratio);
-  background-image: url("../img/reklama.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
@@ -1587,7 +1602,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-size: clamp(30px, 3.4vw, 46px);
   height: 70px;
-  width: 596px;
+  max-width: 100%;
   letter-spacing: 0.06em;
   font-weight: 500;
   display: flex;
@@ -1597,11 +1612,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* dugme  za marketing */
 .marketing__cta {
+  font-family: Marcellus SC, Georgia, "Times New Roman", serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  width: 188px;
+  width: 240px;
   padding: 10px 14px;
   border: 1px solid #fff;
   background: transparent;
@@ -1610,7 +1626,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  margin-left: 0;
 }
+@media (max-width: 768px) {
+  .marketing__cta {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
 
 .marketing__cta:hover { background: #fff; color: black; }
 /* END MARKETING */
@@ -1630,7 +1659,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-blog__aside { grid-area: aside; text-align: left; }
-.news-blog__main { grid-area: main; width: 100%; }
+.news-blog__main { grid-area: main; width: 100%; overflow: hidden; }
 
 .news-blog__kicker {
   margin: 0 0 10px;
@@ -1668,30 +1697,30 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-.news-blog .swiper { width: 100%; overflow: visible; }
 
-.news-blog .swiper-slide {
-  display: flex;
-  justify-content: center;
+
+
+.swiper{
+  width:100%;
+  max-width:100%;
 }
 
-.news-blog .news-card {
-  width: 100%;
-  max-width: var(--news-card-width);
+.news-blog .swiper {
+  width:100%;
+  overflow:hidden;
+}
+.news-slider{
+  position:relative;
+}
+.news-blog .swiper-slide{
+  display:flex;
+  justify-content:center;
 }
 
-@media (min-width: 769px) {
-  .news-blog .swiper-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, var(--news-card-width));
-    gap: var(--news-gap);
-  }
-
-  .news-blog .swiper-slide {
-    width: auto !important;
-  }
+.news-blog .news-card{
+  width:100%;
+  max-width:300px;
 }
-
 .news-card { text-align: left; }
 
 .news-card__media {
@@ -1780,7 +1809,9 @@ h1, h2, h3, h4, h5, h6 {
 
   
 }
-
+.news-blog .swiper-wrapper{
+  align-items: stretch;
+}
 .news-blog .swiper-button-prev { left: 0; }
 .news-blog .swiper-button-next { right: 0; }
 /* END NEWS / BLOG */
@@ -1811,6 +1842,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 18px;
     width: 100%;
     max-width: 100%;
+    border: 1px solid var(--header-border);
+    border-bottom: 1px solid var(--header-border);
+  }
+
+  .header__search--drawer input {
+    flex: 1;
+    width: auto;
   }
 
   .header__search--drawer:not(.nav__extras .header__search--drawer) {
@@ -1824,12 +1862,18 @@ h1, h2, h3, h4, h5, h6 {
 
   .header__nav-inner {
     grid-template-columns: auto 1fr auto;
+    min-height: 60px;
   }
 
   .header__brand {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .header__logo-img {
+    max-width: clamp(150px, 30vw, 220px);
+    padding: 6px 0;
   }
 
   .header__actions { display: none !important; }
@@ -1841,6 +1885,7 @@ h1, h2, h3, h4, h5, h6 {
     grid-row: 1;
     justify-self: end;
     display: block;
+    z-index: 10001;
   }
 
   .nav {
@@ -1857,13 +1902,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .nav__close {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--header-border);
-    background: #fff;
+    display: none;
     color: var(--header-ink);
     cursor: pointer;
     position: absolute;
@@ -1879,8 +1918,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .nav__list a.is-active::after {
-    display: block;
-    bottom: -8px;
+    display: none;
   }
 
   .nav__extras {
@@ -1904,6 +1942,11 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 18px;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--header-border);
   }
 
   .nav__iconRow a {
@@ -1922,7 +1965,7 @@ h1, h2, h3, h4, h5, h6 {
   .nav__extras .header__social--drawer {
     width: 100%;
     margin: 8px 0 0;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .nav__extras a {
@@ -1977,16 +2020,14 @@ h1, h2, h3, h4, h5, h6 {
     --marketing-aspect-ratio: 16 / 9;
 
     --news-padding-y: 56px;
-    --news-card-width: 100%;
-    --news-card-height: auto;
-    --news-img-aspect: 4 / 3;
-    --news-hover-line-width: 210px;
+    --news-card-width: 300px;
+    --news-card-height: 520px;
+      --news-card-height: 412px;
   }
 
   .hero { margin-bottom: 24px; }
   .hero__img { height: auto; }
   .hero__kicker { font-size: 11px; }
-
   .news-blog .swiper-button-next,
   .news-blog .swiper-button-prev {
     width: var(--swiper-arrow-size-sm);
@@ -2060,3 +2101,82 @@ h1, h2, h3, h4, h5, h6 {
 }
 /*END RESPONSIVE */
 
+/* News swiper outer: flex row, buttons flanking the viewport */
+.news-swiper__outer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Viewport clips the swiper overflow */
+.news-swiper__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Override the absolute positioning from .news-blog — 
+   buttons are now in normal flow */
+.news-blog__grid .swiper-button-prev,
+.news-blog__grid .swiper-button-next {
+  position: static;
+  transform: none;
+  flex-shrink: 0;
+}
+/* Force nav buttons into the flex row — defeat Swiper's absolute positioning */
+.news-swiper__outer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  position: relative; /* needed so nothing leaks out */
+}
+
+.news-swiper__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* High specificity to override Swiper's inline/default absolute positioning */
+.news-swiper__outer > .swiper-button-prev,
+.news-swiper__outer > .swiper-button-next {
+  position: static !important;
+  transform: none !important;
+  margin-top: 0 !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  flex-shrink: 0;
+
+  /* Keep your existing visual style */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(118, 7, 7, 1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.news-swiper__outer > .swiper-button-prev::after,
+.news-swiper__outer > .swiper-button-next::after {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.news-swiper__outer > .swiper-button-prev:hover,
+.news-swiper__outer > .swiper-button-next:hover {
+  background: rgba(90, 5, 5, 1);
+}
+
+.news-swiper__outer > .swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+}
