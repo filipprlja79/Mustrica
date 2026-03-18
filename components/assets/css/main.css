@@ -1012,7 +1012,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
-.about__cta:hover { border-color: rgba(118, 17, 17, 1); color: rgba(118, 17, 17, 1); font-family: Marcellus SC, Georgia, "Times New Roman", serif;}
+.about__cta:hover { background-color: rgba(118, 17, 17, 1); color: white; font-family: Marcellus SC, Georgia, "Times New Roman", serif;}
 /* END KO SMO MI */
 
 /* DOBROTSKA ČIPKA */
