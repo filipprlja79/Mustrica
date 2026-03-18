@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proizvodi</title>
+  <link rel="stylesheet" href="components/assets/css/main.css">
+  <link rel="stylesheet" href="components/assets/css/proizvodi.css">
+  <script src="components/assets/js/main.js"></script>
+</head>
+<body>
+
+<div id="header"></div>
+
+<div class="products-page">
+
+  <!-- breadcrumb -->
+  <div class="container">
+    <div class="naslovna-proizvodi">
+      NASLOVNA / <b>PROIZVODI</b>
+    </div>
+  </div>
+
+<!-- top -->
+<div class="container">
+  <div class="products-top">
+
+    <div class="products-count" id="products-count">
+      <!-- JS ubacuje tekst -->
+    </div>
+
+   <div class="products-sort">
+  <label class="products-sort__label">SORTIRAJ PO:</label>
+
+  <div class="products-sort__wrapper">
+    <select class="products-sort__select">
+      <option class="all" value="all" >Sve</option>
+    </select>
+
+    <span class="products-sort__arrow"></span>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  <!-- GRID -->
+  <div class="container">
+    <div class="products-grid" id="products-grid"></div>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="container">
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+</div>
+
+<div id="footer"></div>
+
+<script src="components/assets/js/proizvodi.js"></script>
+
+<script>
+function includeHTML(selector, url) {
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      document.querySelector(selector).innerHTML = html;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  includeHTML('#header', 'components/header.html');
+  includeHTML('#footer', 'components/footer.html');
+});
+</script>
+
+</body>
+</html>

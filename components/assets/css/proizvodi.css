@@ -1,0 +1,236 @@
+.naslovna-proizvodi {
+    margin-top: 70px;
+  font-size: 14px;
+  color: rgba(33, 35, 30, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* TOP BAR */
+.products-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 30px;
+}
+
+.products-count {
+  font-size: 14px;
+  color: rgba(33, 35, 30, 1);
+}
+
+.products-sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.products-sort label {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px 24px;
+}
+
+/* CARD */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 281px;
+  margin: 0 auto;
+}
+
+/* IMAGE */
+.product-card__img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+/* NAME */
+.product-card__name {
+  margin: 14px 0 10px;
+  font-family: "Marcellus SC", serif;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+}
+
+/* PRICE */
+.product-card__price {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.product-card__add {
+  width: 100%;
+  height: 50px;
+  margin-top: 16px;
+
+  border: 1px solid #231F20;
+  background: transparent;
+  color: #231F20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease;
+}
+
+/* HOVER */
+.product-card:hover .product-card__add {
+  opacity: 1;
+  visibility: visible;
+}
+
+.product-card__add:hover {
+  background-color: #760707;
+  color: white;
+}
+
+/* ICON */
+.product-card__addIcon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* PAGINATION */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 40px 0 60px;
+}
+
+.pagination button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #760707;
+  color: white;
+}
+
+/* TOP WRAPPER */
+.products-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 30px;
+}
+
+/* COUNT */
+.products-count {
+  font-size: 14px;
+  color: rgba(33, 35, 30, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* SORT WRAPPER */
+.products-sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* LABEL */
+.products-sort__label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  font-style: normal;
+  letter-spacing: 0px;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* SELECT */
+.products-sort__select {
+  width: 120px;
+  height: 32px;
+
+  padding: 6px 28px 6px 10px; /* prostor za strelicu */
+
+  border: 1px solid black;
+  background-color: white;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* WRAPPER */
+.products-sort__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* SELECT */
+.products-sort__select {
+  width: 146px;
+  height: 35px;
+
+  padding: 0 40px 0 16px;
+
+  border: 1px solid #1d1d1b;
+  background: white;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+}
+
+/* CUSTOM ARROW (Figma style) */
+.products-sort__arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 10px;
+  height: 10px;
+
+  border-right: 2px solid #1d1d1b;
+  border-bottom: 2px solid #1d1d1b;
+
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+}
