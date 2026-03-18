@@ -758,11 +758,13 @@ h1, h2, h3, h4, h5, h6 {
 .product-card:hover .product-card__add {
   opacity: 1;
   visibility: visible;
+  font-family: "Marcellus SC", Georgia, "Times New Roman", serif;
 }
 
 .product-card__add:hover {
-  border-color: rgba(118, 7, 7, 1);
-  color: rgba(118, 7, 7, 1);
+  background-color: rgba(118, 7, 7, 1);
+  color: #fff;
+  font-family: "Marcellus SC", Georgia, "Times New Roman", serif;
 }
 
 .product-card__addIcon {
