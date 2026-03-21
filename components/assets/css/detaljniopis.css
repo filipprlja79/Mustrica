@@ -1,0 +1,237 @@
+body {
+    background-color: white;
+}
+
+/* SLIDER WRAPPER */
+.products__slider {
+  position: relative;
+  max-width: 1196px;
+  margin: 32px auto 0;
+}
+
+/* SWIPER */
+.products__slider .swiper {
+  width: 100%;
+}
+
+/* WRAPPER */
+.products__slider .swiper-wrapper {
+  display: flex;
+}
+
+/* SLIDE */
+.products__slider .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD */
+.product-card {
+  width: 100%;
+  max-width: 281px;
+  text-align: center;
+}
+
+/* IMAGE */
+.product-card__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 281 / 340;
+  object-fit: cover;
+}
+
+/* TITLE */
+.product-card__name {
+  margin: 14px 0 10px;
+  font-family: "Marcellus SC", serif;
+  font-size: 24px;
+}
+
+/* PRICE */
+.product-card__price {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* STRELICE */
+.products .swiper-button-prev,
+.products .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.products .swiper-button-prev { left: -50px; }
+.products .swiper-button-next { right: -50px; }
+
+/* HOVER */
+.products .swiper-button-prev:hover,
+.products .swiper-button-next:hover {
+  background: #760707;
+  color: white;
+}
+
+/* WRAPPER */
+.product-detail {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding-top: 80px;
+}
+
+/* IMAGE */
+.product-detail__image {
+  width: 620px;
+  height: 495px;
+}
+.product-detail.container {
+  padding-left: 88px;
+}
+.product-detail__image img {
+  width: 620px;
+  height: 495px;
+  object-fit: cover;
+  margin-left: 0px;
+}
+
+/* INFO */
+.product-detail__info {
+  max-width: 500px;
+}
+
+/* TITLE */
+.product-detail__title {
+  font-family: "Marcellus SC", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 45px;
+  line-height: 100%;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+/* TEXT */
+.product-detail__text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.35px;
+  color: #555;
+  line-height: 25px;
+  margin-bottom: 30px;
+}
+
+/* ACTIONS */
+.product-detail__actions {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+/* BUTTON */
+.btn-primary {
+  background: #760707;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.btn-like {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #333;
+  background: white;
+  cursor: pointer;
+}
+
+/* LIKE BUTTON */
+.btn-like {
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-like img {
+  filter: brightness(0) invert(1) !important;
+  color: black;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-like:hover {
+  background-color: black;
+  color: white;
+}
+
+.product-tabs {
+  display: flex;
+  border: 1px solid #e5e5e5;
+  margin-top: 88px;
+  margin-left: 130px;
+  position: relative;
+}
+.product-tabs__item {
+  width: 211px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #000;
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.35px;
+  cursor: pointer;
+  border-right: 1px solid #e5e5e5;
+  transition: all 0.3s ease;
+}
+.product-tabs__item:last-child {
+  border-right: none;
+}
+.product-tabs__item:hover {
+  background: rgba(118, 7, 7, 1);
+  color: white;
+  font-family: "Marcellus SC", serif;
+}
+.product-tabs__item.active {
+  background: rgba(118, 7, 7, 1);
+  color: white;
+  font-family: "Marcellus SC", serif; 
+}
+.product-tabs::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+}
+.tekst {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.35px;
+    margin-left: 130px;
+    margin-top: 80px;
+    margin-right: 10px;
+}

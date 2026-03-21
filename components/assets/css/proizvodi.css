@@ -103,11 +103,22 @@
 .product-card:hover .product-card__add {
   opacity: 1;
   visibility: visible;
+  font-family: "Marcellus SC", serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.35px;
+  line-height: 100%;
 }
 
 .product-card__add:hover {
   background-color: #760707;
   color: white;
+  font-family: "Marcellus SC", serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.35px;
+  line-height: 100%;
+  
 }
 
 /* ICON */
