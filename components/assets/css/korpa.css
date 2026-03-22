@@ -27,7 +27,7 @@ body {
 .cart-container {
   max-width: 730px;
   background: #fff;
-  padding: 32px;
+  padding: 40px;
   box-shadow: none;
   display: flex;
   flex-direction: column;
@@ -37,11 +37,14 @@ body {
 .korpa-item {
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  padding: 24px 28px;
   gap: 24px;
   border-bottom: 1px solid #eee;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 
+  0 4px 10px rgba(0,0,0,0.06),
+  0 8px 30px rgba(0,0,0,0.10);
   background: transparent;
+  margin-left: 4px 0;
 }
 
 /* IMAGE */
@@ -63,10 +66,19 @@ body {
 .cart-id {
   font-family: 'Marcellus SC', serif;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0px;
 }
 
 .cart-price {
-  font-weight: 700;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-style: bold;
+  line-height: 100%;
+  letter-spacing: 0px;
+  
 }
 
 /* REMOVE */
@@ -86,7 +98,7 @@ body {
 
 /* TITLE */
 .korpa-heading {
-  font-family: 'Marcellus SC', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 400;
   text-align: center;
@@ -97,7 +109,7 @@ body {
 /* ORNAMENT */
 .korpa-ornament {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px ;
 }
 
 .korpa-ornament img {
@@ -114,6 +126,12 @@ body {
 
 .korpa-total-value {
   font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-style: bold;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-align: right;
 }
 
 /* BUTTONS */
@@ -156,4 +174,62 @@ body {
   border-bottom: 1px solid #ddd;
   padding-bottom: 16px;
   margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+
+  .cart-container {
+    padding: 20px;
+  }
+
+  .korpa-item {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .cart-img {
+    width: 70px;
+    height: 85px;
+  }
+
+  .cart-info {
+    gap: 6px;
+  }
+
+  .cart-title {
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+  }
+
+  .cart-id {
+    font-size: 12px;
+    color: #777;
+  }
+
+  .cart-price {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .cart-remove {
+    font-size: 22px;
+    margin-left: 8px;
+  }
+  
+}
+
+@media (max-width: 600px) {
+
+  .korpa-ornament {
+    padding: 0 10px; /* malo prostora sa strane */
+  }
+
+  .korpa-ornament img {
+    max-width: 90%; /* da ne ide do ivice */
+    margin: 0 auto;
+  }
+
 }
