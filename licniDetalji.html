@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Licni detalji</title>
+
+        <link rel="stylesheet" href="components/assets/css/main.css">
+        <link rel="stylesheet" href="components/assets/css/proizvodi.css">
+        <link rel="stylesheet" href="components/assets/css/detaljniopis.css">
+        <link rel="stylesheet" href="components/assets/css/korpa.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="components/assets/css/licniDetalji.css">
+
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header"></div>
+    
+        <div class="checkout-main container">
+
+  <!-- LIJEVO -->
+  <div class="checkout-left">
+
+    <!-- HEADER -->
+    <div class="checkout-header">
+      <div class="checkout-line"></div>
+      <h2 class="checkout-title">LIČNI DETALJI</h2>
+    </div>
+
+    <!-- LOGIN / REGISTER -->
+    <div class="checkout-top">
+      <div class="checkout-type">
+        <label><input type="checkbox" checked> Fizičko lice</label>
+        <label><input type="checkbox"> Pravno lice</label>
+      </div>
+
+      <div class="checkout-auth">
+        <span>Prijavite se</span>
+        <a href="#">Registrujte se</a>
+      </div>
+    </div>
+
+    <!-- FORMA -->
+    <form class="checkout-form">
+
+      <div class="form-group">
+        <label>Ime i prezime<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Adresa<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Grad<span>*</span></label>
+        <select>
+          <option class="option">Podgorica</option>
+          <option class="option">Budva</option>
+          <option class="option">Nikšić</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Broj telefona<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>E-mail<span>*</span></label>
+        <input type="email">
+      </div>
+
+    </form>
+
+     <!-- HEADER -->
+    <div class="checkout-header">
+      <div class="checkout-line"></div>
+      <h2 class="checkout-title">Dodatne informacije</h2>
+    </div>
+
+    <!-- FORMA -->
+    <form class="checkout-form">
+
+      <div class="special-request">
+        <label>Specijalni zahtjev</label>
+        <textarea name="" id=""></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Plaćanje<span>*</span></label>
+        <select>
+          <option class="option">Po preuzimanju gotovinski</option>
+          <option class="option">Platna kartica</option>
+          <option class="option">PayPal</option>
+        </select>
+      </div>
+
+       <div class="form-group">
+        <label>Dostava<span>*</span></label>
+        <select>
+          <option class="option">Kurir</option>
+          <option class="option">Pošta</option>
+          <option class="option">Preuzimanje u prodavnici</option>
+        </select>
+      </div>
+
+       <div class="form-group prihvatam-group">
+  <label class="custom-checkbox-label">
+    <input type="checkbox" class="custom-checkbox" />
+    <span class="custom-checkbox-box">
+      <img src="components/assets/img/strik.svg" class="custom-checkbox-icon" alt="">
+    </span>
+    <span class="custom-checkbox-text">
+      Prihvatam <span class="uslovi-link">Uslove Kupovine</span>
+    </span>
+  </label>
+</div>
+ <div class="korpa-nav-btns">
+  <a href="#" class="checkout-next">DALJE</a>
+</div>
+
+    </form>
+  </div>
+
+  <!-- DESNO (tvoj kod) -->
+  <div class="korpa-right">
+
+    <h1 class="korpa-heading">KORPA</h1>
+
+    <div class="korpa-ornament">
+      <img src="components/assets/img/ornament.svg" alt="ornament">
+    </div>
+
+    <div class="checkout-product">
+                            <img class="cart-img" src="components/assets/img/nasiProizvodi/nasiProizvodi2.jpg"
+                                alt="proizvod">
+
+                            <div class="cart-info">
+                                <div class="cart-title">Dobrotska čipka u okviru tamnoplava</div>
+                                <div class="cart-id">ID: 456789</div>
+                                <div class="cart-price"><b>€220</b></div>
+                            </div>
+
+                            <button class="cart-remove">&times;</button>
+                        </div>
+    <hr>
+     <div class="korpa-total-row">
+      <span>DOSTAVA:</span>
+      <span class="korpa-total-value">€5</span>
+    </div>
+    <hr>
+    <div class="korpa-total-row">
+      <span>TOTAL:</span>
+      <span class="korpa-total-value">€220</span>
+    </div>
+
+    <hr>
+
+    <div class="korpa-nav-btns checkout-nav">
+  <a href="#" class="korpa-btn checkout-back">NAZAD</a>
+</div>
+
+  </div>
+
+</div>
+    
+        <!-- FOOTER -->
+        <div id="footer"></div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="components/assets/js/main.js"></script>
+        <script src="components/assets/js/proizvodi.js"></script>
+        <script src="components/assets/js/korpa.js"></script>
+        <script>
+            function includeHTML(selector, url) {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        document.querySelector(selector).innerHTML = html;
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                includeHTML('#header', 'components/header.html');
+                includeHTML('#footer', 'components/footer.html');
+            });
+        </script>
+</body>
+</html>
