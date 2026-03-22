@@ -548,3 +548,27 @@ body {
     height: 44px;
   }
 }
+/* Resetuj full-viewport širinu iz main.css */
+.tab-pane-video .video-section__button {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  margin-left: 0;
+  transform: none;
+  background: #000;
+}
+ 
+.tab-pane-video .video-section__thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent;
+}
+ 
+/* Play ring ostaje centriran */
+.tab-pane-video .video-section__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
