@@ -89,6 +89,7 @@ function updateAll(filtered = null) {
 updateAll();
 
 function setupSearchEvents() {
+  // Desktop
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
     searchInput.addEventListener('input', function(e) {
@@ -100,6 +101,22 @@ function setupSearchEvents() {
     if (searchBtn) {
       searchBtn.addEventListener('click', function() {
         const filtered = filterProducts(searchInput.value);
+        renderProducts(filtered);
+      });
+    }
+  }
+  // Mobile
+  const searchInputMobile = document.getElementById('search-input-mobile');
+  if (searchInputMobile) {
+    searchInputMobile.addEventListener('input', function(e) {
+      searchQuery = e.target.value;
+      const filtered = filterProducts(searchQuery);
+      renderProducts(filtered);
+    });
+    const searchBtnMobile = document.getElementById('search-btn-mobile');
+    if (searchBtnMobile) {
+      searchBtnMobile.addEventListener('click', function() {
+        const filtered = filterProducts(searchInputMobile.value);
         renderProducts(filtered);
       });
     }
