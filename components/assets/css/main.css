@@ -1,3 +1,17 @@
+@media (min-width: 769px) {
+  .nav__close {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .nav__extras,
+  .nav__iconRow,
+  .header__search--drawer,
+  .header__social--drawer,
+  .nav__langRow {
+    display: none !important;
+  }
+}
 .products-detaljni .swiper-button-prev,
 .products-detaljni .swiper-button-next {
   position: absolute;
@@ -565,9 +579,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
 }
 
-.nav__extras { display: none; }
-.nav__iconRow { display: none; }
-.nav__close { display: none; }
+
+/* Hamburger drawer content always visible in drawer */
+.nav__extras { display: block; }
+.nav__iconRow { display: flex; gap: 16px; justify-content: center; margin-bottom: 16px; }
+.nav__close { display: block; position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 28px; cursor: pointer; z-index: 10002; }
 
 .hamburger {
   display: none;
@@ -610,8 +626,8 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 769px) {
   .header__actions { display: flex !important; }
   .header__icons { display: flex !important; }
-  .hamburger { display: none !important; }
-
+  /* Hamburger menu is now always visible */
+}
   .nav {
     position: static;
     right: auto;
@@ -622,9 +638,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: none;
   }
 
-  .nav__close { display: none !important; }
-  .nav__extras { display: none !important; }
-}
+  /* .nav__close and .nav__extras always visible when nav is open */
+
 
 @media (max-width: 768px) {
   .hamburger {
@@ -1948,13 +1963,18 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 18px;
     width: 100%;
     max-width: 100%;
-    border: 1px solid var(--header-border);
+    border: none;
     border-bottom: 1px solid var(--header-border);
   }
 
   .header__search--drawer input {
     flex: 1;
     width: auto;
+    border: none;
+    border-bottom: 1.5px solid var(--header-border, #231F20);
+    border-radius: 0;
+    background: transparent;
+    outline: none;
   }
 
   .header__search--drawer:not(.nav__extras .header__search--drawer) {

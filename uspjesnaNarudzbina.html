@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Uspješna Narudžbina</title>
+
+        <link rel="stylesheet" href="components/assets/css/main.css">
+        <link rel="stylesheet" href="components/assets/css/proizvodi.css">
+        <link rel="stylesheet" href="components/assets/css/detaljniopis.css">
+        <link rel="stylesheet" href="components/assets/css/korpa.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="components/assets/css/licniDetalji.css">
+        <link rel="stylesheet" href="components/assets/css/uspjesnaNarudzbina.css">
+
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header"></div>
+
+
+
+       <div class="success-page">
+  <div class="success-box">
+
+    <div class="success-subtitle">
+      HVALA VAM NA POVJERENJU
+    </div>
+
+    <h1 class="success-title">
+      Uspješna porudžbina
+    </h1>
+
+    <p class="success-text">
+      Vaša porudžbina je uspješno zaprimljena i trenutno je u obradi.
+      Detalje porudžbine poslali smo na vašu e mail adresu.
+      Uskoro ćete dobiti obavještenje o slanju.
+    </p>
+
+    <a href="#" class="success-btn">
+      NAZAD NA NASLOVNU
+    </a>
+
+  </div>
+</div>
+
+         <!-- FOOTER -->
+        <div id="footer"></div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="components/assets/js/main.js"></script>
+        <script src="components/assets/js/proizvodi.js"></script>
+        <script src="components/assets/js/korpa.js"></script>
+        <script>
+            function includeHTML(selector, url) {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        document.querySelector(selector).innerHTML = html;
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                includeHTML('#header', 'components/header.html');
+                includeHTML('#footer', 'components/footer.html');
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* WRAPPER */
+.success-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 120px 20px;
+  background: #ffffff;
+}
+
+/* CONTENT */
+.success-box {
+  max-width: 700px;
+}
+
+/* NADNASLOV */
+.success-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: #444;
+}
+
+/* NASLOV */
+.success-title {
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  font-size: 45px;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  color: #111;
+}
+
+/* TEKST */
+.success-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.35px;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+/* BUTTON */
+.success-btn {
+  width: 281px;
+  height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #222;
+  background: transparent;
+  color: #222;
+
+  font-family: 'Marcellus SC', serif;
+  font-size: 16px;
+  letter-spacing: 0.35px;
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+/* HOVER */
+.success-btn:hover {
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
+  border-color: rgba(118, 7, 7, 1);
+}
