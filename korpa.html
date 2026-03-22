@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Korpa</title>
+
+        <link rel="stylesheet" href="components/assets/css/main.css">
+        <link rel="stylesheet" href="components/assets/css/proizvodi.css">
+        <link rel="stylesheet" href="components/assets/css/detaljniopis.css">
+        <link rel="stylesheet" href="components/assets/css/korpa.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header"></div>
+
+        <!-- MAIN -->
+        <div class="korpa-main container">
+
+            <!-- LIJEVO -->
+            <div class="korpa-left">
+
+                <!--  WRAPPER -->
+                <div class="korpa-content">
+
+
+
+                    <div class="cart-container">
+                        <div class="korpa-breadcrumb">
+                            NASLOVNA / <b>KORPA</b>
+                        </div>
+                        <!-- PROIZVOD 1 START -->
+                        <div class="korpa-item">
+                            <img class="cart-img" src="components/assets/img/nasiProizvodi/nasiProizvodi2.jpg"
+                                alt="proizvod">
+
+                            <div class="cart-info">
+                                <div class="cart-title">Dobrotska čipka u okviru tamnoplava</div>
+                                <div class="cart-id">ID: 456789</div>
+                                <div class="cart-price">€220</div>
+                            </div>
+
+                            <button class="cart-remove">&times;</button>
+                        </div>
+                        <!-- PROIZVOD 1 END -->
+
+                        <!-- Ovdje se moze dodavati još proizvoda -->
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- DESNO -->
+            <div class="korpa-right">
+
+                <h1 class="korpa-heading">KORPA</h1>
+
+                <div class="korpa-ornament">
+                    <img src="components/assets/img/ornament.svg" alt="ornament">
+                </div>
+
+                <div class="korpa-total-row">
+                    <span>TOTAL:</span>
+                    <span class="korpa-total-value">€220</span>
+                </div>
+
+                <hr>
+
+                <div class="korpa-nav-btns">
+                    <a href="#" class="korpa-btn">NAZAD</a>
+                    <a href="#" class="korpa-btn active">DALJE</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer"></div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="components/assets/js/main.js"></script>
+        <script src="components/assets/js/proizvodi.js"></script>
+        <script src="components/assets/js/korpa.js"></script>
+        <script>
+            function includeHTML(selector, url) {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        document.querySelector(selector).innerHTML = html;
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                includeHTML('#header', 'components/header.html');
+                includeHTML('#footer', 'components/footer.html');
+            });
+        </script>
+
+    </body>
+
+</html>

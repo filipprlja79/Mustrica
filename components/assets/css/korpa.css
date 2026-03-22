@@ -1,0 +1,159 @@
+body {
+  background: whitesmoke;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* MAIN LAYOUT */
+.korpa-main {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* LEFT */
+.korpa-left {
+  flex: 2;
+}
+
+/* BREADCRUMB */
+.korpa-breadcrumb {
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+/* CART CARD */
+.cart-container {
+  max-width: 730px;
+  background: #fff;
+  padding: 32px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.korpa-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  gap: 24px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  background: transparent;
+}
+
+/* IMAGE */
+.cart-img {
+  width: 93px;
+  height: 111px;
+  object-fit: cover;
+}
+
+/* INFO */
+.cart-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cart-title,
+.cart-id {
+  font-family: 'Marcellus SC', serif;
+  font-size: 14px;
+}
+
+.cart-price {
+  font-weight: 700;
+}
+
+/* REMOVE */
+.cart-remove {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* RIGHT SIDE */
+.korpa-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* TITLE */
+.korpa-heading {
+  font-family: 'Marcellus SC', serif;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 100%;
+  letter-spacing: 1px;
+}
+/* ORNAMENT */
+.korpa-ornament {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.korpa-ornament img {
+  height: 28px;
+}
+
+/* TOTAL */
+.korpa-total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.korpa-total-value {
+  font-weight: 700;
+}
+
+/* BUTTONS */
+.korpa-nav-btns {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+/* DEFAULT BUTTON */
+.korpa-btn {
+  flex: 1;
+  text-align: center;
+  padding: 14px 0;
+  border: 1px solid #222;
+  background: transparent;
+  color: #222;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ACTIVE BUTTON */
+.korpa-btn.active {
+  border: 2px solid #000;
+  color: #000;
+}
+
+/* HOVER */
+.korpa-btn:hover {
+  background: #f2f2f2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .korpa-main {
+    flex-direction: column;
+  }
+}
+.korpa-total-row {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
