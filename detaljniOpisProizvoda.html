@@ -51,32 +51,114 @@
 </div>
 
 <div class="product-tabs">
-  <div class="product-tabs__item active">OPIS</div>
-  <div class="product-tabs__item">SPECIFIKACIJE</div>
-  <div class="product-tabs__item">VIDEO</div>
+  <div class="product-tabs__item active" data-tab="opis">OPIS</div>
+  <div class="product-tabs__item" data-tab="spec">SPECIFIKACIJE</div>
+  <div class="product-tabs__item" data-tab="video">VIDEO</div>
 </div>
 
-<div class="tekst">
+<div class="tab-content">
+  <div class="tab-pane tab-pane-opis" style="display:block;">
+    <div class="tekst">
+      Dobrotska čipka predstavlja jedan od najprepoznatljivijih oblika tradicionalnog ručnog rada Crne Gore i nosi status zaštićenog nematerijalnog kulturnog dobra. Nastala u Boki Kotorskoj, ova čipka je simbol strpljenja, preciznosti i višegeneracijskog znanja koje se prenosi sa koljena na koljeno. Svaki motiv izrađuje se ručno, uz posebnu pažnju prema detaljima i ritmu same tehnike.<br><br>
+      Čipka je pažljivo postavljena u tamnoplavi okvir koji dodatno naglašava njenu suptilnu strukturu i ornamentalnu ljepotu. Kontrast između svijetle čipke i duboke plave boje okvira ističe složenost uzorka i daje predmetu elegantan, savremen karakter, čineći ga pogodnim kako za klasične, tako i za modernije enterijere.<br><br>
+      Svaki primjerak je unikat i ne može se u potpunosti ponoviti, što ovom radu daje posebnu vrijednost. Moguća su minimalna odstupanja u motivu i dimenzijama, što je prirodna odlika ručnog rada i potvrda njegove autentičnosti. Upravo te male razlike čine svaki komad jedinstvenim umjetničkim djelom.<br><br>
+      Dobrotska čipka u okviru idealna je kao poklon sa snažnom simbolikom, ali i kao trajni dekorativni element koji unosi duh tradicije, kulture i mediteranskog nasljeđa u prostor. Ovaj rad nije samo ukras, već svjedočanstvo bogate zanatske baštine i pažljivo očuvanog identiteta Bokeljske umjetnosti.<br><br>
+    </div>
+  </div>
+  <div class="tab-pane tab-pane-spec" style="display:none;">
+    <div class="spec-list">
+      <div class="spec-item">
+        <span style="display:inline-flex;align-items:center;gap:6px;">
+          <img src="components/assets/img/SpecifikacijeKarakter.svg" alt="spec" class="spec-icon" style="width:18px;height:18px;vertical-align:middle;" />
+          <b class="boldovano">Vrsta proizvoda:</b> <span class="span">Ručno rađeno umjetničko djelo (čipka u okviru)</span>
+        </span>
+      </div>
+      <div class="spec-item">
+        <span style="display:inline-flex;align-items:center;gap:6px;">
+          <img src="components/assets/img/SpecifikacijeKarakter.svg" alt="spec" class="spec-icon" style="width:18px;height:18px;vertical-align:middle;" />
+          <b class="boldovano">Dimenzija okvira:</b> <span class="span">50 × 70 cm</span>
+        </span>
+      </div>
+      <div class="spec-item">
+        <span style="display:inline-flex;align-items:center;gap:6px;">
+          <img src="components/assets/img/SpecifikacijeKarakter.svg" alt="spec" class="spec-icon" style="width:18px;height:18px;vertical-align:middle;" />
+          <b class="boldovano">Dimenzija čipke:</b> <span class="span">30 × 38 cm</span>
+        </span>
+      </div>
+      <div class="spec-item">
+        <span style="display:inline-flex;align-items:center;gap:6px;">
+          <img src="components/assets/img/SpecifikacijeKarakter.svg" alt="spec" class="spec-icon" style="width:18px;height:18px;vertical-align:middle;" />
+          <b class="boldovano">Tehnika izrade:</b> <span class="span">Tradicionalna Dobrotska čipka – ručni rad</span>
+        </span>
+      </div>
+      <div class="spec-item">
+        <span style="display:inline-flex;align-items:center;gap:6px;">
+          <img src="components/assets/img/SpecifikacijeKarakter.svg" alt="spec" class="spec-icon" style="width:18px;height:18px;vertical-align:middle;" />
+          <b class="boldovano">Porijeklo:</b> <span class="span">Dobrota, Boka Kotorska, Crna Gora</span>
+        </span>
+      </div>
+      <div class="spec-item">
+        <span style="display:inline-flex;align-items:center;gap:6px;">
+          <img src="components/assets/img/SpecifikacijeKarakter.svg" alt="spec" class="spec-icon" style="width:18px;height:18px;vertical-align:middle;" />
+          <b class="boldovano">Materijali:</b> <span class="span">Pamučni konac, drveni okvir, staklo</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane tab-pane-video" style="display:none;">
+    <div class="tekst">
+      <!-- Video sekcija (full width) -->
+      <section class="video-section" aria-label="Video o izradi dobrotske čipke">
+        <button class="video-section__button" type="button" data-video-src="" aria-label="Pusti video">
+          <img
+            src="components/assets/img/nasiProizvodi/nasiProizvodi2.jpg"
+            alt="Video o izradi dobrotske čipke"
+            class="video-section__thumbnail"
+            loading="lazy"
+          />
+          <span class="video-section__play" aria-hidden="true"></span>
+        </button>
 
-        Dobrotska čipka predstavlja jedan od najprepoznatljivijih oblika tradicionalnog ručnog rada Crne Gore i nosi status zaštićenog nematerijalnog kulturnog dobra. Nastala u Boki Kotorskoj, ova čipka je simbol strpljenja, preciznosti i višegeneracijskog znanja koje se prenosi sa koljena na koljeno. Svaki motiv izrađuje se ručno, uz posebnu pažnju prema detaljima i ritmu same tehnike.<br><br>
-Čipka je pažljivo postavljena u tamnoplavi okvir koji dodatno naglašava njenu suptilnu strukturu i ornamentalnu ljepotu. Kontrast između svijetle čipke i duboke plave boje okvira ističe složenost uzorka i daje predmetu elegantan, savremen karakter, čineći ga pogodnim kako za klasične, tako i za modernije enterijere.<br><br>
-Svaki primjerak je unikat i ne može se u potpunosti ponoviti, što ovom radu daje posebnu vrijednost. Moguća su minimalna odstupanja u motivu i dimenzijama, što je prirodna odlika ručnog rada i potvrda njegove autentičnosti. Upravo te male razlike čine svaki komad jedinstvenim umjetničkim djelom.<br><br>
-Dobrotska čipka u okviru idealna je kao poklon sa snažnom simbolikom, ali i kao trajni dekorativni element koji unosi duh tradicije, kulture i mediteranskog nasljeđa u prostor. Ovaj rad nije samo ukras, već svjedočanstvo bogate zanatske baštine i pažljivo očuvanog identiteta Bokeljske umjetnosti.<br><br>
-
+        <div class="video-modal" hidden aria-hidden="true" role="dialog" aria-label="Video">
+          <div class="video-modal__backdrop" data-video-close></div>
+          <div class="video-modal__dialog" role="document">
+            <button class="video-modal__close" type="button" aria-label="Zatvori" data-video-close>
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="video-modal__content" data-video-content></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>
+
+<script>
+document.querySelectorAll('.product-tabs__item').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.product-tabs__item').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    const tabName = this.getAttribute('data-tab');
+    document.querySelectorAll('.tab-pane').forEach(pane => {
+      pane.style.display = pane.classList.contains('tab-pane-' + tabName) ? 'block' : 'none';
+    });
+  });
+});
+</script>
 
 <!-- Sekcija => Naši proizvodi -->
-      <section class="products" aria-label="Naši proizvodi">
-        <div class="container products__inner">
-          <p class="products__kicker">NAJNOVIJI RADOVI</p>
-          <h2 class="products__title">Naši proizvodi</h2>
-          <img class="products__ornament" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
+      <section class="products-detaljni" aria-label="Naši proizvodi">
+        <div class="container products__inner-detaljni">
+          <p class="products__kicker-detaljni">NAJNOVIJI RADOVI</p>
+          <h2 class="products__title-detaljni">Naši proizvodi</h2>
+          <img class="products__ornament-detaljni" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
 
           <div class="products__slider" aria-label="Lista proizvoda">
             <div class="swiper products-swiper" aria-label="Slider proizvoda">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <article class="product-card" aria-label="Proizvod">
+                  <article class="product-card" aria-label="Proizvod" style="position:relative;">
+                    <span style="position:absolute;top:0;left:0;background:#760707;color:#fff;font-size:14px;padding:2px 10px 2px 8px;border-radius:0 0 10px 0;z-index:2;">15% POPUSTA</span>
                     <img
                       class="product-card__img"
                       src="components/assets/img/nasiProizvodi/nasiProizvodi1.jpg"
@@ -86,7 +168,10 @@ Dobrotska čipka u okviru idealna je kao poklon sa snažnom simbolikom, ali i ka
                       loading="lazy"
                     />
                     <h3 class="product-card__name">Privezak od dobrotske čipke</h3>
-                    <p class="product-card__price">€25</p>
+                    <p class="product-card__price" style="display:flex;align-items:center;gap:3px;">
+                      <span class="price-strike-red">€25</span>
+                      <span style="color:#111;font-size:22px;font-weight:700;">€21,25</span>
+                    </p>
                     <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
                       <img class="product-card__addIcon" src="components/assets/img/katanac.svg" alt="katanac" aria-hidden="true" />
                       <span>DODAJ U KORPU</span>
@@ -132,6 +217,24 @@ Dobrotska čipka u okviru idealna je kao poklon sa snažnom simbolikom, ali i ka
                   </article>
                 </div>
 
+                <div class="swiper-slide">
+                  <article class="product-card" aria-label="Proizvod">
+                    <img
+                      class="product-card__img"
+                      src="components/assets/img/nasiProizvodi/nasiProizvodi4.jpg"
+                      alt="BROŠ SA DOBROTSKOM ČIPKOM"
+                      width="281"
+                      height="340"
+                      loading="lazy"
+                    />
+                    <h3 class="product-card__name">Broš sa dobrotskom čipkom</h3>
+                    <p class="product-card__price">€55</p>
+                    <button class="product-card__add" type="button" aria-label="Dodaj u korpu">
+                      <img class="product-card__addIcon" src="components/assets/img/katanac.svg" alt="katanac" aria-hidden="true" />
+                      <span>DODAJ U KORPU</span>
+                    </button>
+                  </article>
+                </div>
                 <div class="swiper-slide">
                   <article class="product-card" aria-label="Proizvod">
                     <img

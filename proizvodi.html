@@ -61,16 +61,19 @@
 <script src="components/assets/js/proizvodi.js"></script>
 
 <script>
-function includeHTML(selector, url) {
+function includeHTML(selector, url, callback) {
   fetch(url)
     .then(response => response.text())
     .then(html => {
       document.querySelector(selector).innerHTML = html;
+      if (typeof callback === 'function') callback();
     });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  includeHTML('#header', 'components/header.html');
+  includeHTML('#header', 'components/header.html', function() {
+    if (typeof setupSearchEvents === 'function') setupSearchEvents();
+  });
   includeHTML('#footer', 'components/footer.html');
 });
 </script>

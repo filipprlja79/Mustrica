@@ -1,3 +1,75 @@
+.products-detaljni .swiper-button-prev,
+.products-detaljni .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #000;
+  pointer-events: auto;
+  transition: 0.5s ease;
+}
+.products-detaljni .swiper-button-prev { left: -60px; }
+.products-detaljni .swiper-button-next { right: -60px; }
+.products-detaljni .swiper-button-prev::after,
+.products-detaljni .swiper-button-next::after {
+  font-size: 12px;
+  line-height: 1;
+  color: currentColor;
+  font-weight: 700;
+}
+.products-detaljni .swiper-button-prev:hover,
+.products-detaljni .swiper-button-next:hover {
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
+}
+.products-detaljni {
+  padding: 100px 0;
+  background: whitesmoke;
+  color: #231F20;
+  position: relative;
+  z-index: 2;
+}
+.products__inner-detaljni {
+  display: grid;
+  row-gap: 16px;
+  justify-items: start;
+}
+.products__kicker-detaljni {
+  margin: 0;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: left;
+}
+.products__title-detaljni {
+  margin: 0;
+  font-family: "Marcellus SC", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-align: left;
+}
+.products__ornament-detaljni {
+  display: block;
+  width: min(420px, 92%);
+  height: auto;
+  margin: 0;
+}
 /* VARIJABLE */
 :root {
   /* Breakpoints */
@@ -623,7 +695,7 @@ h1, h2, h3, h4, h5, h6 {
 /* NAŠI PROIZVODI */
 .products {
   padding: 100px 0;
-  background: #fff;
+  background: whitesmoke;
   color: #231F20;
   
   position: relative;

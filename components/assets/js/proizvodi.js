@@ -15,35 +15,35 @@ const products = [
 
 const productsPerPage = 12; //moguce 12 po stranici
 let currentPage = 1;
-// sluzi za prikaz proizvoda, paginaciju i broj prikazanih proizvoda, sve u jednom da ne bude previse funkcija
-function renderProducts() {
+let searchQuery = "";
+
+function filterProducts(query) {
+  // Normalizuj na lower case i ukloni whitespace
+  const q = query.trim().toLowerCase();
+  // Podrška za UTF-8/mb4 karaktere
+  return products.filter(p =>
+    p.name.toLowerCase().normalize("NFKC").includes(q)
+  );
+}
+
+function renderProducts(filtered = null) {
   const grid = document.getElementById("products-grid");
   grid.innerHTML = "";
-
-  const start = (currentPage - 1) * productsPerPage;
-  const end = start + productsPerPage;
-
-  const pageItems = products.slice(start, end);
-
-  pageItems.forEach(p => {
+  const items = filtered !== null ? filtered : products.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
+  items.forEach(p => {
     grid.innerHTML += `
       <div class="product-card">
-        
         <img src="${p.img}" class="product-card__img">
-
         <div class="product-card__name">
           ${p.name}
         </div>
-
         <div class="product-card__price">
           €${p.price}
         </div>
-
         <button class="product-card__add">
           <img class="product-card__addIcon" src="components/assets/img/katanac.svg">
           <span>DODAJ U KORPU</span>
         </button>
-
       </div>
     `;
   });
@@ -80,10 +80,34 @@ function renderPagination() {
   }
 }
 
-function updateAll() {
-  renderProducts();
+function updateAll(filtered = null) {
+  renderProducts(filtered);
   renderPagination();
   updateProductCount();
 }
 
 updateAll();
+
+function setupSearchEvents() {
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      searchQuery = e.target.value;
+      const filtered = filterProducts(searchQuery);
+      renderProducts(filtered);
+    });
+    const searchBtn = document.getElementById('search-btn');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function() {
+        const filtered = filterProducts(searchInput.value);
+        renderProducts(filtered);
+      });
+    }
+  }
+}
+
+// Pozovi setupSearchEvents nakon što se header učita
+window.addEventListener('DOMContentLoaded', function() {
+  // Ovdje NE zovemo setupSearchEvents odmah jer header još nije u DOM-u
+  // Umjesto toga, presrećemo includeHTML u proizvodi.html
+});
