@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+
+    <link rel="stylesheet" href="components/assets/css/main.css">
+    <link rel="stylesheet" href="components/assets/css/template.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- HERO -->
+    <section class="radovi-hero">
+        <img src="components/assets/img/template.png" alt="template">
+
+        <div class="radovi-hero-overlay">
+            <div class="radovi-breadcrumb">
+                NASLOVNA / <b>TEMPLATE</b>
+            </div>
+            <h1>TEMPLATE</h1>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="template">
+
+        <div class="template__container">
+
+            <!-- H2 -->
+            <div class="template__block">
+                <h2 class="template__title">H2</h2>
+
+                <p class="template__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+
+                <p class="template__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+
+            <!-- H3 + LISTA -->
+            <div class="template__block">
+                <h3 class="template__subtitle">H3</h3>
+
+                <p class="template__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+
+                <ul class="template__list">
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        Lorem ipsum dolor sit amet
+                    </li>
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        Lorem ipsum dolor sit amet
+                    </li>
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        Lorem ipsum dolor sit amet
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BUTTON -->
+            <div class="template__block">
+                <h3 class="template__subtitle">H3</h3>
+
+                <button class="template__btn">DALJE</button>
+            </div>
+
+            <!-- PDF -->
+            <div class="template__block">
+                <div class="template__pdf">
+                    <img src="components/assets/img/pdf.svg" alt="pdf">
+                    <span>Mustrica.PDF</span>
+                </div>
+            </div>
+
+            <!-- FINAL H3 -->
+            <div class="template__block">
+                <h3 class="template__subtitle">H3</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="blog-slider">
+  
+  <div class="blog-slider__outer">
+
+    <!-- STRELICA LIJEVO -->
+    <button class="blog-slider__arrow blog-slider__arrow--left">
+      &#8249;
+    </button>
+
+    <!-- WRAP ZA SLIKE -->
+    <div class="blog-slider__inner">
+      
+      <div class="blog-slider__images">
+        <img src="components/assets/img/vijestiIClanci1.jpg" alt="">
+        <img src="components/assets/img/blogDetalji.png" alt="">
+      </div>
+
+    </div>
+
+    <!-- STRELICA DESNO -->
+    <button class="blog-slider__arrow blog-slider__arrow--right">
+      &#8250;
+    </button>
+
+  </div>
+
+</section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+        function includeHTML(selector, url) {
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(selector).innerHTML = html;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            includeHTML('#header', 'components/header.html');
+            includeHTML('#footer', 'components/footer.html');
+        });
+    </script>
+
+    <script src="components/assets/js/main.js"></script>
+
+</body>
+</html>

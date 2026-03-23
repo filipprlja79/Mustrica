@@ -1,0 +1,259 @@
+/* HERO */
+.radovi-hero {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+/* SLIKA */
+.radovi-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* OVERLAY */
+.radovi-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    text-align: center;
+}
+
+/* BREADCRUMB */
+.radovi-breadcrumb {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+/* NASLOV */
+.radovi-hero h1 {
+    font-family: 'Marcellus SC', serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* SEKCIJA */
+.template {
+    padding: 40px 0;
+}
+
+/* CONTAINER */
+.template__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* BLOK */
+.template__block {
+    margin-bottom: 35px;
+}
+
+/* H2 */
+.template__title {
+    font-family: 'Marcellus SC', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0.75px;
+
+}
+
+/* H3 */
+.template__subtitle {
+    font-family: 'Marcellus SC', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.template__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.35px;
+
+}
+
+/* LISTA */
+.template__list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.template__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+}
+
+/* ICON */
+.spec-icon {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+}
+
+/* BUTTON */
+.template__btn {
+    font-family: 'Marcellus SC', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0.35px;
+    text-align: center;
+    background-color: rgba(118, 7, 7, 1);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.template__btn:hover {
+    opacity: 0.85;
+}
+
+/* PDF */
+.template__pdf {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 0.5px;
+
+}
+
+.template__pdf img {
+    width: 24px;
+    height: 24px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .template__title {
+        font-size: 24px;
+    }
+
+    .template__subtitle {
+        font-size: 20px;
+    }
+
+    .template__text {
+        font-size: 14px;
+    }
+}
+
+/* SEKCIJA */
+.blog-slider {
+    padding: 80px 0;
+    background: #fff;
+}
+
+/* OUTER WRAP */
+.blog-slider__outer {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* INNER WRAP */
+.blog-slider__inner {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* SLIKE */
+.blog-slider__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.blog-slider__images img {
+    width: 100%;
+    height: 632px;
+    max-width: 632px;
+    object-fit: cover;
+    display: block;
+}
+
+/* STRELICE */
+.blog-slider__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    background: #fff;
+    color: #333;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* DESNA STRELCA */
+.blog-slider__arrow--right {
+    background: rgba(118, 7, 7, 1);
+    color: #fff;
+}
+
+/* HOVER */
+.blog-slider__arrow:hover {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .blog-slider__outer {
+        padding: 0 20px;
+    }
+
+    .blog-slider__images {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-slider__images img {
+        height: 250px;
+    }
+}
