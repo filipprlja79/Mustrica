@@ -1,0 +1,357 @@
+@media (max-width: 768px) {
+  .radovi-hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* HERO */
+.radovi-hero {
+  position: relative;
+  width: 100%;
+  height: 378px;
+  overflow: hidden;
+}
+.radovi-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.radovi-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* TITLE */
+.radovi-hero h1 {
+  font-family: 'Marcellus SC', serif;
+  font-size: 45px;
+  letter-spacing: 2px;
+    line-height: 100%;
+    font-style: normal;
+    font-weight: 400;
+
+}
+
+/* container ostaje za centriranje */
+.radovi-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+/* LEFT IMAGE */
+.radovi-left img {
+  width: 620px;
+  height: 600px;
+  object-fit: cover;
+}
+
+/* RIGHT */
+.radovi-right {
+  max-width: 600px;
+}
+
+/* KICKER */
+.radovi-kicker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+/* TITLE */
+.radovi-title {
+  font-family: 'Marcellus SC', serif;
+  font-size: 45px;
+  line-height: 45px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* TEXT */
+.radovi-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .radovi-content {
+    flex-direction: column;
+  }
+
+  .radovi-left img {
+    width: 100%;
+    height: auto;
+  }
+
+  .radovi-right {
+    max-width: 100%;
+  }
+}
+
+/* WRAPPER */
+.oNama-section {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  align-items: center;
+}
+
+/* LIJEVO */
+.oNama-left img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+}
+
+/* DESNO */
+.oNama-right {
+  max-width: 600px;
+}
+
+/* NADNASLOV */
+.oNama-kicker {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: rgba(118, 7, 7, 1); /* 🔴 BITNO */
+  text-transform: uppercase;
+}
+
+/* NASLOV */
+.oNama-title {
+  font-family: 'Marcellus', serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* TEKST */
+.oNama-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* DONJA SLIKA */
+.oNama-fullImage {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.oNama-fullImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .oNama-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .oNama-title {
+    font-size: 24px;
+  }
+}
+
+.dobrotskaCipka__kicker{
+    font-family: Montserrat;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 1px;
+
+}
+
+.dobrotskaCipka__img{
+    width: 710px;
+height: 530px;
+top: 1854px;
+left: 731px;
+opacity: 1;
+
+}
+
+
+.dobrotskaCipka__title{
+    font-family: Montserrat;
+font-weight: 400;
+font-style: Regular;
+font-size: 45px;
+line-height: 45px;
+letter-spacing: 1px;
+
+}
+/* MARKETING */
+.marketing__frame {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  aspect-ratio: var(--marketing-aspect-ratio);
+  background-image: url("../img/reklama.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+@media (max-width: 1024px) {
+  .marketing__frame { background-attachment: scroll; }
+}
+
+
+/* =========================
+   GLOBAL FIXES
+========================= */
+.dobrotskaCipka__img {
+  width: 100%;
+  max-width: 710px;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   LARGE SCREENS (1200+)
+========================= */
+@media (min-width: 1200px) {
+  .dobrotskaCipka__inner {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+}
+
+/* =========================
+   TABLET (1024px)
+========================= */
+@media (max-width: 1024px) {
+
+  /* O NAMA */
+  .oNama-section {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .oNama-left img {
+    max-width: 100%;
+  }
+
+  .oNama-right {
+    max-width: 100%;
+  }
+
+  /* DOBROTSKA ČIPKA */
+  .dobrotskaCipka__inner {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .dobrotskaCipka__content {
+    max-width: 100%;
+  }
+
+  .dobrotskaCipka__title {
+    font-size: 36px;
+    line-height: 38px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  /* HERO */
+  .radovi-hero {
+    height: 250px;
+  }
+
+  .radovi-hero h1 {
+    font-size: 32px;
+  }
+
+  /* O NAMA */
+  .oNama-section {
+    gap: 30px;
+    padding: 0 15px;
+  }
+
+  .oNama-title {
+    font-size: 24px;
+  }
+
+  .oNama-text {
+    font-size: 14px;
+  }
+
+  /* DOBROTSKA ČIPKA */
+  .dobrotskaCipka__title {
+    font-size: 28px;
+    line-height: 30px;
+  }
+
+  .dobrotskaCipka__kicker {
+    font-size: 14px;
+  }
+
+  .dobrotskaCipka__text p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* VIDEO */
+  .video-section__thumbnail {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .radovi-hero {
+    height: 200px;
+  }
+
+  .radovi-hero h1 {
+    font-size: 24px;
+  }
+
+  .oNama-title {
+    font-size: 20px;
+  }
+
+  .dobrotskaCipka__title {
+    font-size: 22px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .marketing__frame {
+    background-attachment: scroll;
+  }
+}

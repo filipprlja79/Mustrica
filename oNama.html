@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nama</title>
+
+    <link rel="stylesheet" href="components/assets/css/main.css">
+    <link rel="stylesheet" href="components/assets/css/registrujSe.css">
+    <link rel="stylesheet" href="components/assets/css/ulogujteSe.css">
+    <link rel="stylesheet" href="components/assets/css/profil.css">
+    <link rel="stylesheet" href="components/assets/css/radoviPoNarudzbi.css">
+    <link rel="stylesheet" href="components/assets/css/kontakt.css">
+    <link rel="stylesheet" href="components/assets/css/oNama.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- HERO -->
+    <section class="radovi-hero">
+        <img src="components/assets/img/oNama.png" alt="o nama">
+
+        <div class="radovi-hero-overlay">
+            <div class="radovi-breadcrumb">
+                NASLOVNA / O NAMA
+            </div>
+            <h1>O NAMA</h1>
+        </div>
+    </section>
+
+
+    <!-- O NAMA SEKCIJA (SLIKA + TEKST) -->
+    <section class="oNama-section">
+
+        <!-- LIJEVO -->
+        <div class="oNama-left">
+            <img src="components/assets/img/Onama1.png" alt="dobrotska čipka">
+        </div>
+
+        <!-- DESNO -->
+        <div class="oNama-right">
+
+            <p class="oNama-kicker">NAŠA RADIONICA</p>
+
+            <h2 class="oNama-title">Ponat po ponat</h2>
+
+            <p class="oNama-text">
+                Dobrotska čipka jedno je od najvažnijih nematerijalnih kulturnih dobara Crne Gore. Izrađuje se ručno, ponat po ponat, tradicionalnom tehnikom koja se prenosi generacijama i zahtijeva vrijeme, strpljenje i preciznost.<br><br>
+
+                U radionici Mustrica, smještenoj u starom gradu Kotora, okupljamo lokalne zanatlije i umjetnike posvećene očuvanju i savremenoj primjeni ove vještine. Svaki komad nastaje ručno, bez žurbe i bez ponavljanja – kao jedinstven trag ruke koja ga je stvorila.<br><br>
+
+                Dobrotsku čipku ne doživljavamo samo kao ukras, već kao dio kulturnog identiteta i živo nasljeđe koje treba da se koristi, uči i dijeli. Kroz radionice, izložbe i direktan rad sa posjetiocima nastojimo da ovu vještinu približimo široj publici.<br><br>
+
+                U našem shopu dostupni su unikatni proizvodi, kao i mogućnost narudžbine čipke po mjeri – spoj tradicije i savremenog života, nastao ponat po ponat.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DONJA SLIKA -->
+    <section class="oNama-fullImage">
+        <img src="components/assets/img/cipka-detalj.png" alt="detalj čipke">
+    </section>
+
+
+    <!-- VIDEO SEKCIJA -->
+    <section class="video-section" aria-label="Video o izradi dobrotske čipke">
+        <button class="video-section__button" type="button" data-video-src="" aria-label="Pusti video">
+            <img src="components/assets/img/video.png"
+                alt="Video o izradi dobrotske čipke"
+                class="video-section__thumbnail"
+                loading="lazy" />
+            <span class="video-section__play" aria-hidden="true"></span>
+        </button>
+
+        <div class="video-modal" hidden aria-hidden="true" role="dialog" aria-label="Video">
+            <div class="video-modal__backdrop" data-video-close></div>
+            <div class="video-modal__dialog" role="document">
+                <button class="video-modal__close" type="button" aria-label="Zatvori" data-video-close>
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+                <div class="video-modal__content" data-video-content></div>
+            </div>
+        </div>
+    </section>
+
+<!-- sekcija => Dobrotska čipka -->
+<section class="dobrotskaCipka" aria-label="Dobrotska čipka">
+  <div class="container dobrotskaCipka__inner">
+
+    <div class="dobrotskaCipka__content">
+      <p class="dobrotskaCipka__kicker">PONAT PO POMAT</p>
+
+      <h2 class="dobrotskaCipka__title">DOBROTSKA ČIPKA</h2>
+
+      <div class="dobrotskaCipka__text">
+        <p style="font-family: Montserrat;
+font-weight: 400;
+font-style: Regular;
+    font-size: 16px;
+line-height: 25px;
+letter-spacing: 0.35px;
+">
+          Vještina izrade dobrotske čipke zaštićeno je nematerijalno kulturno dobro Crne Gore. Dobrotska čipka je dobila naziv po naselju Dobrota i predstavlja lokalnu verziju italijanske čipke a od nje se razlikuje po karakterističnim motivima koji su uglavnom geometrijski i čvršćim načinom izrade. Za izradu dobrotske čipke koristi se igla, konac, naprstak i makazice. Materijali koji se koriste su lan ili pamučno platno. Čipka se izrađuje preko papira koji je fiksiran za čvršću podlogu na kojem se koncem oblikuje motiv. Potrebno je tri do četiri sata rada da bi se uradio jedan najmanji jednostavan motiv.
+        </p>
+
+        <p style="font-family: Montserrat;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 25px;
+letter-spacing: 0.35px;
+">
+          Organizacijom radionica kao i apliciranjem čipke na upotrebne predmete širi se svijest stanovništva o postojanju i važnosti ove vještine. Ova stara i značajna vještina, kao nematerijalno kulturno dobro od nacionalnog značaja, mora da bude živa da bi zadržala taj status. Upoznavanjem lokalnog stanovništva sa osnovima vještine izrade dobrotske čipke se nastavlja čuvanje i život ovog značajnog nematerijalnog kulturnog dobra.
+        </p>
+      </div>
+    </div>
+
+    <div class="dobrotskaCipka__media">
+      <img
+        class="dobrotskaCipka__img"
+        src="components/assets/img/dobrotskaCipka.jpg"
+        alt="Dobrotska čipka"
+        loading="lazy"
+      />
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- sekcija => marketing -->
+      <section class="marketing" aria-label="Marketing">
+        <div class="marketing__frame" aria-hidden="false">
+          <div class="marketing__overlay">
+            <div class="container marketing__overlay-inner">
+              <div class="marketing__content">
+                <p class="marketing__kicker">UNIKATNI VANVREMENSKI RADOVI</p>
+                <h2 class="marketing__title">Kupite vaše parče tradicije</h2>
+                <a class="marketing__cta" href="#">PRODAVNICA</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="components/assets/js/main.js"></script>
+    <script src="components/assets/js/proizvodi.js"></script>
+    <script src="components/assets/js/korpa.js"></script>
+
+    <script>
+        function includeHTML(selector, url) {
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(selector).innerHTML = html;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            includeHTML('#header', 'components/header.html');
+            includeHTML('#footer', 'components/footer.html');
+        });
+    </script>
+
+</body>
+
+</html>
