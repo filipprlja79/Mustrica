@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolačići</title>
+
+    <link rel="stylesheet" href="components/assets/css/main.css">
+    <link rel="stylesheet" href="components/assets/css/blogDetalji.css">
+    <link rel="stylesheet" href="components/assets/css/usloviKupovine.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- HERO -->
+    <section class="radovi-hero">
+        <img src="components/assets/img/kolacici.png" alt="kolacici">
+
+        <div class="radovi-hero-overlay">
+            <div class="radovi-breadcrumb">
+                NASLOVNA / <b>KOLAČIĆI</b>
+            </div>
+            <h1>KOLAČIĆI</h1>
+        </div>
+    </section>
+<!-- CONTENT -->
+    <section class="terms">
+
+        <div class="terms__container">
+
+            <p class="terms__intro">
+                Ovaj sajt koristi kolačiće kako bi unaprijedio korisničko iskustvo i osigurao pravilno funkcionisanje stranica.
+            </p>
+
+            <!-- BLOK 1 -->
+            <div class="terms__block">
+                <h2 class="terms__title">Šta su kolačići</h2>
+                <p class="terms__text">
+                    Kolačići su male tekstualne datoteke koje se čuvaju na vašem uređaju prilikom posjete sajtu. Oni omogućavaju sajtu da zapamti određene informacije i prilagodi sadržaj korisniku.
+                </p>
+            </div>
+
+            <!-- BLOK 2 -->
+            <div class="terms__block">
+                <h2 class="terms__title">Kako koristimo kolačiće</h2>
+                <p class="terms__text">
+                    Kolačiće koristimo u sljedeće svrhe:
+                </p>
+
+                <ul class="terms__list">
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        osnovno funkcionisanje sajta
+                    </li>
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        analizu posjećenosti i performansi
+                    </li>
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        unapređenje sadržaja i korisničkog iskustva
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BLOK 3 -->
+            <div class="terms__block">
+                <h2 class="terms__title">Upravljanje kolačićima</h2>
+                <p class="terms__text">
+                    Korisnici mogu u svakom trenutku kontrolisati ili onemogućiti kolačiće putem podešavanja svog internet pregledača. Imajte u vidu da onemogućavanje kolačića može uticati na funkcionalnost sajta.
+                </p>
+            </div>
+
+            <!-- BLOK 4 -->
+            <div class="terms__block">
+                <h2 class="terms__title">Izmjene politike kolačića</h2>
+                <p class="terms__text">
+                    Zadržavamo pravo izmjene ove politike kolačića u skladu sa tehničkim ili zakonskim promjenama. Sve izmjene biće objavljene na ovoj stranici.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+        function includeHTML(selector, url) {
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(selector).innerHTML = html;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            includeHTML('#header', 'components/header.html');
+            includeHTML('#footer', 'components/footer.html');
+        });
+    </script>
+
+    <script src="components/assets/js/main.js"></script>
+
+</body>
+</html>
