@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profil</title>
+
+        <link rel="stylesheet" href="components/assets/css/main.css">
+        <link rel="stylesheet" href="components/assets/css/registrujSe.css">
+        <link rel="stylesheet" href="components/assets/css/ulogujteSe.css">
+        <link rel="stylesheet" href="components/assets/css/profil.css">
+
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header"></div>
+
+
+<div class="profil-wrapper">
+
+  <div class="container">
+
+    <!-- TOP -->
+    <div class="profil-top">
+
+      <!-- LEFT -->
+      <div class="profil-card">
+        <h2 class="profil-title">LOG IN DETALJI</h2>
+        <img class="profil-ornament" src="components/assets/img/ornament.svg" alt="">
+
+        <div class="form-group">
+          <label>E-mail<span>*</span></label>
+          <input type="email" value="markomarkovic@gmail.com">
+        </div>
+
+        <div class="form-group password-group">
+  <label>Password<span>*</span></label>
+
+  <div class="password-wrapper">
+    <input type="password" id="passwordInput" value="********">
+
+    <img 
+      src="components/assets/img/oko.svg" 
+      class="eye-icon" 
+      id="togglePassword"
+      alt="toggle password"
+    >
+  </div>
+</div>
+
+        <button class="profil-btn">PROMIJENI</button>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="profil-card">
+        <h2 class="profil-title">DETALJI O KORISNIKU</h2>
+        <img class="profil-ornament" src="components/assets/img/ornament.svg" alt="">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ime i prezime<span>*</span></label>
+            <input type="text" value="Marko Marković">
+          </div>
+
+          <div class="form-group">
+            <label>Telefon<span>*</span></label>
+            <input type="text" value="+382 00 000 000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Poštanski broj<span>*</span></label>
+            <input type="text" value="81000">
+          </div>
+
+          <div class="form-group">
+            <label>Grad<span>*</span></label>
+            <input type="text" value="Podgorica">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Adresa<span>*</span></label>
+          <input type="text" value="Primjer Ul. BB">
+        </div>
+
+        <button class="profil-btn">PROMIJENI</button>
+      </div>
+
+    </div>
+
+    <!-- TABELA -->
+    <div class="profil-table">
+
+      <div class="profil-table-header">
+        <span>Datum:</span>
+        <span>Proizvod:</span>
+        <span>Cijena:</span>
+        <span>Total:</span>
+      </div>
+
+      <div class="profil-table-row">
+        <span>01/01/2026</span>
+        <span>Dobrotska čipka u okviru tamnoplava</span>
+        <span>€220</span>
+        <span class="bold">€225</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+        <!-- FOOTER -->
+        <div id="footer"></div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="components/assets/js/main.js"></script>
+        <script src="components/assets/js/proizvodi.js"></script>
+        <script src="components/assets/js/korpa.js"></script>
+        <script>
+            function includeHTML(selector, url) {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        document.querySelector(selector).innerHTML = html;
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                includeHTML('#header', 'components/header.html');
+                includeHTML('#footer', 'components/footer.html');
+            });
+        </script>
+
+    </body>
+
+</html>
