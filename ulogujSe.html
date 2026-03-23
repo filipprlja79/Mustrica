@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulogujte se</title>
+
+    <link rel="stylesheet" href="components/assets/css/main.css">
+    <link rel="stylesheet" href="components/assets/css/registrujSe.css">
+    <link rel="stylesheet" href="components/assets/css/ulogujteSe.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- BREADCRUMB -->
+    <div class="korpa-breadcrumb">
+        NASLOVNA / <b>ULOGUJTE SE</b>
+    </div>
+
+    <!-- WRAPPER -->
+    <div class="registracija-wrapper container">
+
+        <div class="registracija-card login-card">
+
+            <!-- NASLOV -->
+            <div class="registracija-naslov">
+                <h1>ULOGUJTE SE</h1>
+            </div>
+
+            <img class="products__ornament-detaljni"
+                src="components/assets/img/ornament.svg"
+                alt="" />
+
+                <div class="registracija-type">
+  <label><input type="checkbox" name="tip" checked> Fizičko lice</label>
+  <label><input type="checkbox" name="tip"> Pravno lice</label>
+</div>
+            <!-- FORMA -->
+            <form class="registracija-form">
+
+                <div class="form-group">
+                    <label>E-mail<span>*</span></label>
+                    <input type="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Password<span>*</span></label>
+                    <input type="password">
+                </div>
+
+                <!-- BUTTON -->
+                <button class="registracija-btn">ULOGUJTE SE</button>
+
+                <!-- LINK -->
+                <div class="registracija-login">
+                    Nemate nalog? <span>Registrujte se</span>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="components/assets/js/main.js"></script>
+
+    <script>
+        function includeHTML(selector, url) {
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(selector).innerHTML = html;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            includeHTML('#header', 'components/header.html');
+            includeHTML('#footer', 'components/footer.html');
+        });
+    </script>
+
+</body>
+</html>

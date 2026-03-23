@@ -1,0 +1,113 @@
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.35px;
+}
+
+.form-group span {
+  color: rgb(118, 7, 7);
+}
+
+/* INPUT */
+.form-group input,
+.form-group select {
+  width: 100%;
+  height: 58px;
+  background: #e9e9e9;
+  border: none;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+/* TYPE SWITCH */
+.registracija-type {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.registracija-type input {
+  margin-right: 8px;
+}
+
+
+/* CHECKBOX */
+.prihvatam-group {
+  margin-top: 18px;
+}
+
+.custom-checkbox {
+  display: none;
+}
+
+.custom-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.custom-checkbox-box {
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-checkbox-icon {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+.custom-checkbox:checked + .custom-checkbox-box {
+  background: rgb(118, 7, 7);
+  border-color: rgb(118, 7, 7);
+}
+
+.custom-checkbox:checked + .custom-checkbox-box .custom-checkbox-icon {
+  display: block;
+}
+
+/* TEXT */
+.custom-checkbox-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+
+.registracija-type {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+/* LABEL */
+.registracija-type label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* CHECKBOX */
+.registracija-type input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+
+  /* 🔥 OVO JE KLJUČNO */
+  accent-color: rgba(118, 7, 7, 1);
+}
