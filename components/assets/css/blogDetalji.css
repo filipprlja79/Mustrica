@@ -1,0 +1,301 @@
+/* GLOBAL */
+body {
+  background: #fff;
+}
+
+/* BREADCRUMB */
+.blog2-breadcrumb {
+  max-width: 1260px;
+  margin: 20px auto;
+  padding: 0 30px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* WRAPPER */
+.blog2 {
+  width: 100%;
+  padding: 0px 0;
+  background: #fff;
+}
+
+/* CONTAINER */
+.blog2__inner {
+  max-width: 1260px;
+  margin: 0 auto;
+   padding: 0 30px; 
+  box-sizing: border-box;
+   gap: 50px; 
+}
+
+/* BLOK */
+.blog2__block {
+  margin-bottom: 50px;
+}
+
+/* NASLOV */
+.blog2__main-title {
+  font-family: 'Marcellus SC', serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+/* PODNASLOVI */
+.blog2__title {
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 100%;
+letter-spacing: 0.75px;
+
+}
+
+/* TEKST */
+.blog2__text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 25px;
+letter-spacing: 0.35px;
+}
+.related-posts__title {
+  margin: 0;
+}
+/* LISTA */
+.blog2__list {
+  margin-top: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.blog2__list li {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+/* ICON */
+.spec-icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .blog2-breadcrumb {
+    padding: 0 20px;
+  }
+
+  .blog2__inner {
+    padding: 0 20px;
+  }
+
+  .blog2__main-title {
+    font-size: 28px;
+  }
+
+  .blog2__title {
+    font-size: 20px;
+  }
+
+  .blog2__text {
+    font-size: 14px;
+  }
+}
+
+/* SEKCIJA */
+.blog-slider {
+  padding: 80px 0;
+  background: #f5f5f5;
+}
+
+/* OUTER WRAP */
+.blog-slider__outer {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* INNER WRAP */
+.blog-slider__inner {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* SLIKE */
+.blog-slider__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0; 
+  
+}
+
+.blog-slider__images img {
+  width: 100%;
+  height: 630px;
+  max-width: 632px;
+  object-fit: cover;
+  display: block;
+}
+
+/* STRELICE */
+.blog-slider__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  background: #fff;
+  color: #333;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* desna crvena */
+.blog-slider__arrow--right {
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
+}
+
+/* hover */
+.blog-slider__arrow:hover {
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .blog-slider__outer {
+    padding: 0 20px;
+  }
+
+  .blog-slider__images {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-slider__images img {
+    height: 250px;
+  }
+}
+
+/* SEKCIJA */
+.related-posts {
+  padding: 80px 0;
+  background: #f5f5f5;
+}
+
+/* CONTAINER */
+.related-posts__container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* HEADER */
+.related-posts__header {
+  margin-bottom: 40px;
+}
+
+.related-posts__title {
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 45px;
+  line-height: 100%;
+  letter-spacing: 1px;
+}
+
+.related-posts__ornament {
+  width: 180px;
+}
+
+/* GRID */
+.related-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.related-post {
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE */
+.related-post__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.related-post__media img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* DATE BADGE */
+.related-post__date {
+  position: absolute;
+bottom: 0px;
+  left: 0px; 
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
+  padding: 6px 10px;
+
+  font-size: 12px;
+}
+
+/* TEXT */
+.related-post__text {
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0.5px;
+
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .related-posts__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .related-posts__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .related-posts__container {
+    padding: 0 20px;
+  }
+
+  .related-post__media img {
+    height: 250px;
+  }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog detalji</title>
+
+    <link rel="stylesheet" href="components/assets/css/main.css">
+    <link rel="stylesheet" href="components/assets/css/blogDetalji.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- BREADCRUMB -->
+    <div class="blog2-breadcrumb">
+        NASLOVNA / BLOG / <b>VJEŠTINE KOJE TRAJU: ZAŠTO ČUVAMO RUKOTVORINE</b>
+    </div>
+
+    <!-- BLOG DETAIL -->
+    <section class="blog2">
+        <div class="blog2__inner">
+
+            <!-- NASLOV -->
+            <div class="blog2__block">
+                <h1 class="blog2__main-title">
+                    Vještine koje traju: Zašto čuvamo rukotvorine
+                </h1>
+
+                <p class="blog2__text">
+                    U svijetu koji se neprestano ubrzava, rukotvorine nas podsjećaju na drugačiji odnos prema vremenu, radu i vrijednosti predmeta. One nastaju polako, bez žurbe, oslanjajući se na znanje i vještine koje se prenose generacijama.
+                </p>
+            </div>
+
+            <!-- BLOK 1 -->
+            <div class="blog2__block">
+                <h2 class="blog2__title">Vrijeme kao sastavni dio rada</h2>
+                <p class="blog2__text">
+                    Za razliku od industrijske proizvodnje, ručni rad podrazumijeva vrijeme kao ključni element.
+                </p>
+            </div>
+
+            <!-- BLOK 2 -->
+            <div class="blog2__block">
+                <h2 class="blog2__title">Rukotvorine kao nosioci znanja</h2>
+                <p class="blog2__text">
+                    Iza svakog ručno rađenog predmeta stoji znanje koje se ne može naučiti preko noći.
+                </p>
+            </div>
+
+            <!-- BLOK 3 -->
+            <div class="blog2__block">
+                <h2 class="blog2__title">Zašto je važno čuvati rukotvorine danas</h2>
+
+                <p class="blog2__text">
+                    U savremenom kontekstu, rukotvorine imaju posebno mjesto.
+                </p>
+
+                <ul class="blog2__list">
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        jer nose identitet i priču mjesta iz kojeg dolaze
+                    </li>
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        jer podstiču sporiji odnos prema potrošnji
+                    </li>
+                    <li>
+                        <img src="components/assets/img/SpecifikacijeKarakter.svg" class="spec-icon">
+                        jer podržavaju očuvanje tradicionalnih vještina
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BLOK 4 -->
+            <div class="blog2__block">
+                <h2 class="blog2__title">Predmeti koji nadživljavaju vrijeme</h2>
+                <p class="blog2__text">
+                    Rukotvorine se često ne doživljavaju kao prolazni predmeti.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="blog-slider">
+  
+  <div class="blog-slider__outer">
+
+    <!-- STRELICA LIJEVO -->
+    <button class="blog-slider__arrow blog-slider__arrow--left">
+      &#8249;
+    </button>
+
+    <!-- WRAP ZA SLIKE -->
+    <div class="blog-slider__inner">
+      
+      <div class="blog-slider__images">
+        <img src="components/assets/img/vijestiIClanci1.jpg" alt="">
+        <img src="components/assets/img/blogDetalji.png" alt="">
+      </div>
+
+    </div>
+
+    <!-- STRELICA DESNO -->
+    <button class="blog-slider__arrow blog-slider__arrow--right">
+      &#8250;
+    </button>
+
+  </div>
+
+</section>
+
+<section class="related-posts">
+
+  <div class="related-posts__container">
+
+    <!-- NASLOV -->
+    <div class="related-posts__header">
+      <h2 class="related-posts__title">Slični postovi</h2>
+      <img src="components/assets/img/ornament.svg" alt="" class="related-posts__ornament">
+    </div>
+
+    <!-- GRID -->
+    <div class="related-posts__grid">
+
+      <!-- CARD 1 -->
+      <div class="related-post">
+        <div class="related-post__media">
+          <img src="components/assets/img/blogDetalji.png" alt="">
+          <span class="related-post__date">01/12/2025</span>
+        </div>
+        <p class="related-post__text">
+          Zašto ručni rad nikada ne izlazi iz mode
+        </p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="related-post">
+        <div class="related-post__media">
+          <img src="components/assets/img/vijestiIclanci6.png" alt="">
+          <span class="related-post__date">01/12/2025</span>
+        </div>
+        <p class="related-post__text">
+          Čipka kao izraz kulture
+        </p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="related-post">
+        <div class="related-post__media">
+          <img src="components/assets/img/vijestiIclanci7.png" alt="">
+          <span class="related-post__date">01/12/2025</span>
+        </div>
+        <p class="related-post__text">
+          Kako prepoznati kvalitetan ručni rad
+        </p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="related-post">
+        <div class="related-post__media">
+          <img src="components/assets/img/vijestiIclanci8.png" alt="">
+          <span class="related-post__date">01/12/2025</span>
+        </div>
+        <p class="related-post__text">
+          Predmeti sa pričom
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+function includeHTML(selector, url) {
+    fetch(url)
+        .then(res => res.text())
+        .then(html => {
+            document.querySelector(selector).innerHTML = html;
+        });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    includeHTML('#header', 'components/header.html');
+    includeHTML('#footer', 'components/footer.html');
+});
+</script>
+
+</body>
+</html>
