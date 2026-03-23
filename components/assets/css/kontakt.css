@@ -1,0 +1,217 @@
+/* HERO */
+.radovi-hero {
+  position: relative;
+  width: 100%;
+  height: 378px;
+  overflow: hidden;
+}
+
+.radovi-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.radovi-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* BREADCRUMB */
+.radovi-breadcrumb {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+font-weight: 400;
+}
+
+/* TITLE */
+.radovi-hero h1 {
+  font-family: 'Marcellus SC', serif;
+  font-size: 45px;
+  letter-spacing: 2px;
+    line-height: 100%;
+    font-style: normal;
+    font-weight: 400;
+
+}
+
+/* SECTION */
+.kontakt-section {
+  background: whitesmoke;
+}
+
+/* WRAPPER (2 kolone) */
+.kontakt-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+/* LEFT */
+.kontakt-left {
+  background: white;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+.kontakt-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* samo između item-a */
+.kontakt-item {
+  margin-top: 33px;
+}
+/* UJEDNAČENO SA REGISTRACIJOM */
+.kontakt-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0 auto 12px auto;
+}
+
+.kontakt-title h1 {
+  font-size: 32px;
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+.kontakt-ornament {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  width: 350px;
+  height: 17.47px;
+  max-width: 100%;
+  object-fit: contain;
+}
+/* RIGHT */
+.kontakt-right {
+  padding: 80px 60px;
+}
+
+/* TITLE */
+.kontakt-title {
+  font-family: 'Marcellus SC', serif;
+font-weight: 400;
+font-style: normal;
+font-size: 32px;
+line-height: 100%;
+letter-spacing: 0.35px;
+justify-content: center;
+}
+
+/* ORNAMENT */
+.kontakt-ornament {
+  height: 20px;
+  margin-bottom: 30px;
+}
+
+/* INFO */
+.kontakt-item {
+  font-family: 'Montserrat', sans-serif;
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0.35px;
+gap: 33px;
+
+}
+
+/* SOCIAL */
+.kontakt-socials {
+  display: flex;
+  gap: 33.07px;
+  margin-top: 20px;
+}
+
+/* FORM */
+.kontakt-form {
+  margin-top: 20px;
+}
+
+/* ROW */
+.kontakt-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.kontakt-row .form-group {
+  flex: 1;
+}
+
+/* INPUT */
+.kontakt-form input,
+.kontakt-form textarea {
+  width: 100%;
+  background: #e9e9e9;
+  border: none;
+  padding: 14px;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* TEXTAREA */
+.kontakt-form textarea {
+  min-height: 180px;
+  resize: none;
+}
+
+/* BUTTON */
+.kontakt-btn {
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
+  border: none;
+  font-family: 'Marcellus SC', serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .kontakt-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .kontakt-left,
+  .kontakt-right {
+    padding: 40px 20px;
+    
+  }
+
+  .kontakt-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .radovi-hero h1 {
+    font-size: 32px;
+  }
+}
+

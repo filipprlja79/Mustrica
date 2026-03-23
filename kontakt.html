@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kontakt</title>
+
+        <link rel="stylesheet" href="components/assets/css/main.css">
+        <link rel="stylesheet" href="components/assets/css/registrujSe.css">
+        <link rel="stylesheet" href="components/assets/css/ulogujteSe.css">
+        <link rel="stylesheet" href="components/assets/css/profil.css">
+        <link rel="stylesheet" href="components/assets/css/radoviPoNarudzbi.css">
+        <link rel="stylesheet" href="components/assets/css/kontakt.css">
+
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header"></div>
+
+
+        <!-- HERO -->
+<section class="radovi-hero">
+  <img src="components/assets/img/kontaktSlika.png" alt="kontakt">
+
+  <div class="radovi-hero-overlay">
+    <div class="radovi-breadcrumb">
+      NASLOVNA / KONTAKT
+    </div>
+    <h1>KONTAKT</h1>
+  </div>
+</section>
+
+
+<section class="kontakt-section">
+
+  <div class="kontakt-wrapper">
+
+    <!-- LIJEVO -->
+    <div class="kontakt-left">
+
+  <!-- GORNJI BLOK -->
+  <div class="kontakt-top">
+    <h2 class="kontakt-title">KONTAKT PODACI</h2>
+    <img class="kontakt-ornament" src="components/assets/img/ornament.svg" alt="">
+  </div>
+
+  <!-- DONJI BLOK -->
+  <div class="kontakt-bottom">
+
+    <div class="kontakt-item">
+      <img src="components/assets/img/location-dot1.svg" alt=""> Kotor, Stari grad 352
+    </div>
+
+    <div class="kontakt-item">
+      
+      <div style="display: flex; align-items: flex-start; gap: 10px;">
+        <img src="components/assets/img/sat1.svg" alt="" style="margin-top: 2px;" />
+        <div>
+          <div>09:00 - 21:00h (ljeti)</div>
+          <div>10:00 - 17:00h (zimi)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kontakt-item">
+      <img src="components/assets/img/slusalica1.svg" alt=""> +382 69 135 474
+    </div>
+
+    <div class="kontakt-item">
+      <img src="components/assets/img/mail1.svg" alt=""> mustricakotor@gmail.com
+    </div>
+
+    <div class="kontakt-socials">
+      <a href="#" class="active"><img src="components/assets/img/ig.svg"></a>
+      <a href="#"><img src="components/assets/img/fb.svg"></a>
+      <a href="#"><img src="components/assets/img/tt.svg"></a>
+      <a href="#"><img src="components/assets/img/yt.svg"></a>
+      <a href="#"><img src="components/assets/img/ta.svg"></a>
+    </div>
+
+  </div>
+
+</div>
+    <!-- DESNO -->
+    <div class="kontakt-right">
+
+      <h2 class="kontakt-title">KONTAKTIRAJTE NAS</h2>
+      <img class="kontakt-ornament" src="components/assets/img/ornament.svg" alt="">
+
+      <form class="kontakt-form">
+
+        <div class="kontakt-row">
+          <div class="form-group">
+            <label>Ime i prezime<span>*</span></label>
+            <input type="text">
+          </div>
+
+          <div class="form-group">
+            <label>Broj telefona</label>
+            <input type="text">
+          </div>
+        </div>
+
+        <div class="kontakt-row">
+          <div class="form-group">
+            <label>E-mail<span>*</span></label>
+            <input type="email">
+          </div>
+
+          <div class="form-group">
+            <label>Ponovi e-mail<span>*</span></label>
+            <input type="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Poruka<span>*</span></label>
+          <textarea></textarea>
+        </div>
+
+        <button class="kontakt-btn">POŠALJI</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+           <!-- FOOTER -->
+        <div id="footer"></div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="components/assets/js/main.js"></script>
+        <script src="components/assets/js/proizvodi.js"></script>
+        <script src="components/assets/js/korpa.js"></script>
+        <script>
+            function includeHTML(selector, url) {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        document.querySelector(selector).innerHTML = html;
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                includeHTML('#header', 'components/header.html');
+                includeHTML('#footer', 'components/footer.html');
+            });
+        </script>
+
+    </body>
+
+</html>
