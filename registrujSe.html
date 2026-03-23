@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registracija</title>
+
+        <link rel="stylesheet" href="components/assets/css/main.css">
+        <link rel="stylesheet" href="components/assets/css/registrujSe.css">
+
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header"></div>
+        <div class="korpa-breadcrumb">
+                            NASLOVNA / <b>REGISTRUJ SE</b>
+                        </div>
+
+        
+
+
+          <div class="registracija-wrapper container">
+
+  <div class="registracija-card">
+
+    <div class="registracija-naslov">
+          <h1>REGISTRACIJA</h1>
+        </div>
+          <img class="products__ornament-detaljni" src="components/assets/img/ornament.svg" alt="" aria-hidden="true" />
+    <!-- TOP SWITCH -->
+    <div class="registracija-type">
+      <label><input type="checkbox"> Fizičko lice</label>
+      <label><input type="checkbox" checked> Pravno lice</label>
+    </div>
+
+    <!-- FORMA -->
+    <form class="registracija-form">
+
+      <div class="form-group">
+        <label>Ime i prezime<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Naziv firme<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>PIB<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>PDV<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <!-- ROW -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>E-mail<span>*</span></label>
+          <input type="email">
+        </div>
+
+        <div class="form-group">
+          <label>Broj telefona<span>*</span></label>
+          <input type="text">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Adresa i broj<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Grad<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Poštanski broj<span>*</span></label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Password<span>*</span></label>
+        <input type="password">
+      </div>
+
+      <div class="form-group">
+        <label>Potvrdi password<span>*</span></label>
+        <input type="password">
+      </div>
+
+      <!-- BUTTON -->
+      <button class="registracija-btn">REGISTRUJ SE</button>
+
+      <!-- LOGIN -->
+      <div class="registracija-login">
+        Imate nalog? <span>Ulogujte se</span>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+         <!-- FOOTER -->
+        <div id="footer"></div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="components/assets/js/main.js"></script>
+        <script src="components/assets/js/proizvodi.js"></script>
+        <script src="components/assets/js/korpa.js"></script>
+        <script>
+            function includeHTML(selector, url) {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        document.querySelector(selector).innerHTML = html;
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                includeHTML('#header', 'components/header.html');
+                includeHTML('#footer', 'components/footer.html');
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+
+.registracija-naslov {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px !important;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.registracija-naslov h1 {
+  font-size: 32px !important;
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+
+.products__ornament-detaljni {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  width: 550px;
+  height: 17.47px;
+  max-width: 100%;
+  object-fit: contain;
+}
+    
+.korpa-breadcrumb{
+    font-family: Montserrat;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 1px;
+margin-left: 20px;
+
+margin-top: 56px;
+margin-bottom: 100px;
+}
+/* WRAPPER */
+.registracija-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+/* CARD (isto kao korpa / checkout vibe) */
+.registracija-card {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 60px;
+  box-shadow: 
+    0 4px 10px rgba(0,0,0,0.06),
+    0 8px 30px rgba(0,0,0,0.10);
+}
+
+/* TYPE SWITCH */
+.registracija-type {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.registracija-type input {
+  margin-right: 8px;
+}
+
+/* FORM */
+.registracija-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* GROUP */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0.35px;
+}
+
+.form-group span {
+  color: rgb(118, 7, 7);
+}
+
+/* INPUT */
+.form-group input {
+  height: 50px;
+  background: #e9e9e9;
+  border: none;
+  padding: 0 14px;
+  font-size: 16px;
+}
+
+/* ROW (email + telefon) */
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* BUTTON */
+.registracija-btn {
+  margin-top: 20px;
+  height: 50px;
+  background: rgb(118, 7, 7);
+  color: #fff;
+  border: none;
+  font-family: 'Marcellus SC', serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+
+/* LOGIN TEXT */
+.registracija-login {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.registracija-login span {
+  color: black;
+  font-style: bold;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .registracija-card {
+    padding: 30px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
