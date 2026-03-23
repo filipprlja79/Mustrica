@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog detalji</title>
+
+    <link rel="stylesheet" href="components/assets/css/main.css">
+    <link rel="stylesheet" href="components/assets/css/blogDetalji.css">
+    <link rel="stylesheet" href="components/assets/css/usloviKupovine.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+
+<!-- HERO -->
+    <section class="radovi-hero">
+        <img src="components/assets/img/usloviKupovine.png" alt="uslovi kupovine">
+
+        <div class="radovi-hero-overlay">
+            <div class="radovi-breadcrumb">
+                NASLOVNA / BLOG
+            </div>
+            <h1>BLOG</h1>
+        </div>
+    </section>  
+
+
+<section class="terms">
+
+  <div class="terms__container">
+
+    <p class="terms__intro">
+      Kupovina putem sajta Mustrica Kotor omogućava jednostavan i siguran način naručivanja ručno rađenih proizvoda. Korišćenjem ovog sajta prihvatate uslove kupovine navedene u nastavku.
+    </p>
+
+    <div class="terms__block">
+      <h2 class="terms__title">Proizvodi i dostupnost</h2>
+      <p class="terms__text">
+        Svi proizvodi dostupni u online shopu izrađeni su ručno. Zbog prirode ručnog rada, svaki komad je unikatan i može blago odstupati od prikaza na fotografijama. Dostupnost proizvoda zavisi od trenutne ponude.
+      </p>
+    </div>
+
+    <div class="terms__block">
+      <h2 class="terms__title">Cijene</h2>
+      <p class="terms__text">
+        Sve cijene su izražene u eurima (EUR). Mustrica Kotor zadržava pravo izmjene cijena bez prethodne najave. Cijena važeća u trenutku narudžbine je cijena koja se primjenjuje.
+      </p>
+    </div>
+
+    <div class="terms__block">
+      <h2 class="terms__title">Narudžbina i plaćanje</h2>
+      <p class="terms__text">
+        Narudžbina se vrši putem online shopa ili kontakt forme. Nakon prijema narudžbine, kupac dobija potvrdu putem emaila. Načini plaćanja biće jasno naznačeni tokom procesa kupovine.
+      </p>
+    </div>
+
+    <div class="terms__block">
+      <h2 class="terms__title">Dostava</h2>
+      <p class="terms__text">
+        Dostava se vrši na adresu koju kupac navede prilikom narudžbine. Rok isporuke zavisi od destinacije i dostupnosti proizvoda. Troškovi dostave biće prikazani prije završetka kupovine.
+      </p>
+    </div>
+
+    <div class="terms__block">
+      <h2 class="terms__title">Povraćaj i reklamacije</h2>
+      <p class="terms__text">
+        Zbog prirode ručno rađenih i unikatnih proizvoda, povraćaj je moguć isključivo u slučaju oštećenja ili greške. Kupac je dužan da eventualne nepravilnosti prijavi u razumnom roku nakon prijema proizvoda.
+      </p>
+    </div>
+
+    <div class="terms__block">
+      <h2 class="terms__title">Kontakt</h2>
+      <p class="terms__text">
+        Za sva pitanja u vezi sa kupovinom, možete nas kontaktirati putem email adrese navedene na sajtu.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+     <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+function includeHTML(selector, url) {
+    fetch(url)
+        .then(res => res.text())
+        .then(html => {
+            document.querySelector(selector).innerHTML = html;
+        });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    includeHTML('#header', 'components/header.html');
+    includeHTML('#footer', 'components/footer.html');
+});
+</script>
+</script>
+<script src="components/assets/js/main.js"></script>
+
+</body>
+</html>
