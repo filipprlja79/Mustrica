@@ -1,0 +1,137 @@
+
+.blog {
+  padding: 80px 0;
+}
+
+
+.blog__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+
+.blog-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centriranje */
+}
+
+
+.blog-card__media {
+  position: relative;
+  width: fit-content; 
+  margin: 0 auto;     
+  overflow: hidden;
+}
+
+.blog-card__media img {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 300 / 412; /* 🔥 bolje od height */
+  object-fit: cover;
+  display: block;
+}
+
+
+.blog-card__date {
+  position: absolute;
+  bottom: 0px;
+  left: 0px; 
+
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
+  padding: 8px 12px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.35px;
+  text-align: center;
+}
+
+
+.blog-card__title {
+  margin-top: 10px;
+  text-align: center;
+
+  font-family: 'Marcellus SC', serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+
+.blog__pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.blog__pagination button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ccc;
+  background: transparent;
+  cursor: pointer;
+}
+
+.blog__pagination .active {
+  background: rgba(118, 7, 7, 1);
+  color: #fff;
+  border-color: rgba(118, 7, 7, 1);
+}
+
+
+@media (max-width: 1024px) {
+  .blog__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .blog__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-card__media img {
+    max-width: 300px;
+    aspect-ratio: auto;
+  }
+
+  /* 🔥 badge u ćošak */
+  .blog-card__date {
+    left: 20px;
+    bottom: 0px;
+    transform: none;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .blog-card__title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .blog__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-card__media img {
+    max-width: 300px;
+    aspect-ratio: auto;
+  }
+
+  /* 🔥 ISTO kao desktop */
+  .blog-card__date {
+    left: 0;
+    bottom: 0;
+  }
+}

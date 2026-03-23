@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+
+    <link rel="stylesheet" href="components/assets/css/main.css">
+    <link rel="stylesheet" href="components/assets/css/registrujSe.css">
+    <link rel="stylesheet" href="components/assets/css/ulogujteSe.css">
+    <link rel="stylesheet" href="components/assets/css/profil.css">
+    <link rel="stylesheet" href="components/assets/css/radoviPoNarudzbi.css">
+    <link rel="stylesheet" href="components/assets/css/kontakt.css">
+    <link rel="stylesheet" href="components/assets/css/oNama.css">
+    <link rel="stylesheet" href="components/assets/css/blog.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div> 
+ 
+  <!-- HERO -->
+    <section class="radovi-hero">
+        <img src="components/assets/img/blog.png" alt="blog">
+
+        <div class="radovi-hero-overlay">
+            <div class="radovi-breadcrumb">
+                NASLOVNA / BLOG
+            </div>
+            <h1>BLOG</h1>
+        </div>
+    </section>
+ 
+ 
+ <!-- BLOG GRID -->
+<section class="blog">
+  <div class="container blog__inner">
+
+    <div class="blog__grid">
+
+      <!-- CARD -->
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIClanci1.jpg" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Vještine koje traju: Zašto čuvamo rukotvorine</p>
+      </article>
+
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIClanci2.jpg" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Čipka u modernom dizajnu</p>
+      </article>
+
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIClanci3.jpg" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Materijali i tehnike: Tajne lokalnih umjetnika</p>
+      </article>
+
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIclanci4.png" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Vrijednost sporog rada</p>
+      </article>
+
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIclanci5.png" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Zašto ručni rad nikada ne izlazi iz mode</p>
+      </article>
+
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIclanci6.png" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Čipka kao izraz kulture</p>
+      </article>
+
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIclanci7.png" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Kako prepoznati kvalitetan ručni rad</p>
+      </article>
+
+      <article class="blog-card">
+        <a href="#" class="blog-card__media">
+          <img src="components/assets/img/vijestiIclanci8.png" alt="">
+          <span class="blog-card__date">01/12/2025</span>
+        </a>
+        <p class="blog-card__title">Predmeti sa pričom</p>
+      </article>
+
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="blog__pagination">
+      <button>&lt;&lt;</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <span>...</span>
+      <button>5</button>
+      <button>&gt;&gt;</button>
+    </div>
+
+  </div>
+</section>
+
+    
+ 
+ 
+ 
+ 
+ <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="components/assets/js/main.js"></script>
+    <script src="components/assets/js/proizvodi.js"></script>
+    <script src="components/assets/js/korpa.js"></script>
+
+    <script>
+        function includeHTML(selector, url) {
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(selector).innerHTML = html;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            includeHTML('#header', 'components/header.html');
+            includeHTML('#footer', 'components/footer.html');
+        });
+    </script>
+
+</body>
+
+</html>
