@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Radovi po narudžbi</title>
+
+        <link rel="stylesheet" href="components/assets/css/main.css">
+        <link rel="stylesheet" href="components/assets/css/registrujSe.css">
+        <link rel="stylesheet" href="components/assets/css/ulogujteSe.css">
+        <link rel="stylesheet" href="components/assets/css/profil.css">
+        <link rel="stylesheet" href="components/assets/css/radoviPoNarudzbi.css">
+
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header"></div>
+
+
+
+<!-- HERO -->
+<section class="radovi-hero">
+  <img src="components/assets/img/radoviPoNarudzbini.png" alt="radovi">
+
+  <div class="radovi-hero-overlay">
+    <div class="radovi-breadcrumb">
+      NASLOVNA / RADOVI PO NARUDŽBINI
+    </div>
+    <h1>RADOVI PO NARUDŽBINI</h1>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="radovi-section">
+
+  <div class="radovi-content container">
+
+  <!-- LIJEVO SLIKA -->
+  <div class="radovi-left">
+    <img src="components/assets/img/strikanje.png" alt="strikanje">
+  </div>
+
+  <!-- DESNO TEKST -->
+  <div class="radovi-right">
+
+    <p class="radovi-kicker">DOBROTSKA ČIPKA PO MJERI</p>
+
+    <h2 class="radovi-title">
+      PONAT PO PONAT, SAMO ZA VAS
+    </h2>
+
+    <p class="radovi-text">
+      Dobrotska čipka po mjeri nastaje polako i pažljivo, ponat po ponat, u skladu sa tradicionalnom vještinom koja je zaštićeno nematerijalno kulturno dobro Crne Gore. Svaki rad izrađuje se ručno, prema dogovoru, uz puno poštovanje vremena, materijala i same čipke.<br><br>
+
+      Narudžbine po mjeri namijenjene su onima koji žele jedinstven komad, bilo da je riječ o dekorativnoj čipki, detalju za poseban predmet, poklonu ili radu sa posebnom simbolikom. Svaki motiv je unikatan i ne može se u potpunosti ponoviti.<br><br>
+
+      Proces izrade započinje razgovorom i dogovorom oko veličine, namjene i osnovnog motiva. Vrijeme izrade zavisi od složenosti rada i unaprijed se definiše. Upravo to vrijeme i posvećenost čine svaki komad vrijednim.<br><br>
+
+      Ako želite čipku izrađenu posebno za vas, pozivamo vas da pošaljete upit i započnete proces stvaranja jednog autentičnog komada dobrotske čipke.
+    </p>
+
+  </div>
+
+  </div>
+
+</section>
+
+<section class="upit-section">
+
+  <div class="container upit-inner">
+
+    <!-- HEADER -->
+    <p class="upit-kicker">VAŠE PARČE TRADICIJE</p>
+    <h2 class="upit-title">POŠALJI UPIT</h2>
+    <img class="upit-ornament" src="components/assets/img/ornament.svg" alt="">
+
+    <!-- FORM -->
+    <form class="upit-form">
+
+      <div class="upit-row">
+        <div class="form-group">
+          <label>Ime i prezime<span>*</span></label>
+          <input type="text">
+        </div>
+
+        <div class="form-group">
+          <label>Broj telefona</label>
+          <input type="text">
+        </div>
+      </div>
+
+      <div class="upit-row">
+        <div class="form-group">
+          <label>E-mail<span>*</span></label>
+          <input type="email">
+        </div>
+
+        <div class="form-group">
+          <label>Ponovi e-mail<span>*</span></label>
+          <input type="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Poruka<span>*</span></label>
+        <textarea></textarea>
+      </div>
+
+      <button class="upit-btn">POŠALJI</button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+         <!-- FOOTER -->
+        <div id="footer"></div>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="components/assets/js/main.js"></script>
+        <script src="components/assets/js/proizvodi.js"></script>
+        <script src="components/assets/js/korpa.js"></script>
+        <script>
+            function includeHTML(selector, url) {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        document.querySelector(selector).innerHTML = html;
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                includeHTML('#header', 'components/header.html');
+                includeHTML('#footer', 'components/footer.html');
+            });
+        </script>
+
+    </body>
+
+</html>
